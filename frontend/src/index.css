@@ -31,10 +31,7 @@ body {
   width: 100%;
 }
 
-.app-route-shell > :not(.landing-page):not(.about-container):not(.auth-container):not(.tos-container) {
-  width: min(100%, var(--app-max-width));
-  margin-inline: auto;
-}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -45,14 +42,9 @@ html {
   scroll-behavior: smooth;
 }
 
-:where(.dashboard, .recommendations-page, .detail-page, .analytics-container, .market-prices-container, .crop-library-container, .weather-dashboard, .landing-page, .about-container, .soil-analysis-container, .user-profile-container, .history-page, .tos-container, .auth-container) {
-  width: 100%;
-  padding-inline: var(--app-gutter);
-}
 
-:where(.dashboard-container, .recommendations-container, .detail-container, .history-container, .auth-card, .selector-card, .no-data-state, .header-content, .summary-card, .crop-card, .price-card, .chart-card, .stat-card, .market-header, .weather-header, .about-hero-content, .steps-container, .section-card, .profile-card, .content-card) {
-  box-sizing: border-box;
-}
+
+
 
 :root {
   --primary-color: #059669;
