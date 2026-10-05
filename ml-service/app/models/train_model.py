@@ -3,9 +3,9 @@ Model Training Script for Agri-Advisor
 Trains ML models for crop recommendation and yield prediction using prepared data.
 
 Uses:
-- crop_production.csv (1997-2023 historical data)
-- soil.csv (micronutrient data by district)
-- data_core.csv (environmental conditions per crop)
+- data/data/data/data/crop_production.csv (1997-2023 historical data)
+- data/data/data/data/soil.csv (micronutrient data by district)
+- data/data/data/data/data_core.csv (environmental conditions per crop)
 """
 import pandas as pd
 import numpy as np

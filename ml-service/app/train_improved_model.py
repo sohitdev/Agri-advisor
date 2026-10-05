@@ -2,7 +2,7 @@
 Improved Model Training for 90%+ Accuracy
 Key improvements:
 1. Group crops into major categories (reduce 124 → 15 classes)
-2. Use data_core.csv environmental mappings directly
+2. Use data/data/data/data/data_core.csv environmental mappings directly
 3. XGBoost classifier with hyperparameter tuning
 4. Balanced sampling
 """
@@ -106,7 +106,7 @@ def load_and_prepare_data():
     print("Loading data...")
     
     # Load crop production data
-    crop_df = pd.read_csv(os.path.join(ROOT_DIR, 'crop_production.csv'))
+    crop_df = pd.read_csv(os.path.join(ROOT_DIR, 'data/data/data/data/crop_production.csv'))
     crop_df.columns = crop_df.columns.str.strip().str.lower().str.replace(' ', '_')
     
     # Clean data
@@ -134,7 +134,7 @@ def load_and_prepare_data():
     print(crop_df['crop_category'].value_counts())
     
     # Load soil data
-    soil_df = pd.read_csv(os.path.join(ROOT_DIR, 'soil.csv'))
+    soil_df = pd.read_csv(os.path.join(ROOT_DIR, 'data/data/data/data/soil.csv'))
     # Clean column names - handle special characters
     soil_df.columns = soil_df.columns.str.strip().str.lower().str.replace('%', '').str.replace(' ', '')
     # Rename columns to standard names
@@ -144,8 +144,8 @@ def load_and_prepare_data():
     })
     soil_df['district_name'] = soil_df['district_name'].str.strip().str.upper()
     
-    # Load environmental data (data_core.csv)
-    env_df = pd.read_csv(os.path.join(ROOT_DIR, 'data_core.csv'))
+    # Load environmental data (data/data/data/data/data_core.csv)
+    env_df = pd.read_csv(os.path.join(ROOT_DIR, 'data/data/data/data/data_core.csv'))
     env_df.columns = env_df.columns.str.strip().str.lower().str.replace(' ', '_')
     env_df['crop_type'] = env_df['crop_type'].str.strip().str.upper()
     
@@ -155,7 +155,7 @@ def load_and_prepare_data():
 # STEP 3: Create Training Features
 # ============================================================
 def create_environmental_profiles(env_df: pd.DataFrame) -> dict:
-    """Create environmental profiles from data_core.csv."""
+    """Create environmental profiles from data/data/data/data/data_core.csv."""
     profiles = {}
     
     # Map data_core crops to our categories

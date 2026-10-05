@@ -18,8 +18,8 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem('token'));
 
   // 👇 Test if REACT_APP_API_URL is loaded or not
-  console.log("ENV → REACT_APP_API_URL:", process.env.REACT_APP_API_URL);
-  console.log("ENV → REACT_APP_ML_SERVICE_URL:", process.env.REACT_APP_ML_SERVICE_URL);
+  console.log("ENV → REACT_APP_API_URL:", import.meta.env.VITE_API_URL);
+  console.log("ENV → REACT_APP_ML_SERVICE_URL:", import.meta.env.VITE_ML_SERVICE_URL);
 
   useEffect(() => {
     if (token) {
@@ -31,9 +31,9 @@ export const AuthProvider = ({ children }) => {
   }, [token]);
 
   const fetchUser = async () => {
-    console.log("Fetching user from:", `${process.env.REACT_APP_API_URL}/api/auth/me`);
+    console.log("Fetching user from:", `${import.meta.env.VITE_API_URL}/api/auth/me`);
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/me`);
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/me`);
       setUser(res.data.user);
     } catch (error) {
       localStorage.removeItem('token');
@@ -45,9 +45,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   const login = async (email, password) => {
-    console.log("Login URL:", `${process.env.REACT_APP_API_URL}/api/auth/login`);
+    console.log("Login URL:", `${import.meta.env.VITE_API_URL}/api/auth/login`);
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
         email,
         password
       });
@@ -64,9 +64,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (userData) => {
-    console.log("Register URL:", `${process.env.REACT_APP_API_URL}/api/auth/register`);
+    console.log("Register URL:", `${import.meta.env.VITE_API_URL}/api/auth/register`);
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/register`, userData);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, userData);
       const { token: newToken, user } = res.data;
       localStorage.setItem('token', newToken);
       setToken(newToken);

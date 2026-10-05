@@ -6,9 +6,9 @@ Usage:
     python run_training.py
     
 This will:
-1. Process crop_production.csv (historical data 1997-2023)
-2. Process soil.csv (micronutrient data)
-3. Process data_core.csv (environmental conditions)
+1. Process data/data/crop_production.csv (historical data 1997-2023)
+2. Process data/data/soil.csv (micronutrient data)
+3. Process data/data/data_core.csv (environmental conditions)
 4. Train crop classifier (RandomForest)
 5. Train yield predictor (GradientBoosting)
 6. Save models to app/models/trained/

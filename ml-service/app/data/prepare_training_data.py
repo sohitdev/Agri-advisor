@@ -22,7 +22,7 @@ def load_crop_production_data(filepath: str = None) -> pd.DataFrame:
     Fields: State_Name, District_Name, Crop_Year, Season, Crop, Area, Production
     """
     if filepath is None:
-        filepath = os.path.join(ROOT_DIR, 'crop_production.csv')
+        filepath = os.path.join(ROOT_DIR, 'data/data/data/data/crop_production.csv')
     
     print(f"Loading crop production data from {filepath}...")
     df = pd.read_csv(filepath)
@@ -61,7 +61,7 @@ def load_soil_micronutrients_data(filepath: str = None) -> pd.DataFrame:
     Fields: District, Zn%, Fe%, Cu%, Mn%, B%, S%
     """
     if filepath is None:
-        filepath = os.path.join(ROOT_DIR, 'soil.csv')
+        filepath = os.path.join(ROOT_DIR, 'data/data/data/data/soil.csv')
     
     print(f"Loading soil micronutrients data from {filepath}...")
     df = pd.read_csv(filepath)
@@ -92,7 +92,7 @@ def load_environmental_data(filepath: str = None) -> pd.DataFrame:
             Nitrogen, Potassium, Phosphorous, Fertilizer Name
     """
     if filepath is None:
-        filepath = os.path.join(ROOT_DIR, 'data_core.csv')
+        filepath = os.path.join(ROOT_DIR, 'data/data/data/data/data_core.csv')
     
     print(f"Loading environmental data from {filepath}...")
     df = pd.read_csv(filepath)
@@ -116,7 +116,7 @@ def load_environmental_data(filepath: str = None) -> pd.DataFrame:
 
 def create_crop_environmental_profiles(env_df: pd.DataFrame) -> Dict:
     """
-    Create environmental profiles for each crop based on data_core.csv.
+    Create environmental profiles for each crop based on data/data/data/data/data_core.csv.
     Returns average conditions suitable for each crop.
     """
     profiles = {}

@@ -50,6 +50,7 @@ services:
     volumes:
       - ./ml-service:/app
       - ml_models:/app/models
+      - ./data:/app/data
 
   frontend:
     build:
@@ -59,7 +60,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      REACT_APP_API_URL: http://localhost:5000/api
+      VITE_API_URL: http://localhost:5000/api
     depends_on:
       - backend
     networks:

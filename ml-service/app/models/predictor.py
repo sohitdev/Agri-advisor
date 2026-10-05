@@ -151,7 +151,7 @@ class CropPredictor:
         """
         candidates = {}
         csv_path = os.path.abspath(
-            os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'crop_production.csv')
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'data/data/data/data/crop_production.csv')
         )
 
         if not os.path.exists(csv_path):

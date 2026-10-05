@@ -1,6 +1,6 @@
 """
 Populate MongoDB with location and crop data from CSV files.
-This script uses the crop_production.csv, soil.csv, and data_core.csv
+This script uses the data/crop_production.csv, data/soil.csv, and data/data_core.csv
 to create Location and Crop documents in MongoDB.
 """
 import os
@@ -23,15 +23,15 @@ def load_data():
     print("Loading CSV data...")
     
     # Crop production data (in root directory)
-    crop_df = pd.read_csv(os.path.join(ROOT_DIR, 'crop_production.csv'))
+    crop_df = pd.read_csv(os.path.join(ROOT_DIR, 'data/crop_production.csv'))
     crop_df.columns = crop_df.columns.str.strip().str.lower()
     
     # Soil data (in root directory)
-    soil_df = pd.read_csv(os.path.join(ROOT_DIR, 'soil.csv'))
+    soil_df = pd.read_csv(os.path.join(ROOT_DIR, 'data/soil.csv'))
     soil_df.columns = soil_df.columns.str.strip().str.lower().str.replace('%', '').str.replace(' ', '')
     
     # Environmental data (in root directory)
-    env_df = pd.read_csv(os.path.join(ROOT_DIR, 'data_core.csv'))
+    env_df = pd.read_csv(os.path.join(ROOT_DIR, 'data/data_core.csv'))
     env_df.columns = env_df.columns.str.strip().str.lower()
     
     print(f"  Crop data: {len(crop_df)} records")

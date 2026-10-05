@@ -93,7 +93,7 @@ SEASON_CROPS = {
 def load_data():
     """Load crop production data."""
     print("Loading data...")
-    crop_df = pd.read_csv(os.path.join(DATA_DIR, 'crop_production.csv'))
+    crop_df = pd.read_csv(os.path.join(DATA_DIR, 'data/data/data/data/crop_production.csv'))
     crop_df.columns = crop_df.columns.str.strip().str.lower()
     
     # Clean season values
@@ -160,14 +160,14 @@ def prepare_training_data(crop_df, crop_stats):
     print("\nPreparing training data...")
     
     # Load soil data
-    soil_df = pd.read_csv(os.path.join(DATA_DIR, 'soil.csv'))
+    soil_df = pd.read_csv(os.path.join(DATA_DIR, 'data/data/data/data/soil.csv'))
     soil_df.columns = soil_df.columns.str.strip().str.lower().str.replace('%', '').str.replace(' ', '')
     soil_df = soil_df.rename(columns={'district': 'district_name'})
     soil_df['district_name'] = soil_df['district_name'].str.strip().str.upper()
     soil_df = soil_df.drop_duplicates(subset=['district_name'], keep='first')
     
     # Load environmental data
-    env_df = pd.read_csv(os.path.join(DATA_DIR, 'data_core.csv'))
+    env_df = pd.read_csv(os.path.join(DATA_DIR, 'data/data/data/data/data_core.csv'))
     env_df.columns = env_df.columns.str.strip().str.lower()
     
     # Get average environmental conditions

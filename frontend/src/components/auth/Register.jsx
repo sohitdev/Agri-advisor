@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'; // Use react-toastify
 import indiaStatesDistricts from '../../data/indiaStatesDistricts.json';
 import './Auth.css';
 
-const API_HOST = (process.env.REACT_APP_API_URL || 'http://localhost:5000').replace(/\/$/, '');
+const API_HOST = (import.meta.env.VITE_API_URL || 'http://localhost:5000').replace(/\/$/, '');
 
 const Register = () => {
   const { t } = useTranslation();
