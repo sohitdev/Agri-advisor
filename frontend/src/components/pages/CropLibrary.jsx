@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './CropLibrary.css';
 
 const CropLibrary = () => {
   const navigate = useNavigate();
@@ -496,18 +495,30 @@ const CropLibrary = () => {
     return matchesCategory && matchesSearch;
   });
 
+  const getSeasonClasses = (season) => {
+    const s = season.toLowerCase().replace(' ', '-');
+    switch (s) {
+      case 'kharif': return 'bg-[#ff6b6b]/15 text-[#e74c3c]';
+      case 'rabi': return 'bg-[#4ecdc4]/15 text-[#00b894]';
+      case 'summer': return 'bg-[#ffc107]/15 text-[#f39c12]';
+      case 'winter': return 'bg-[#3498db]/15 text-[#3498db]';
+      case 'whole-year': return 'bg-[#9b59b6]/15 text-[#9b59b6]';
+      default: return 'bg-gray-100 text-gray-800';
+    }
+  };
+
   return (
-    <div className="crop-library-container">
+    <div className="min-h-[calc(100vh-70px)] bg-gradient-to-br from-[#f0f4f0] to-[#e8ece8] p-4 sm:p-8">
       {/* Header */}
-      <div className="library-header">
-        <h1>🌾 Crop Information Library</h1>
-        <p>Comprehensive guide to major crops grown in India</p>
+      <div className="text-center mb-8">
+        <h1 className="text-[1.8rem] sm:text-[2.5rem] text-[#1a1a2e] m-0 font-bold">🌾 Crop Information Library</h1>
+        <p className="text-[#666] text-base sm:text-[1.1rem] mt-2">Comprehensive guide to major crops grown in India</p>
       </div>
 
       {/* Search and Filter */}
-      <div className="library-controls">
-        <div className="search-box">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <div className="max-w-[1200px] mx-auto mb-8">
+        <div className="flex items-center bg-white p-4 sm:px-6 sm:py-4 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] mb-4">
+          <svg className="text-[#888] mr-4 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="11" cy="11" r="8" />
             <path d="m21 21-4.35-4.35" />
           </svg>
@@ -516,47 +527,54 @@ const CropLibrary = () => {
             placeholder="Search crops..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+            className="flex-1 border-none text-base outline-none w-full"
           />
         </div>
 
-        <div className="category-filters">
+        <div className="flex flex-nowrap sm:flex-wrap gap-3 justify-start sm:justify-center overflow-x-auto pb-2 sm:pb-0 hide-scrollbar">
           {cropCategories.map(cat => (
             <button
               key={cat.id}
-              className={`category-btn ${selectedCategory === cat.id ? 'active' : ''}`}
+              className={`shrink-0 flex items-center gap-2 px-5 py-3 border-2 rounded-full cursor-pointer transition-all duration-300 text-[0.9rem] ${
+                selectedCategory === cat.id
+                  ? 'bg-gradient-to-br from-[#2E7D32] to-[#4CAF50] text-white border-transparent'
+                  : 'bg-white border-transparent hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.1)]'
+              }`}
               onClick={() => setSelectedCategory(cat.id)}
             >
-              <span className="cat-icon">{cat.icon}</span>
-              <span className="cat-name">{cat.name}</span>
+              <span className="text-[1.2rem]">{cat.icon}</span>
+              <span>{cat.name}</span>
             </button>
           ))}
         </div>
       </div>
 
       {/* Crops Grid */}
-      <div className="crops-grid">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-6 max-w-[1400px] mx-auto">
         {filteredCrops.map(crop => (
           <div 
             key={crop.id} 
-            className="crop-card"
+            className="group bg-white rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:-translate-y-2 hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)]"
             onClick={() => setSelectedCrop(crop)}
           >
-            <div className="crop-image">{crop.image}</div>
-            <div className="crop-info">
-              <h3>{crop.name}</h3>
-              <p className="scientific-name">{crop.scientificName}</p>
-              <div className="crop-tags">
+            <div className="h-[120px] bg-gradient-to-br from-[#e8f5e9] to-[#c8e6c9] flex items-center justify-center text-[4rem]">
+              {crop.image}
+            </div>
+            <div className="p-5">
+              <h3 className="m-0 text-[1.3rem] text-[#1a1a2e] font-bold">{crop.name}</h3>
+              <p className="text-[#888] italic text-[0.85rem] mt-1 mb-3">{crop.scientificName}</p>
+              <div className="flex gap-2 mb-3">
                 {crop.seasons.slice(0, 2).map(season => (
-                  <span key={season} className={`season-tag ${season.toLowerCase().replace(' ', '-')}`}>
+                  <span key={season} className={`px-3 py-1 rounded-[15px] text-[0.75rem] font-semibold ${getSeasonClasses(season)}`}>
                     {season}
                   </span>
                 ))}
               </div>
-              <div className="crop-temp">
+              <div className="text-[#666] text-[0.9rem]">
                 🌡️ {crop.temperature.optimal}
               </div>
             </div>
-            <div className="view-details">
+            <div className="px-5 py-4 bg-[#f8f9fa] text-[#2E7D32] font-semibold text-[0.9rem] text-center transition-all duration-300 group-hover:bg-[#2E7D32] group-hover:text-white">
               View Details →
             </div>
           </div>
@@ -564,57 +582,57 @@ const CropLibrary = () => {
       </div>
 
       {filteredCrops.length === 0 && (
-        <div className="no-results">
+        <div className="text-center p-12 text-[#666]">
           <p>No crops found matching your search.</p>
         </div>
       )}
 
       {/* Crop Detail Modal */}
       {selectedCrop && (
-        <div className="crop-modal-overlay" onClick={() => setSelectedCrop(null)}>
-          <div className="crop-modal" onClick={e => e.stopPropagation()}>
-            <button className="close-modal" onClick={() => setSelectedCrop(null)}>
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-[1000] p-4 sm:p-8 backdrop-blur-[4px]" onClick={() => setSelectedCrop(null)}>
+          <div className="bg-white rounded-[20px] max-w-[700px] w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto relative m-4 sm:m-0" onClick={e => e.stopPropagation()}>
+            <button className="absolute top-4 right-4 bg-[#f1f1f1] border-none rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition-all duration-300 z-10 hover:bg-[#e0e0e0]" onClick={() => setSelectedCrop(null)}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             </button>
 
-            <div className="modal-header">
-              <div className="modal-crop-icon">{selectedCrop.image}</div>
+            <div className="flex items-center gap-6 p-6 sm:p-8 bg-gradient-to-br from-[#e8f5e9] to-[#c8e6c9]">
+              <div className="text-[4rem]">{selectedCrop.image}</div>
               <div>
-                <h2>{selectedCrop.name}</h2>
-                <p className="scientific">{selectedCrop.scientificName}</p>
+                <h2 className="m-0 text-[2rem] text-[#1a1a2e] font-bold">{selectedCrop.name}</h2>
+                <p className="text-[#666] italic mt-1">{selectedCrop.scientificName}</p>
               </div>
             </div>
 
-            <div className="modal-content">
+            <div className="p-4 sm:p-6 sm:px-8">
               {/* Quick Stats */}
-              <div className="quick-stats">
-                <div className="stat">
-                  <span className="stat-label">🌡️ Temperature</span>
-                  <span className="stat-value">{selectedCrop.temperature.optimal}</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <div className="bg-[#f8f9fa] p-4 rounded-xl text-center">
+                  <span className="block text-[#666] text-[0.85rem] mb-2">🌡️ Temperature</span>
+                  <span className="font-semibold text-[#1a1a2e] text-[0.95rem]">{selectedCrop.temperature.optimal}</span>
                 </div>
-                <div className="stat">
-                  <span className="stat-label">💧 Water Need</span>
-                  <span className="stat-value">{selectedCrop.waterRequirement}</span>
+                <div className="bg-[#f8f9fa] p-4 rounded-xl text-center">
+                  <span className="block text-[#666] text-[0.85rem] mb-2">💧 Water Need</span>
+                  <span className="font-semibold text-[#1a1a2e] text-[0.95rem]">{selectedCrop.waterRequirement}</span>
                 </div>
-                <div className="stat">
-                  <span className="stat-label">⏱️ Duration</span>
-                  <span className="stat-value">{selectedCrop.growingPeriod}</span>
+                <div className="bg-[#f8f9fa] p-4 rounded-xl text-center">
+                  <span className="block text-[#666] text-[0.85rem] mb-2">⏱️ Duration</span>
+                  <span className="font-semibold text-[#1a1a2e] text-[0.95rem]">{selectedCrop.growingPeriod}</span>
                 </div>
-                <div className="stat">
-                  <span className="stat-label">📈 Yield</span>
-                  <span className="stat-value">{selectedCrop.yieldPotential}</span>
+                <div className="bg-[#f8f9fa] p-4 rounded-xl text-center">
+                  <span className="block text-[#666] text-[0.85rem] mb-2">📈 Yield</span>
+                  <span className="font-semibold text-[#1a1a2e] text-[0.95rem]">{selectedCrop.yieldPotential}</span>
                 </div>
               </div>
 
               {/* Seasons */}
-              <div className="info-section">
-                <h4>🗓️ Growing Seasons</h4>
-                <div className="seasons-list">
+              <div className="mb-6 pb-6 border-b border-[#eee]">
+                <h4 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">🗓️ Growing Seasons</h4>
+                <div className="flex flex-wrap gap-2">
                   {selectedCrop.seasons.map(season => (
-                    <span key={season} className={`season-badge ${season.toLowerCase().replace(' ', '-')}`}>
+                    <span key={season} className={`px-4 py-2 rounded-full text-[0.85rem] font-semibold ${getSeasonClasses(season)}`}>
                       {season}
                     </span>
                   ))}
@@ -622,49 +640,56 @@ const CropLibrary = () => {
               </div>
 
               {/* Soil & Rainfall */}
-              <div className="info-section">
-                <h4>🌍 Soil & Climate</h4>
-                <p><strong>Soil Type:</strong> {selectedCrop.soil}</p>
-                <p><strong>Rainfall:</strong> {selectedCrop.rainfall}</p>
-                <p><strong>Temperature Range:</strong> {selectedCrop.temperature.min}°C - {selectedCrop.temperature.max}°C</p>
+              <div className="mb-6 pb-6 border-b border-[#eee]">
+                <h4 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">🌍 Soil & Climate</h4>
+                <p className="my-2 text-[#555] leading-relaxed"><strong>Soil Type:</strong> {selectedCrop.soil}</p>
+                <p className="my-2 text-[#555] leading-relaxed"><strong>Rainfall:</strong> {selectedCrop.rainfall}</p>
+                <p className="my-2 text-[#555] leading-relaxed"><strong>Temperature Range:</strong> {selectedCrop.temperature.min}°C - {selectedCrop.temperature.max}°C</p>
               </div>
 
               {/* Major States */}
-              <div className="info-section">
-                <h4>📍 Major Growing States</h4>
-                <div className="states-list">
+              <div className="mb-6 pb-6 border-b border-[#eee]">
+                <h4 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">📍 Major Growing States</h4>
+                <div className="flex flex-wrap gap-2">
                   {selectedCrop.majorStates.map(state => (
-                    <span key={state} className="state-tag">{state}</span>
+                    <span key={state} className="bg-[#e3f2fd] text-[#1976d2] px-3 py-1.5 rounded-[15px] text-[0.85rem]">{state}</span>
                   ))}
                 </div>
               </div>
 
               {/* Market Info */}
-              <div className="info-section">
-                <h4>💰 Market Information</h4>
-                <p><strong>Current Price:</strong> {selectedCrop.marketPrice}</p>
-                <p><strong>Nutritional Value:</strong> {selectedCrop.nutritionalValue}</p>
+              <div className="mb-6 pb-6 border-b border-[#eee]">
+                <h4 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">💰 Market Information</h4>
+                <p className="my-2 text-[#555] leading-relaxed"><strong>Current Price:</strong> {selectedCrop.marketPrice}</p>
+                <p className="my-2 text-[#555] leading-relaxed"><strong>Nutritional Value:</strong> {selectedCrop.nutritionalValue}</p>
               </div>
 
               {/* Growing Tips */}
-              <div className="info-section">
-                <h4>💡 Growing Tips</h4>
-                <ul className="tips-list">
+              <div className="mb-6">
+                <h4 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">💡 Growing Tips</h4>
+                <ul className="m-0 pl-6">
                   {selectedCrop.tips.map((tip, index) => (
-                    <li key={index}>{tip}</li>
+                    <li key={index} className="text-[#555] mb-2 leading-relaxed">{tip}</li>
                   ))}
                 </ul>
               </div>
             </div>
 
-            <div className="modal-footer">
-              <button className="get-recommendation-btn" onClick={() => navigate('/dashboard')}>
+            <div className="p-6 sm:px-8 bg-[#f8f9fa] text-center">
+              <button 
+                className="bg-gradient-to-br from-[#2E7D32] to-[#4CAF50] text-white border-none px-8 py-4 rounded-xl text-base font-semibold cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(46,125,50,0.3)]"
+                onClick={() => navigate('/dashboard')}
+              >
                 Get Recommendation for this Crop
               </button>
             </div>
           </div>
         </div>
       )}
+      <style dangerouslySetInnerHTML={{__html: `
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      `}} />
     </div>
   );
 };

@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import api from '../../utils/api';
 import indiaStatesDistricts from '../../data/indiaStatesDistricts.json';
-import './Dashboard.css';
 
 const Dashboard = () => {
   const { t } = useTranslation();
@@ -183,32 +182,36 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="dashboard">
-      <div className="dashboard-container">
-        <div className="dashboard-header">
-          <h1 className="dashboard-title">{t('welcome')}</h1>
-          <p className="dashboard-subtitle">
+    <div className="min-h-[calc(100vh-80px)] p-4 sm:p-8 bg-gradient-to-br from-[#f5f7fa] to-[#c3cfe2] relative">
+      <div className="max-w-[1200px] mx-auto animate-[fadeInUp_0.6s_ease]">
+        <div className="text-center mb-12 animate-[slideInDown_0.6s_ease]">
+          <h1 className="text-[#2c3e50] mb-3 text-3xl sm:text-4xl md:text-[2.5rem] font-bold tracking-tight bg-gradient-to-br from-[#2c3e50] to-[#3498db] bg-clip-text text-transparent">
+            {t('welcome')}
+          </h1>
+          <p className="text-[#555] text-base sm:text-lg font-normal">
             {t('dashboardSubtitle')}
           </p>
         </div>
         
-        <div className="recommendation-form-container">
-          <div className="form-header">
-            <div className="form-icon">
+        <div className="bg-white p-6 sm:p-10 rounded-2xl shadow-[0_10px_40px_rgba(52,152,219,0.15)] mb-8 transition-all duration-300 ease-in-out hover:shadow-[0_15px_50px_rgba(52,152,219,0.25)] hover:-translate-y-0.5">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 sm:gap-4 mb-8 pb-6 border-b-2 border-[#ecf0f1]">
+            <div className="w-[45px] h-[45px] sm:w-[50px] sm:h-[50px] bg-gradient-to-br from-[#3498db] to-[#5dade2] rounded-xl flex items-center justify-center text-white shadow-[0_4px_12px_rgba(52,152,219,0.3)] transition-all duration-300 hover:scale-105 hover:rotate-3">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
             </div>
-            <h2>{t('selectLocation')}</h2>
+            <h2 className="m-0 text-[#2c3e50] text-xl sm:text-2xl font-bold">{t('selectLocation')}</h2>
           </div>
           
-          <form onSubmit={handleSubmit} className="recommendation-form">
-            <div className="form-row">
-              <div className="form-group">
-                <label htmlFor="state">{t('state')} <span className="required">*</span></label>
-                <div className="select-wrapper searchable-wrapper" ref={stateDropdownRef}>
-                  <svg className="select-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-5 sm:gap-6 items-start">
+              <div className="flex flex-col gap-2 animate-[slideInUp_0.6s_ease] min-w-0">
+                <label htmlFor="state" className="text-[#2c3e50] font-semibold text-[0.95rem] flex items-center gap-1">
+                  {t('state')} <span className="text-[#e74c3c] font-bold">*</span>
+                </label>
+                <div className="relative flex items-center w-full group focus-within:text-[#3498db]" ref={stateDropdownRef}>
+                  <svg className="absolute left-3 text-[#95a5a6] pointer-events-none z-10 transition-colors duration-300 group-focus-within:text-[#3498db]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                     <circle cx="12" cy="10" r="3"></circle>
                   </svg>
@@ -221,12 +224,12 @@ const Dashboard = () => {
                     onFocus={() => setIsStateDropdownOpen(true)}
                     required
                     autoComplete="address-level1"
-                    className="form-select searchable-input"
+                    className="w-full py-3.5 pl-11 pr-11 border-2 border-[#ecf0f1] rounded-xl text-base text-[#2c3e50] bg-white cursor-text transition-all duration-300 appearance-none hover:not(:disabled):border-[#d5dbdb] hover:not(:disabled):bg-[#f8f9fa] focus:outline-none focus:border-[#3498db] focus:bg-[#3498db]/5 focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] focus-visible:outline-2 focus-visible:outline-[#3498db] focus-visible:outline-offset-2"
                     placeholder={t('selectState')}
                   />
                   <button
                     type="button"
-                    className="search-dropdown-toggle"
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 border-none bg-transparent text-[#95a5a6] inline-flex items-center justify-center cursor-pointer p-1.5 rounded-lg transition-all duration-300 z-20 hover:not(:disabled):text-[#2c3e50] hover:not(:disabled):bg-[#f8f9fa] disabled:cursor-not-allowed disabled:text-[#c7cfd3]"
                     onClick={() => setIsStateDropdownOpen((prev) => !prev)}
                     aria-label="Toggle state options"
                   >
@@ -235,11 +238,11 @@ const Dashboard = () => {
                     </svg>
                   </button>
                   {isStateDropdownOpen && filteredStateOptions.length > 0 && (
-                    <ul className="search-dropdown-list" role="listbox" aria-label="State options">
+                    <ul className="absolute left-0 right-0 top-[calc(100%+0.35rem)] list-none m-0 p-1.5 bg-white border border-[#ecf0f1] rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.12)] max-h-[220px] overflow-y-auto z-30" role="listbox" aria-label="State options">
                       {filteredStateOptions.map((stateName) => (
                         <li
                           key={stateName}
-                          className="search-dropdown-item"
+                          className="px-3 py-2 rounded-lg text-[#2c3e50] text-[0.95rem] cursor-pointer transition-all duration-200 hover:bg-[#3498db]/10 hover:text-[#1f5e8e]"
                           onMouseDown={(e) => e.preventDefault()}
                           onClick={() => handleStateSelect(stateName)}
                           role="option"
@@ -253,10 +256,12 @@ const Dashboard = () => {
                 </div>
               </div>
 
-              <div className="form-group">
-                <label htmlFor="district">{t('district')} <span className="required">*</span></label>
-                <div className="select-wrapper searchable-wrapper" ref={districtDropdownRef}>
-                  <svg className="select-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <div className="flex flex-col gap-2 animate-[slideInUp_0.6s_ease] min-w-0">
+                <label htmlFor="district" className="text-[#2c3e50] font-semibold text-[0.95rem] flex items-center gap-1">
+                  {t('district')} <span className="text-[#e74c3c] font-bold">*</span>
+                </label>
+                <div className="relative flex items-center w-full group focus-within:text-[#3498db]" ref={districtDropdownRef}>
+                  <svg className="absolute left-3 text-[#95a5a6] pointer-events-none z-10 transition-colors duration-300 group-focus-within:text-[#3498db]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="11" cy="11" r="8"></circle>
                     <path d="M21 21l-4.35-4.35"></path>
                   </svg>
@@ -270,12 +275,12 @@ const Dashboard = () => {
                     required
                     disabled={!selectedState}
                     autoComplete="address-level2"
-                    className="form-select searchable-input"
+                    className="w-full py-3.5 pl-11 pr-11 border-2 border-[#ecf0f1] rounded-xl text-base text-[#2c3e50] bg-white cursor-text transition-all duration-300 appearance-none hover:not(:disabled):border-[#d5dbdb] hover:not(:disabled):bg-[#f8f9fa] focus:outline-none focus:border-[#3498db] focus:bg-[#3498db]/5 focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f5f5f5] disabled:cursor-not-allowed disabled:opacity-60 disabled:border-[#e0e0e0]"
                     placeholder={selectedState ? t('selectDistrict') : 'Select state first'}
                   />
                   <button
                     type="button"
-                    className="search-dropdown-toggle"
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 border-none bg-transparent text-[#95a5a6] inline-flex items-center justify-center cursor-pointer p-1.5 rounded-lg transition-all duration-300 z-20 hover:not(:disabled):text-[#2c3e50] hover:not(:disabled):bg-[#f8f9fa] disabled:cursor-not-allowed disabled:text-[#c7cfd3]"
                     onClick={() => selectedState && setIsDistrictDropdownOpen((prev) => !prev)}
                     aria-label="Toggle district options"
                     disabled={!selectedState}
@@ -285,11 +290,11 @@ const Dashboard = () => {
                     </svg>
                   </button>
                   {isDistrictDropdownOpen && filteredDistrictOptions.length > 0 && (
-                    <ul className="search-dropdown-list" role="listbox" aria-label="District options">
+                    <ul className="absolute left-0 right-0 top-[calc(100%+0.35rem)] list-none m-0 p-1.5 bg-white border border-[#ecf0f1] rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.12)] max-h-[220px] overflow-y-auto z-30" role="listbox" aria-label="District options">
                       {filteredDistrictOptions.map((districtName) => (
                         <li
                           key={districtName}
-                          className="search-dropdown-item"
+                          className="px-3 py-2 rounded-lg text-[#2c3e50] text-[0.95rem] cursor-pointer transition-all duration-200 hover:bg-[#3498db]/10 hover:text-[#1f5e8e]"
                           onMouseDown={(e) => e.preventDefault()}
                           onClick={() => handleDistrictSelect(districtName)}
                           role="option"
@@ -303,10 +308,12 @@ const Dashboard = () => {
                 </div>
               </div>
 
-              <div className="form-group">
-                <label htmlFor="season">{t('season')} <span className="required">*</span></label>
-                <div className="select-wrapper">
-                  <svg className="select-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <div className="flex flex-col gap-2 animate-[slideInUp_0.6s_ease] min-w-0">
+                <label htmlFor="season" className="text-[#2c3e50] font-semibold text-[0.95rem] flex items-center gap-1">
+                  {t('season')} <span className="text-[#e74c3c] font-bold">*</span>
+                </label>
+                <div className="relative flex items-center w-full group focus-within:text-[#3498db]">
+                  <svg className="absolute left-3 text-[#95a5a6] pointer-events-none z-10 transition-colors duration-300 group-focus-within:text-[#3498db]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="12" cy="12" r="10"></circle>
                     <path d="M12 2v10m0 0L8 8m4 4 4-4"></path>
                   </svg>
@@ -316,7 +323,7 @@ const Dashboard = () => {
                     value={formData.season}
                     onChange={handleChange}
                     required
-                    className="form-select"
+                    className="w-full py-3.5 pl-11 pr-11 border-2 border-[#ecf0f1] rounded-xl text-base text-[#2c3e50] bg-white bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg_xmlns=%22http://www.w3.org/2000/svg%22_viewBox=%220_0_24_24%22_fill=%22none%22_stroke=%22%232c3e50%22_stroke-width=%222%22_stroke-linecap=%22round%22_stroke-linejoin=%22round%22%3e%3cpolyline_points=%226_9_12_15_18_9%22%3e%3c/polyline%3e%3c/svg%3e')] bg-no-repeat bg-[position:right_0.85rem_center] bg-[size:1.25rem] cursor-pointer transition-all duration-300 appearance-none hover:not(:disabled):border-[#d5dbdb] hover:not(:disabled):bg-[#f8f9fa] focus:outline-none focus:border-[#3498db] focus:bg-[#3498db]/5 focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)]"
                   >
                     <option value="Kharif">Kharif (Monsoon - Jun to Oct)</option>
                     <option value="Rabi">Rabi (Winter - Oct to Mar)</option>
@@ -331,17 +338,17 @@ const Dashboard = () => {
 
             <button
               type="submit"
-              className={`btn-submit ${loading ? 'btn-loading' : ''}`}
+              className={`w-full py-3.5 sm:py-4 px-5 sm:px-6 mt-4 bg-gradient-to-br from-[#27ae60] to-[#2ecc71] text-white border-none rounded-xl text-[0.95rem] sm:text-base font-semibold cursor-pointer transition-all duration-300 shadow-[0_4px_16px_rgba(39,174,96,0.3)] flex items-center justify-center gap-3 uppercase tracking-wide hover:not(:disabled):-translate-y-0.5 hover:not(:disabled):shadow-[0_6px_24px_rgba(39,174,96,0.4)] hover:not(:disabled):from-[#229954] hover:not(:disabled):to-[#27ae60] active:not(:disabled):translate-y-0 disabled:from-[#95a5a6] disabled:to-[#7f8c8d] disabled:cursor-not-allowed disabled:opacity-70 disabled:shadow-none focus-visible:outline-2 focus-visible:outline-[#3498db] focus-visible:outline-offset-2 ${loading ? 'pointer-events-none from-[#95a5a6] to-[#7f8c8d]' : ''}`}
               disabled={loading || !formData.state || !formData.district}
             >
               {loading ? (
                 <>
-                  <span className="spinner"></span>
+                  <span className="w-5 h-5 border-4 border-white/30 border-t-white rounded-full animate-spin"></span>
                   <span>{t('gettingRecommendations')}</span>
                 </>
               ) : (
                 <>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg className="shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M12 2a10 10 0 1 0 10 10H12V2Z"></path>
                     <path d="M12 2v10h10"></path>
                   </svg>
@@ -352,6 +359,12 @@ const Dashboard = () => {
           </form>
         </div>
       </div>
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } }
+      `}} />
     </div>
   );
 };

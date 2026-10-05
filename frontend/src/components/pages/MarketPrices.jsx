@@ -3,7 +3,6 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { useAuth } from '../../context/AuthContext';
 import indiaStatesDistricts from '../../data/indiaStatesDistricts.json';
 import api from '../../utils/api';
-import './MarketPrices.css';
 
 const crops = [
   { id: 'rice', name: 'Rice', icon: 'RI', unit: 'quintal' },
@@ -285,33 +284,34 @@ const MarketPrices = () => {
   const marketScope = selectedDistrict || selectedState || 'the selected market';
 
   return (
-    <div className="market-prices-container">
-      <div className="market-header">
-        <h1>Market Prices</h1>
-        <p>Live Agmarknet mandi prices by crop, state, and district</p>
+    <div className="min-h-[calc(100vh-70px)] bg-gradient-to-br from-[#fff8e1] to-[#ffecb3] p-[clamp(1rem,2vw,2rem)]">
+      <div className="text-center mb-8">
+        <h1 className="text-[2.5rem] text-[#1a1a2e] m-0 max-md:text-[1.8rem]">Market Prices</h1>
+        <p className="text-[#666] text-[1.1rem] mt-2">Live Agmarknet mandi prices by crop, state, and district</p>
       </div>
 
-      <div className="filters-section">
-        <div className="filter-group">
-          <label>Select Crop</label>
-          <div className="crop-selector">
+      <div className="bg-white rounded-[20px] p-6 max-w-[1200px] mx-auto mb-8 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+        <div className="mb-6">
+          <label className="block font-semibold text-[#333] mb-3">Select Crop</label>
+          <div className="flex flex-wrap gap-3 items-stretch max-md:justify-start max-md:overflow-x-auto max-md:flex-nowrap max-md:pb-2">
             {crops.map((crop) => (
               <button
                 key={crop.id}
-                className={`crop-btn ${selectedCrop === crop.id ? 'active' : ''}`}
+                className={`flex items-center gap-2 py-3 px-4 border-2 rounded-xl cursor-pointer transition-all duration-300 max-md:shrink-0 ${selectedCrop === crop.id ? 'bg-gradient-to-br from-[#4CAF50] to-[#2E7D32] text-white border-transparent' : 'bg-[#f8f9fa] border-transparent hover:bg-[#e8f5e9] hover:border-[#4CAF50]'}`}
                 onClick={() => setSelectedCrop(crop.id)}
               >
-                <span className="crop-icon">{crop.icon}</span>
-                <span className="crop-name">{crop.name}</span>
+                <span className="text-[1.3rem]">{crop.icon}</span>
+                <span className="font-medium">{crop.name}</span>
               </button>
             ))}
           </div>
         </div>
 
-        <div className="filter-row">
-          <div className="filter-item">
-            <label>State</label>
+        <div className="flex gap-6 items-end flex-wrap max-md:flex-col max-md:gap-4">
+          <div className="flex-1 max-md:w-full">
+            <label className="block font-semibold text-[#333] mb-2">State</label>
             <select
+              className="w-full py-3 px-4 border-2 border-[#e0e0e0] rounded-[10px] text-[1rem] cursor-pointer transition-all duration-300 focus:border-[#4CAF50] focus:outline-none"
               value={selectedState}
               onChange={(event) => setSelectedState(event.target.value)}
               disabled={statesLoading || !stateOptions.length}
@@ -323,9 +323,10 @@ const MarketPrices = () => {
             </select>
           </div>
 
-          <div className="filter-item">
-            <label>District</label>
+          <div className="flex-1 max-md:w-full">
+            <label className="block font-semibold text-[#333] mb-2">District</label>
             <select
+              className="w-full py-3 px-4 border-2 border-[#e0e0e0] rounded-[10px] text-[1rem] cursor-pointer transition-all duration-300 focus:border-[#4CAF50] focus:outline-none"
               value={selectedDistrict}
               onChange={(event) => setSelectedDistrict(event.target.value)}
               disabled={districtsLoading || !selectedState}
@@ -337,13 +338,13 @@ const MarketPrices = () => {
             </select>
           </div>
 
-          <div className="filter-item">
-            <label>Time Range</label>
-            <div className="time-buttons">
+          <div className="flex-1 max-md:w-full">
+            <label className="block font-semibold text-[#333] mb-2">Time Range</label>
+            <div className="flex gap-2 flex-wrap max-md:w-full">
               {timeRanges.map((range) => (
                 <button
                   key={range.id}
-                  className={timeRange === range.id ? 'active' : ''}
+                  className={`py-3 px-5 border-2 rounded-[10px] cursor-pointer font-medium transition-all duration-300 hover:border-[#4CAF50] max-md:flex-1 max-md:p-3 ${timeRange === range.id ? 'bg-[#4CAF50] border-[#4CAF50] text-white' : 'bg-white border-[#e0e0e0]'}`}
                   onClick={() => setTimeRange(range.id)}
                 >
                   {range.label}
@@ -355,44 +356,44 @@ const MarketPrices = () => {
       </div>
 
       {loading ? (
-        <div className="loading-state">
-          <div className="spinner"></div>
+        <div className="text-center p-16">
+          <div className="w-[50px] h-[50px] border-4 border-[#e0e0e0] border-t-[#4CAF50] rounded-full animate-spin mx-auto mb-4"></div>
           <p>Loading latest mandi prices...</p>
         </div>
       ) : (
         <>
-          {error && <div className="market-error">{error}</div>}
+          {error && <div className="max-w-[1200px] mx-auto mb-4 bg-[#ffebee] text-[#b71c1c] border border-[#ef9a9a] rounded-[10px] py-[0.8rem] px-4 font-medium">{error}</div>}
 
-          <div className="price-overview">
-            <div className="price-card current">
-              <span className="card-label">Current Price</span>
-              <span className="card-value">{formatPrice(currentPrice?.price)}</span>
-              <span className="card-unit">per {selectedCropData?.unit}</span>
+          <div className="grid grid-cols-4 gap-6 max-w-[1200px] mx-auto mb-8 items-stretch max-lg:grid-cols-2 max-md:grid-cols-1">
+            <div className="bg-gradient-to-br from-[#4CAF50] to-[#2E7D32] text-white rounded-[16px] p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)] h-full">
+              <span className="block text-[0.9rem] opacity-90 mb-2">Current Price</span>
+              <span className="block text-[1.8rem] font-bold mb-1">{formatPrice(currentPrice?.price)}</span>
+              <span className="block text-[0.8rem] opacity-80">per {selectedCropData?.unit}</span>
             </div>
 
-            <div className={`price-card change ${parseFloat(priceChange) >= 0 ? 'positive' : 'negative'}`}>
-              <span className="card-label">Price Change</span>
-              <span className="card-value">{parseFloat(priceChange) >= 0 ? '+' : ''}{priceChange}%</span>
-              <span className="card-unit">in selected period</span>
+            <div className={`bg-white rounded-[16px] p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)] h-full border-l-4 ${parseFloat(priceChange) >= 0 ? 'border-[#4CAF50]' : 'border-[#f44336]'}`}>
+              <span className="block text-[0.9rem] opacity-90 mb-2 text-gray-700">Price Change</span>
+              <span className="block text-[1.8rem] font-bold mb-1">{parseFloat(priceChange) >= 0 ? '+' : ''}{priceChange}%</span>
+              <span className="block text-[0.8rem] opacity-80 text-gray-700">in selected period</span>
             </div>
 
-            <div className="price-card range">
-              <span className="card-label">Price Range</span>
-              <span className="card-value">{formatPrice(rangeMin)} - {formatPrice(rangeMax)}</span>
-              <span className="card-unit">min - max</span>
+            <div className="bg-white rounded-[16px] p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)] h-full">
+              <span className="block text-[0.9rem] opacity-90 mb-2 text-gray-700">Price Range</span>
+              <span className="block text-[1.8rem] font-bold mb-1">{formatPrice(rangeMin)} - {formatPrice(rangeMax)}</span>
+              <span className="block text-[0.8rem] opacity-80 text-gray-700">min - max</span>
             </div>
 
             {mspPrices[selectedCrop] && (
-              <div className="price-card msp">
-                <span className="card-label">MSP (2024-25)</span>
-                <span className="card-value">{formatPrice(mspPrices[selectedCrop])}</span>
-                <span className="card-unit">Minimum Support Price</span>
+              <div className="bg-gradient-to-br from-[#FF9800] to-[#F57C00] text-white rounded-[16px] p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)] h-full">
+                <span className="block text-[0.9rem] opacity-90 mb-2">MSP (2024-25)</span>
+                <span className="block text-[1.8rem] font-bold mb-1">{formatPrice(mspPrices[selectedCrop])}</span>
+                <span className="block text-[0.8rem] opacity-80">Minimum Support Price</span>
               </div>
             )}
           </div>
 
-          <div className="chart-section">
-            <h3>Price Trend - {selectedCropData?.name}</h3>
+          <div className="bg-white rounded-[20px] p-6 max-w-[1200px] mx-auto mb-8 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+            <h3 className="m-0 mb-6 text-[#1a1a2e] text-xl font-bold">Price Trend - {selectedCropData?.name}</h3>
             <ResponsiveContainer width="100%" height={350}>
               <LineChart data={priceData}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -410,44 +411,44 @@ const MarketPrices = () => {
             </ResponsiveContainer>
           </div>
 
-          <div className="mandi-section">
-            <h3>Mandi-wise Prices</h3>
+          <div className="bg-white rounded-[20px] p-6 max-w-[1200px] mx-auto mb-8 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+            <h3 className="m-0 mb-6 text-[#1a1a2e] text-xl font-bold">Mandi-wise Prices</h3>
             {(coverageMessage || lastUpdated || confidence) && (
-              <p className="market-meta">
+              <p className="-mt-2 mb-4 text-[#555] text-[0.92rem]">
                 {coverageMessage ? `${coverageMessage} ` : ''}
                 {lastUpdated ? `Last update: ${new Date(lastUpdated).toLocaleString('en-IN')}` : ''}
                 {lastUpdated && confidence ? ' | ' : ''}
                 {confidence ? `Confidence: ${confidence}` : ''}
               </p>
             )}
-            <div className="mandi-table-wrapper">
-              <table className="mandi-table">
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse">
                 <thead>
                   <tr>
-                    <th>Mandi</th>
-                    <th>Location</th>
-                    <th>Price (Rs./{selectedCropData?.unit})</th>
-                    <th>Change</th>
-                    <th>Arrivals (Quintals)</th>
-                    <th>Source</th>
+                    <th className="bg-[#f8f9fa] p-4 text-left font-semibold text-[#333] border-b-2 border-[#e0e0e0]">Mandi</th>
+                    <th className="bg-[#f8f9fa] p-4 text-left font-semibold text-[#333] border-b-2 border-[#e0e0e0]">Location</th>
+                    <th className="bg-[#f8f9fa] p-4 text-left font-semibold text-[#333] border-b-2 border-[#e0e0e0]">Price (Rs./{selectedCropData?.unit})</th>
+                    <th className="bg-[#f8f9fa] p-4 text-left font-semibold text-[#333] border-b-2 border-[#e0e0e0]">Change</th>
+                    <th className="bg-[#f8f9fa] p-4 text-left font-semibold text-[#333] border-b-2 border-[#e0e0e0]">Arrivals (Quintals)</th>
+                    <th className="bg-[#f8f9fa] p-4 text-left font-semibold text-[#333] border-b-2 border-[#e0e0e0]">Source</th>
                   </tr>
                 </thead>
                 <tbody>
                   {mandiPrices.map((mandi, index) => (
-                    <tr key={`${mandi.name}-${index}`}>
-                      <td className="mandi-name">{mandi.name}</td>
-                      <td>{mandi.location}</td>
-                      <td className="price-cell">{formatPrice(mandi.price)}</td>
-                      <td className={`change-cell ${mandi.change >= 0 ? 'positive' : 'negative'}`}>
+                    <tr key={`${mandi.name}-${index}`} className="hover:bg-[#f8f9fa]">
+                      <td className="p-4 border-b border-[#f0f0f0] font-semibold text-[#1a1a2e]">{mandi.name}</td>
+                      <td className="p-4 border-b border-[#f0f0f0]">{mandi.location}</td>
+                      <td className="p-4 border-b border-[#f0f0f0] font-semibold text-[#2E7D32]">{formatPrice(mandi.price)}</td>
+                      <td className={`p-4 border-b border-[#f0f0f0] font-semibold ${mandi.change >= 0 ? 'text-[#4CAF50]' : 'text-[#f44336]'}`}>
                         {mandi.change >= 0 ? '+' : ''}{mandi.change.toFixed(2)}%
                       </td>
-                      <td>{mandi.arrivals.toLocaleString('en-IN')}</td>
-                      <td>{mandi.sourceDate ? `${mandi.source} (${new Date(mandi.sourceDate).toLocaleDateString('en-IN')})` : mandi.source}</td>
+                      <td className="p-4 border-b border-[#f0f0f0]">{mandi.arrivals.toLocaleString('en-IN')}</td>
+                      <td className="p-4 border-b border-[#f0f0f0]">{mandi.sourceDate ? `${mandi.source} (${new Date(mandi.sourceDate).toLocaleDateString('en-IN')})` : mandi.source}</td>
                     </tr>
                   ))}
                   {!mandiPrices.length && (
                     <tr>
-                      <td colSpan="6">No mandi records available for this selection.</td>
+                      <td colSpan="6" className="p-4 border-b border-[#f0f0f0]">No mandi records available for this selection.</td>
                     </tr>
                   )}
                 </tbody>
@@ -455,32 +456,32 @@ const MarketPrices = () => {
             </div>
           </div>
 
-          <div className="insights-section">
-            <h3>Market Insights</h3>
-            <div className="insights-grid">
-              <div className="insight-card">
-                <h4>Current Trend</h4>
-                <p>
+          <div className="max-w-[1200px] mx-auto">
+            <h3 className="text-[#1a1a2e] mb-6 text-xl font-bold">Market Insights</h3>
+            <div className="grid grid-cols-4 gap-6 max-lg:grid-cols-2 max-md:grid-cols-1">
+              <div className="bg-white rounded-[16px] p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+                <h4 className="m-0 mb-3 text-[#1a1a2e] font-semibold text-lg">Current Trend</h4>
+                <p className="m-0 text-[#666] text-[0.9rem] leading-[1.5]">
                   {parseFloat(priceChange) < 0
                     ? `${selectedCropData?.name} prices are trending downward in ${marketScope}.`
                     : `${selectedCropData?.name} prices are trending upward in ${marketScope}.`}
                 </p>
               </div>
-              <div className="insight-card">
-                <h4>Storage Advice</h4>
-                <p>
+              <div className="bg-white rounded-[16px] p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+                <h4 className="m-0 mb-3 text-[#1a1a2e] font-semibold text-lg">Storage Advice</h4>
+                <p className="m-0 text-[#666] text-[0.9rem] leading-[1.5]">
                   {parseFloat(priceChange) < 0
                     ? 'Prices are declining. Consider selling soon unless storage quality is strong.'
                     : 'Prices are rising. Holding stock may help if storage and cash flow allow it.'}
                 </p>
               </div>
-              <div className="insight-card">
-                <h4>{selectedDistrict ? 'District Mandi Focus' : 'State Mandi Focus'}</h4>
-                <p>{coverageMessage || `Compare active mandis in ${marketScope} using reported Agmarknet prices.`}</p>
+              <div className="bg-white rounded-[16px] p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+                <h4 className="m-0 mb-3 text-[#1a1a2e] font-semibold text-lg">{selectedDistrict ? 'District Mandi Focus' : 'State Mandi Focus'}</h4>
+                <p className="m-0 text-[#666] text-[0.9rem] leading-[1.5]">{coverageMessage || `Compare active mandis in ${marketScope} using reported Agmarknet prices.`}</p>
               </div>
-              <div className="insight-card">
-                <h4>Price Alert</h4>
-                <p>Use this price as a reference before calling the mandi or trader; arrivals and grade can change the final quote.</p>
+              <div className="bg-white rounded-[16px] p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+                <h4 className="m-0 mb-3 text-[#1a1a2e] font-semibold text-lg">Price Alert</h4>
+                <p className="m-0 text-[#666] text-[0.9rem] leading-[1.5]">Use this price as a reference before calling the mandi or trader; arrivals and grade can change the final quote.</p>
               </div>
             </div>
           </div>

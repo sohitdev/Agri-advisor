@@ -1,7 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
-import './WeatherDashboard.css';
 import indiaStatesDistricts from '../../data/indiaStatesDistricts.json';
 
 const WeatherDashboard = () => {
@@ -119,17 +117,18 @@ const WeatherDashboard = () => {
   };
 
   return (
-    <div className="weather-dashboard">
-      <div className="weather-header">
-        <h1>🌤️ Weather Dashboard</h1>
-        <p>Real-time weather insights for smarter farming decisions</p>
+    <div className="min-h-[calc(100vh-70px)] bg-gradient-to-br from-[#e3f2fd] to-[#bbdefb] p-4 sm:p-8">
+      <div className="text-center mb-8 px-4 sm:px-8">
+        <h1 className="text-[1.8rem] sm:text-[2.5rem] text-[#1a1a2e] m-0 font-bold">🌤️ Weather Dashboard</h1>
+        <p className="text-[#666] text-base sm:text-[1.1rem] mt-2">Real-time weather insights for smarter farming decisions</p>
       </div>
 
       {/* Location Selector */}
-      <div className="location-selector">
-        <div className="selector-card">
-          <label>Select State</label>
+      <div className="flex flex-col sm:flex-row gap-6 max-w-[800px] mx-auto mb-8 flex-wrap">
+        <div className="flex-1 bg-white p-6 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+          <label className="block font-semibold text-[#333] mb-3">Select State</label>
           <select
+            className="w-full p-3 border-2 border-[#e0e0e0] rounded-xl text-base cursor-pointer transition-all duration-300 focus:border-[#2196F3] focus:outline-none"
             value={selectedState}
             onChange={e => {
               setSelectedState(e.target.value);
@@ -142,9 +141,10 @@ const WeatherDashboard = () => {
             ))}
           </select>
         </div>
-        <div className="selector-card">
-          <label>Select District</label>
+        <div className="flex-1 bg-white p-6 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+          <label className="block font-semibold text-[#333] mb-3">Select District</label>
           <select
+            className="w-full p-3 border-2 border-[#e0e0e0] rounded-xl text-base cursor-pointer transition-all duration-300 focus:border-[#2196F3] focus:outline-none"
             value={selectedDistrict}
             onChange={e => setSelectedDistrict(e.target.value)}
             disabled={!selectedState}
@@ -155,13 +155,15 @@ const WeatherDashboard = () => {
             ))}
           </select>
         </div>
-        <div className="selector-card">
-          <label>Forecast Period</label>
-          <div className="period-buttons">
+        <div className="flex-1 bg-white p-6 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+          <label className="block font-semibold text-[#333] mb-3">Forecast Period</label>
+          <div className="flex gap-2">
             {[7, 14, 30].map(days => (
               <button
                 key={days}
-                className={forecastDays === days ? 'active' : ''}
+                className={`flex-1 p-3 border-2 rounded-xl bg-white cursor-pointer transition-all duration-300 font-medium hover:border-[#2196F3] ${
+                  forecastDays === days ? 'bg-[#2196F3] border-[#2196F3] text-white' : 'border-[#e0e0e0]'
+                }`}
                 onClick={() => setForecastDays(days)}
               >
                 {days} Days
@@ -172,8 +174,8 @@ const WeatherDashboard = () => {
       </div>
 
       {loading && (
-        <div className="loading-state">
-          <div className="spinner"></div>
+        <div className="text-center py-16">
+          <div className="w-[50px] h-[50px] border-4 border-[#e0e0e0] border-t-[#2196F3] rounded-full animate-spin mx-auto mb-4"></div>
           <p>Loading weather data...</p>
         </div>
       )}
@@ -181,87 +183,94 @@ const WeatherDashboard = () => {
       {!loading && selectedState && selectedDistrict && weatherData && (
         <>
           {/* Current Weather Card */}
-          <div className="current-weather-card">
-            <div className="current-main">
-              <div className="temp-section">
-                <span className="weather-icon">{getConditionIcon(currentWeather.condition)}</span>
-                <div className="temp-info">
-                  <span className="current-temp">{currentWeather.temperature}°C</span>
-                  <span className="feels-like">Feels like {currentWeather.feelsLike}°C</span>
+          <div className="bg-gradient-to-br from-[#2196F3] to-[#1976D2] text-white rounded-[20px] p-6 sm:p-8 max-w-[1000px] mx-auto mb-8 shadow-[0_10px_40px_rgba(33,150,243,0.3)]">
+            <div className="flex flex-col sm:flex-row justify-between items-center text-center sm:text-left gap-6 mb-8">
+              <div className="flex items-center gap-6">
+                <span className="text-[4rem] sm:text-[5rem]">{getConditionIcon(currentWeather.condition)}</span>
+                <div className="flex flex-col">
+                  <span className="text-[3rem] sm:text-[4rem] font-bold leading-none">{currentWeather.temperature}°C</span>
+                  <span className="text-base opacity-90 mt-2">Feels like {currentWeather.feelsLike}°C</span>
                 </div>
               </div>
-              <div className="condition-text">
-                <h3>{currentWeather.condition}</h3>
-                <p>{selectedDistrict}, {selectedState}</p>
+              <div className="text-center sm:text-right">
+                <h3 className="text-[1.8rem] m-0 font-bold">{currentWeather.condition}</h3>
+                <p className="opacity-90 mt-2 mb-0">{selectedDistrict}, {selectedState}</p>
               </div>
             </div>
             
-            <div className="current-details">
-              <div className="detail-item">
-                <span className="detail-icon">💧</span>
-                <span className="detail-value">{currentWeather.humidity}%</span>
-                <span className="detail-label">Humidity</span>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 pt-6 border-t border-white/20">
+              <div className="text-center">
+                <span className="text-[1.5rem] block mb-2">💧</span>
+                <span className="block text-[1.2rem] font-semibold">{currentWeather.humidity}%</span>
+                <span className="block text-[0.8rem] opacity-80 mt-1">Humidity</span>
               </div>
-              <div className="detail-item">
-                <span className="detail-icon">💨</span>
-                <span className="detail-value">{currentWeather.windSpeed} km/h</span>
-                <span className="detail-label">Wind {currentWeather.windDirection}</span>
+              <div className="text-center">
+                <span className="text-[1.5rem] block mb-2">💨</span>
+                <span className="block text-[1.2rem] font-semibold">{currentWeather.windSpeed} km/h</span>
+                <span className="block text-[0.8rem] opacity-80 mt-1">Wind {currentWeather.windDirection}</span>
               </div>
-              <div className="detail-item">
-                <span className="detail-icon">👁️</span>
-                <span className="detail-value">{currentWeather.visibility} km</span>
-                <span className="detail-label">Visibility</span>
+              <div className="text-center">
+                <span className="text-[1.5rem] block mb-2">👁️</span>
+                <span className="block text-[1.2rem] font-semibold">{currentWeather.visibility} km</span>
+                <span className="block text-[0.8rem] opacity-80 mt-1">Visibility</span>
               </div>
-              <div className="detail-item">
-                <span className="detail-icon">🌡️</span>
-                <span className="detail-value">{currentWeather.pressure} hPa</span>
-                <span className="detail-label">Pressure</span>
+              <div className="text-center">
+                <span className="text-[1.5rem] block mb-2">🌡️</span>
+                <span className="block text-[1.2rem] font-semibold">{currentWeather.pressure} hPa</span>
+                <span className="block text-[0.8rem] opacity-80 mt-1">Pressure</span>
               </div>
-              <div className="detail-item">
-                <span className="detail-icon" style={{ color: getUVLevel(currentWeather.uvIndex).color }}>☀️</span>
-                <span className="detail-value">{currentWeather.uvIndex}</span>
-                <span className="detail-label">UV {getUVLevel(currentWeather.uvIndex).level}</span>
+              <div className="text-center">
+                <span className="text-[1.5rem] block mb-2" style={{ color: getUVLevel(currentWeather.uvIndex).color }}>☀️</span>
+                <span className="block text-[1.2rem] font-semibold">{currentWeather.uvIndex}</span>
+                <span className="block text-[0.8rem] opacity-80 mt-1">UV {getUVLevel(currentWeather.uvIndex).level}</span>
               </div>
-              <div className="detail-item">
-                <span className="detail-icon">🌅</span>
-                <span className="detail-value">{currentWeather.sunrise}</span>
-                <span className="detail-label">Sunrise</span>
+              <div className="text-center">
+                <span className="text-[1.5rem] block mb-2">🌅</span>
+                <span className="block text-[1.2rem] font-semibold">{currentWeather.sunrise}</span>
+                <span className="block text-[0.8rem] opacity-80 mt-1">Sunrise</span>
               </div>
             </div>
           </div>
 
           {/* Agricultural Alerts */}
           {weatherData.some(day => getAgriAlert(day).length > 0) && (
-            <div className="agri-alerts">
-              <h3>🌱 Agricultural Alerts</h3>
-              <div className="alerts-list">
+            <div className="bg-white rounded-2xl p-6 max-w-[1000px] mx-auto mb-8 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+              <h3 className="m-0 mb-4 text-[#1a1a2e] font-bold">🌱 Agricultural Alerts</h3>
+              <div className="flex flex-col gap-3">
                 {weatherData.slice(0, 3).flatMap((day, i) => 
-                  getAgriAlert(day).map((alert, j) => (
-                    <div key={`${i}-${j}`} className={`alert-item ${alert.type}`}>
-                      <span className="alert-icon">
-                        {alert.type === 'warning' ? '⚠️' : alert.type === 'danger' ? '🚨' : 'ℹ️'}
-                      </span>
-                      <span>{alert.message}</span>
-                    </div>
-                  ))
+                  getAgriAlert(day).map((alert, j) => {
+                    const alertStyles = {
+                      warning: 'bg-[#FF9800]/10 border-l-4 border-[#FF9800]',
+                      danger: 'bg-[#f44336]/10 border-l-4 border-[#f44336]',
+                      info: 'bg-[#2196F3]/10 border-l-4 border-[#2196F3]',
+                    };
+                    return (
+                      <div key={`${i}-${j}`} className={`flex items-center gap-4 p-4 rounded-xl ${alertStyles[alert.type]}`}>
+                        <span className="text-[1.5rem]">
+                          {alert.type === 'warning' ? '⚠️' : alert.type === 'danger' ? '🚨' : 'ℹ️'}
+                        </span>
+                        <span>{alert.message}</span>
+                      </div>
+                    );
+                  })
                 )}
               </div>
             </div>
           )}
 
           {/* Weather Forecast Cards */}
-          <div className="forecast-section">
-            <h3>📅 {forecastDays}-Day Forecast</h3>
-            <div className="forecast-cards">
+          <div className="max-w-[1000px] mx-auto mb-8">
+            <h3 className="text-[#1a1a2e] mb-4 font-bold">📅 {forecastDays}-Day Forecast</h3>
+            <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4">
               {weatherData.slice(0, 7).map((day, index) => (
-                <div key={index} className="forecast-card">
-                  <div className="forecast-day">{day.day}</div>
-                  <div className="forecast-icon">{getConditionIcon(day.condition)}</div>
-                  <div className="forecast-temps">
-                    <span className="temp-high">{day.tempMax}°</span>
-                    <span className="temp-low">{day.tempMin}°</span>
+                <div key={index} className="bg-white rounded-2xl p-5 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
+                  <div className="font-semibold text-[#666] mb-3">{day.day}</div>
+                  <div className="text-[2.5rem] mb-3">{getConditionIcon(day.condition)}</div>
+                  <div className="flex justify-center gap-2 mb-2">
+                    <span className="text-[#f44336] font-semibold">{day.tempMax}°</span>
+                    <span className="text-[#2196F3]">{day.tempMin}°</span>
                   </div>
-                  <div className="forecast-rain">
+                  <div className="text-[0.85rem] text-[#666]">
                     <span>💧 {day.rainfall}mm</span>
                   </div>
                 </div>
@@ -270,10 +279,10 @@ const WeatherDashboard = () => {
           </div>
 
           {/* Charts Section */}
-          <div className="charts-section">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-[1200px] mx-auto mb-8">
             {/* Temperature Chart */}
-            <div className="chart-card">
-              <h3>🌡️ Temperature Trend</h3>
+            <div className="bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+              <h3 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">🌡️ Temperature Trend</h3>
               <ResponsiveContainer width="100%" height={250}>
                 <AreaChart data={weatherData}>
                   <CartesianGrid strokeDasharray="3 3" />
@@ -288,8 +297,8 @@ const WeatherDashboard = () => {
             </div>
 
             {/* Rainfall Chart */}
-            <div className="chart-card">
-              <h3>🌧️ Rainfall Prediction</h3>
+            <div className="bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+              <h3 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">🌧️ Rainfall Prediction</h3>
               <ResponsiveContainer width="100%" height={250}>
                 <BarChart data={weatherData}>
                   <CartesianGrid strokeDasharray="3 3" />
@@ -302,8 +311,8 @@ const WeatherDashboard = () => {
             </div>
 
             {/* Humidity & Wind Chart */}
-            <div className="chart-card">
-              <h3>💨 Humidity & Wind Speed</h3>
+            <div className="bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+              <h3 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">💨 Humidity & Wind Speed</h3>
               <ResponsiveContainer width="100%" height={250}>
                 <LineChart data={weatherData}>
                   <CartesianGrid strokeDasharray="3 3" />
@@ -319,8 +328,8 @@ const WeatherDashboard = () => {
             </div>
 
             {/* Soil Moisture Chart */}
-            <div className="chart-card">
-              <h3>🌱 Soil Moisture Estimation</h3>
+            <div className="bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+              <h3 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">🌱 Soil Moisture Estimation</h3>
               <ResponsiveContainer width="100%" height={250}>
                 <AreaChart data={weatherData}>
                   <CartesianGrid strokeDasharray="3 3" />
@@ -334,40 +343,40 @@ const WeatherDashboard = () => {
           </div>
 
           {/* Farming Tips */}
-          <div className="farming-tips">
-            <h3>🌾 Weather-Based Farming Tips</h3>
-            <div className="tips-grid">
-              <div className="tip-card">
-                <span className="tip-icon">💧</span>
-                <h4>Irrigation</h4>
-                <p>
+          <div className="max-w-[1000px] mx-auto">
+            <h3 className="text-[#1a1a2e] mb-4 font-bold">🌾 Weather-Based Farming Tips</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="bg-white rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+                <span className="text-[2.5rem] block mb-4">💧</span>
+                <h4 className="m-0 mb-3 text-[#1a1a2e] font-bold">Irrigation</h4>
+                <p className="m-0 text-[#666] text-[0.9rem] leading-relaxed">
                   {currentWeather.humidity > 70 
                     ? 'High humidity - reduce irrigation frequency' 
                     : 'Normal humidity - maintain regular watering schedule'}
                 </p>
               </div>
-              <div className="tip-card">
-                <span className="tip-icon">🌡️</span>
-                <h4>Temperature Management</h4>
-                <p>
+              <div className="bg-white rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+                <span className="text-[2.5rem] block mb-4">🌡️</span>
+                <h4 className="m-0 mb-3 text-[#1a1a2e] font-bold">Temperature Management</h4>
+                <p className="m-0 text-[#666] text-[0.9rem] leading-relaxed">
                   {currentWeather.temperature > 35 
                     ? 'Apply mulching to protect roots from heat' 
                     : 'Conditions favorable for most crops'}
                 </p>
               </div>
-              <div className="tip-card">
-                <span className="tip-icon">🌧️</span>
-                <h4>Rainfall Preparedness</h4>
-                <p>
+              <div className="bg-white rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+                <span className="text-[2.5rem] block mb-4">🌧️</span>
+                <h4 className="m-0 mb-3 text-[#1a1a2e] font-bold">Rainfall Preparedness</h4>
+                <p className="m-0 text-[#666] text-[0.9rem] leading-relaxed">
                   {weatherData.some(d => d.rainfall > 10) 
                     ? 'Rain expected - ensure proper drainage' 
                     : 'Low rainfall expected - plan irrigation accordingly'}
                 </p>
               </div>
-              <div className="tip-card">
-                <span className="tip-icon">🐛</span>
-                <h4>Pest Control</h4>
-                <p>
+              <div className="bg-white rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+                <span className="text-[2.5rem] block mb-4">🐛</span>
+                <h4 className="m-0 mb-3 text-[#1a1a2e] font-bold">Pest Control</h4>
+                <p className="m-0 text-[#666] text-[0.9rem] leading-relaxed">
                   {currentWeather.humidity > 80 
                     ? 'High humidity increases pest risk - monitor closely' 
                     : 'Moderate conditions - routine monitoring sufficient'}
@@ -379,10 +388,10 @@ const WeatherDashboard = () => {
       )}
 
       {!(selectedState && selectedDistrict) && (
-        <div className="empty-state">
-          <span className="empty-icon">📍</span>
-          <h3>Select a Location</h3>
-          <p>Choose your state and district to view weather information and agricultural insights</p>
+        <div className="text-center py-16 px-8 bg-white rounded-[20px] max-w-[500px] mx-auto shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+          <span className="text-[4rem] block mb-4">📍</span>
+          <h3 className="m-0 mb-2 text-[#1a1a2e] font-bold">Select a Location</h3>
+          <p className="m-0 text-[#666]">Choose your state and district to view weather information and agricultural insights</p>
         </div>
       )}
     </div>

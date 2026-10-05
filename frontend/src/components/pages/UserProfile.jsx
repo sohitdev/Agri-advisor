@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
-import './UserProfile.css';
 
 const UserProfile = () => {
   const { user } = useAuth();
@@ -66,31 +65,31 @@ const UserProfile = () => {
   };
 
   const renderProfileTab = () => (
-    <div className="profile-content">
-      <div className="profile-header-section">
-        <div className="avatar-section">
-          <div className="avatar">
+    <div className="bg-white rounded-[20px] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+      <div className="flex items-center gap-8 pb-8 border-b border-[#eee] mb-8 flex-wrap max-md:flex-col max-md:text-center">
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-[100px] h-[100px] rounded-full bg-gradient-to-br from-[#9C27B0] to-[#7B1FA2] flex items-center justify-center text-white text-[2.5rem] font-bold">
             <span>{profileData.name.charAt(0).toUpperCase()}</span>
           </div>
           {isEditing && (
-            <button className="change-avatar-btn">📷 Change Photo</button>
+            <button className="change-w-[100px] h-[100px] rounded-full bg-gradient-to-br from-[#9C27B0] to-[#7B1FA2] flex items-center justify-center text-white text-[2.5rem] font-bold-btn">📷 Change Photo</button>
           )}
         </div>
-        <div className="profile-info">
+        <div className="flex-1 max-md:text-center">
           <h2>{profileData.name}</h2>
-          <p className="profile-location">📍 {profileData.location}</p>
-          <p className="profile-experience">👨‍🌾 {profileData.experience} of farming</p>
+          <p className="my-1 text-[#666]">📍 {profileData.location}</p>
+          <p className="my-1 text-[#666]">👨‍🌾 {profileData.experience} of farming</p>
         </div>
         <button 
-          className={`edit-btn ${isEditing ? 'save' : ''}`}
+          className={`py-3 px-6 bg-[#f5f5f5] border-2 border-transparent rounded-xl cursor-pointer font-semibold transition-all duration-300 hover:bg-[#e0e0e0] ${isEditing ? 'bg-gradient-to-br from-[#4CAF50] to-[#2E7D32] text-white' : ''}`}
           onClick={() => isEditing ? handleSaveProfile() : setIsEditing(true)}
         >
           {isEditing ? '✓ Save Changes' : '✏️ Edit Profile'}
         </button>
       </div>
 
-      <div className="profile-details">
-        <div className="detail-group">
+      <div className="grid grid-cols-2 gap-6 max-md:grid-cols-1">
+        <div className="flex flex-col gap-2">
           <label>Full Name</label>
           {isEditing ? (
             <input 
@@ -103,12 +102,12 @@ const UserProfile = () => {
           )}
         </div>
 
-        <div className="detail-group">
+        <div className="flex flex-col gap-2">
           <label>Email Address</label>
           <span>{profileData.email}</span>
         </div>
 
-        <div className="detail-group">
+        <div className="flex flex-col gap-2">
           <label>Phone Number</label>
           {isEditing ? (
             <input 
@@ -121,7 +120,7 @@ const UserProfile = () => {
           )}
         </div>
 
-        <div className="detail-group">
+        <div className="flex flex-col gap-2">
           <label>Location</label>
           {isEditing ? (
             <input 
@@ -134,7 +133,7 @@ const UserProfile = () => {
           )}
         </div>
 
-        <div className="detail-group">
+        <div className="flex flex-col gap-2">
           <label>Farm Size</label>
           {isEditing ? (
             <input 
@@ -147,17 +146,17 @@ const UserProfile = () => {
           )}
         </div>
 
-        <div className="detail-group full-width">
+        <div className="flex flex-col gap-2 col-span-2 max-md:col-span-1">
           <label>Primary Crops</label>
-          <div className="crops-list">
+          <div className="flex flex-wrap gap-2">
             {profileData.cropTypes.map((crop, index) => (
-              <span key={index} className="crop-badge">{crop}</span>
+              <span key={index} className="bg-[#e8f5e9] text-[#2E7D32] py-2 px-4 rounded-[20px] text-[0.9rem]">{crop}</span>
             ))}
-            {isEditing && <button className="add-crop-btn">+ Add Crop</button>}
+            {isEditing && <button className="bg-[#f5f5f5] border-2 border-dashed border-[#ccc] py-2 px-4 rounded-[20px] cursor-pointer transition-all duration-300 hover:border-[#9C27B0] hover:text-[#9C27B0]">+ Add Crop</button>}
           </div>
         </div>
 
-        <div className="detail-group full-width">
+        <div className="flex flex-col gap-2 col-span-2 max-md:col-span-1">
           <label>Bio</label>
           {isEditing ? (
             <textarea 
@@ -166,7 +165,7 @@ const UserProfile = () => {
               rows={3}
             />
           ) : (
-            <p className="bio-text">{profileData.bio}</p>
+            <p className="m-0 text-[#555] leading-[1.6] p-3 bg-[#f8f9fa] rounded-lg">{profileData.bio}</p>
           )}
         </div>
       </div>
@@ -174,53 +173,53 @@ const UserProfile = () => {
   );
 
   const renderStatsTab = () => (
-    <div className="stats-content">
-      <div className="stats-grid">
-        <div className="stat-card">
-          <span className="stat-icon">🌾</span>
-          <span className="stat-number">{userStats.totalRecommendations}</span>
-          <span className="stat-label">Recommendations</span>
+    <div className="flex flex-col gap-8">
+      <div className="grid grid-cols-4 gap-6 max-md:grid-cols-2">
+        <div className="bg-white rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+          <span className="text-[2.5rem] block mb-3">🌾</span>
+          <span className="block text-[2rem] font-bold text-[#9C27B0] mb-1">{userStats.totalRecommendations}</span>
+          <span className="text-[#666] text-[0.9rem]">Recommendations</span>
         </div>
-        <div className="stat-card">
-          <span className="stat-icon">💾</span>
-          <span className="stat-number">{userStats.savedCrops}</span>
-          <span className="stat-label">Saved Crops</span>
+        <div className="bg-white rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+          <span className="text-[2.5rem] block mb-3">💾</span>
+          <span className="block text-[2rem] font-bold text-[#9C27B0] mb-1">{userStats.savedCrops}</span>
+          <span className="text-[#666] text-[0.9rem]">Saved Crops</span>
         </div>
-        <div className="stat-card">
-          <span className="stat-icon">🌤️</span>
-          <span className="stat-number">{userStats.weatherChecks}</span>
-          <span className="stat-label">Weather Checks</span>
+        <div className="bg-white rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+          <span className="text-[2.5rem] block mb-3">🌤️</span>
+          <span className="block text-[2rem] font-bold text-[#9C27B0] mb-1">{userStats.weatherChecks}</span>
+          <span className="text-[#666] text-[0.9rem]">Weather Checks</span>
         </div>
-        <div className="stat-card">
-          <span className="stat-icon">🔔</span>
-          <span className="stat-number">{userStats.priceAlerts}</span>
-          <span className="stat-label">Price Alerts</span>
+        <div className="bg-white rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+          <span className="text-[2.5rem] block mb-3">🔔</span>
+          <span className="block text-[2rem] font-bold text-[#9C27B0] mb-1">{userStats.priceAlerts}</span>
+          <span className="text-[#666] text-[0.9rem]">Price Alerts</span>
         </div>
       </div>
 
-      <div className="achievements-section">
+      <div className="bg-white rounded-[20px] p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
         <h3>🏆 Achievements</h3>
-        <div className="achievements-grid">
+        <div className="grid grid-cols-3 gap-4 max-md:grid-cols-1">
           {achievements.map(achievement => (
-            <div key={achievement.id} className={`achievement-card ${achievement.earned ? 'earned' : 'locked'}`}>
-              <span className="achievement-icon">{achievement.icon}</span>
+            <div key={achievement.id} className={`p-5 rounded-xl text-center border-2 border-[#eee] relative ${achievement.unlocked ? 'bg-gradient-to-br from-[rgba(156,39,176,0.1)] to-[rgba(123,31,162,0.05)] border-[#9C27B0]' : 'locked'}`}>
+              <span className="text-[2rem] block mb-2">{achievement.icon}</span>
               <h4>{achievement.title}</h4>
               <p>{achievement.description}</p>
-              {achievement.earned && <span className="earned-badge">✓ Earned</span>}
+              {achievement.earned && <span className="bg-gradient-to-br from-[rgba(156,39,176,0.1)] to-[rgba(123,31,162,0.05)] border-[#9C27B0]-badge">✓ Earned</span>}
             </div>
           ))}
         </div>
       </div>
 
-      <div className="activity-section">
+      <div className="bg-white rounded-[20px] p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
         <h3>📋 Recent Activity</h3>
-        <div className="activity-list">
+        <div className="flex flex-col gap-4">
           {recentActivity.map(activity => (
-            <div key={activity.id} className="activity-item">
-              <span className="activity-icon">{activity.icon}</span>
-              <div className="activity-details">
-                <span className="activity-action">{activity.action}</span>
-                <span className="activity-time">{activity.time}</span>
+            <div key={activity.id} className="flex items-center gap-4 p-4 bg-[#f8f9fa] rounded-lg">
+              <span className="text-[1.5rem]">{activity.icon}</span>
+              <div className="flex-1 flex justify-between items-center max-md:flex-col max-md:items-start max-md:gap-1">
+                <span className="text-[#333]">{activity.action}</span>
+                <span className="text-[#999] text-[0.85rem]">{activity.time}</span>
               </div>
             </div>
           ))}
@@ -230,91 +229,91 @@ const UserProfile = () => {
   );
 
   const renderSettingsTab = () => (
-    <div className="settings-content">
-      <div className="settings-section">
+    <div className="flex flex-col gap-8">
+      <div className="bg-white rounded-[20px] p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
         <h3>🔔 Notification Settings</h3>
-        <div className="settings-grid">
-          <div className="setting-item">
-            <div className="setting-info">
-              <span className="setting-label">Push Notifications</span>
-              <span className="setting-desc">Receive push notifications in browser</span>
+        <div className="flex flex-col gap-4">
+          <div className="flex justify-between items-center p-4 bg-[#f8f9fa] rounded-lg">
+            <div className="flex flex-col gap-1">
+              <span className="font-semibold text-[#333]">Push Notifications</span>
+              <span className="text-[0.85rem] text-[#666]">Receive push notifications in browser</span>
             </div>
-            <label className="toggle">
+            <label className="relative inline-block w-[50px] h-[28px]">
               <input 
                 type="checkbox" 
                 checked={preferences.notifications}
                 onChange={(e) => setPreferences({...preferences, notifications: e.target.checked})}
               />
-              <span className="slider"></span>
+              <span className="absolute cursor-pointer inset-0 bg-[#ccc] transition duration-400 rounded-[28px] peer-checked:bg-gradient-to-br peer-checked:from-[#9C27B0] peer-checked:to-[#7B1FA2] before:absolute before:content-[''] before:h-[20px] before:w-[20px] before:left-[4px] before:bottom-[4px] before:bg-white before:transition before:duration-400 before:rounded-full peer-checked:before:translate-x-[22px]"></span>
             </label>
           </div>
 
-          <div className="setting-item">
-            <div className="setting-info">
-              <span className="setting-label">Email Alerts</span>
-              <span className="setting-desc">Receive important updates via email</span>
+          <div className="flex justify-between items-center p-4 bg-[#f8f9fa] rounded-lg">
+            <div className="flex flex-col gap-1">
+              <span className="font-semibold text-[#333]">Email Alerts</span>
+              <span className="text-[0.85rem] text-[#666]">Receive important updates via email</span>
             </div>
-            <label className="toggle">
+            <label className="relative inline-block w-[50px] h-[28px]">
               <input 
                 type="checkbox" 
                 checked={preferences.emailAlerts}
                 onChange={(e) => setPreferences({...preferences, emailAlerts: e.target.checked})}
               />
-              <span className="slider"></span>
+              <span className="absolute cursor-pointer inset-0 bg-[#ccc] transition duration-400 rounded-[28px] peer-checked:bg-gradient-to-br peer-checked:from-[#9C27B0] peer-checked:to-[#7B1FA2] before:absolute before:content-[''] before:h-[20px] before:w-[20px] before:left-[4px] before:bottom-[4px] before:bg-white before:transition before:duration-400 before:rounded-full peer-checked:before:translate-x-[22px]"></span>
             </label>
           </div>
 
-          <div className="setting-item">
-            <div className="setting-info">
-              <span className="setting-label">SMS Alerts</span>
-              <span className="setting-desc">Get critical alerts via SMS</span>
+          <div className="flex justify-between items-center p-4 bg-[#f8f9fa] rounded-lg">
+            <div className="flex flex-col gap-1">
+              <span className="font-semibold text-[#333]">SMS Alerts</span>
+              <span className="text-[0.85rem] text-[#666]">Get critical alerts via SMS</span>
             </div>
-            <label className="toggle">
+            <label className="relative inline-block w-[50px] h-[28px]">
               <input 
                 type="checkbox" 
                 checked={preferences.smsAlerts}
                 onChange={(e) => setPreferences({...preferences, smsAlerts: e.target.checked})}
               />
-              <span className="slider"></span>
+              <span className="absolute cursor-pointer inset-0 bg-[#ccc] transition duration-400 rounded-[28px] peer-checked:bg-gradient-to-br peer-checked:from-[#9C27B0] peer-checked:to-[#7B1FA2] before:absolute before:content-[''] before:h-[20px] before:w-[20px] before:left-[4px] before:bottom-[4px] before:bg-white before:transition before:duration-400 before:rounded-full peer-checked:before:translate-x-[22px]"></span>
             </label>
           </div>
 
-          <div className="setting-item">
-            <div className="setting-info">
-              <span className="setting-label">Weather Alerts</span>
-              <span className="setting-desc">Get notified about weather changes</span>
+          <div className="flex justify-between items-center p-4 bg-[#f8f9fa] rounded-lg">
+            <div className="flex flex-col gap-1">
+              <span className="font-semibold text-[#333]">Weather Alerts</span>
+              <span className="text-[0.85rem] text-[#666]">Get notified about weather changes</span>
             </div>
-            <label className="toggle">
+            <label className="relative inline-block w-[50px] h-[28px]">
               <input 
                 type="checkbox" 
                 checked={preferences.weatherAlerts}
                 onChange={(e) => setPreferences({...preferences, weatherAlerts: e.target.checked})}
               />
-              <span className="slider"></span>
+              <span className="absolute cursor-pointer inset-0 bg-[#ccc] transition duration-400 rounded-[28px] peer-checked:bg-gradient-to-br peer-checked:from-[#9C27B0] peer-checked:to-[#7B1FA2] before:absolute before:content-[''] before:h-[20px] before:w-[20px] before:left-[4px] before:bottom-[4px] before:bg-white before:transition before:duration-400 before:rounded-full peer-checked:before:translate-x-[22px]"></span>
             </label>
           </div>
 
-          <div className="setting-item">
-            <div className="setting-info">
-              <span className="setting-label">Price Alerts</span>
-              <span className="setting-desc">Get notified when crop prices change</span>
+          <div className="flex justify-between items-center p-4 bg-[#f8f9fa] rounded-lg">
+            <div className="flex flex-col gap-1">
+              <span className="font-semibold text-[#333]">Price Alerts</span>
+              <span className="text-[0.85rem] text-[#666]">Get notified when crop prices change</span>
             </div>
-            <label className="toggle">
+            <label className="relative inline-block w-[50px] h-[28px]">
               <input 
                 type="checkbox" 
                 checked={preferences.priceAlerts}
                 onChange={(e) => setPreferences({...preferences, priceAlerts: e.target.checked})}
               />
-              <span className="slider"></span>
+              <span className="absolute cursor-pointer inset-0 bg-[#ccc] transition duration-400 rounded-[28px] peer-checked:bg-gradient-to-br peer-checked:from-[#9C27B0] peer-checked:to-[#7B1FA2] before:absolute before:content-[''] before:h-[20px] before:w-[20px] before:left-[4px] before:bottom-[4px] before:bg-white before:transition before:duration-400 before:rounded-full peer-checked:before:translate-x-[22px]"></span>
             </label>
           </div>
         </div>
       </div>
 
-      <div className="settings-section">
+      <div className="bg-white rounded-[20px] p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
         <h3>⚙️ Preferences</h3>
-        <div className="preferences-grid">
-          <div className="preference-item">
+        <div className="grid grid-cols-3 gap-4 max-md:grid-cols-1">
+          <div className="flex flex-col gap-2">
             <label>Language</label>
             <select 
               value={preferences.language}
@@ -328,7 +327,7 @@ const UserProfile = () => {
             </select>
           </div>
 
-          <div className="preference-item">
+          <div className="flex flex-col gap-2">
             <label>Currency</label>
             <select 
               value={preferences.currency}
@@ -339,7 +338,7 @@ const UserProfile = () => {
             </select>
           </div>
 
-          <div className="preference-item">
+          <div className="flex flex-col gap-2">
             <label>Measurement Units</label>
             <select 
               value={preferences.measurementUnit}
@@ -352,53 +351,53 @@ const UserProfile = () => {
         </div>
       </div>
 
-      <div className="settings-section danger-zone">
+      <div className="bg-white rounded-[20px] p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)] border-2 border-[#ffebee] bg-[#fff5f5]">
         <h3>⚠️ Danger Zone</h3>
-        <div className="danger-actions">
-          <button className="danger-btn outline">🔄 Reset Preferences</button>
-          <button className="danger-btn outline">📤 Export My Data</button>
-          <button className="danger-btn solid">🗑️ Delete Account</button>
+        <div className="flex gap-4 max-md:flex-col">
+          <button className="py-3 px-6 rounded-lg cursor-pointer font-semibold transition-all duration-300 bg-white border-2 border-[#f44336] text-[#f44336] hover:bg-[#ffebee]">🔄 Reset Preferences</button>
+          <button className="py-3 px-6 rounded-lg cursor-pointer font-semibold transition-all duration-300 bg-white border-2 border-[#f44336] text-[#f44336] hover:bg-[#ffebee]">📤 Export My Data</button>
+          <button className="py-3 px-6 rounded-lg cursor-pointer font-semibold transition-all duration-300 bg-[#f44336] border-2 border-[#f44336] text-white hover:bg-[#d32f2f]">🗑️ Delete Account</button>
         </div>
       </div>
 
-      <button className="save-settings-btn" onClick={handleSavePreferences}>
+      <button className="bg-gradient-to-br from-[#4CAF50] to-[#2E7D32] text-white-settings-btn" onClick={handleSavePreferences}>
         💾 Save All Settings
       </button>
     </div>
   );
 
   return (
-    <div className="user-profile-container">
-      <div className="profile-header">
+    <div className="min-h-[calc(100vh-70px)] bg-gradient-to-br from-[#f3e5f5] to-[#e1bee7] p-[clamp(1rem,2vw,2rem)]">
+      <div className="text-center mb-8">
         <h1>👤 My Profile</h1>
         <p>Manage your account settings and preferences</p>
       </div>
 
-      <div className="profile-tabs">
+      <div className="flex justify-center gap-4 mb-8 flex-wrap max-md:flex-col">
         <button 
-          className={`tab-btn ${activeTab === 'profile' ? 'active' : ''}`}
+          className={`flex items-center gap-2 py-4 px-8 bg-white border-2 border-transparent rounded-xl cursor-pointer font-semibold transition-all duration-300 shadow-[0_4px_15px_rgba(0,0,0,0.05)] hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.1)] ${activeTab === 'profile' ? 'active' : ''}`}
           onClick={() => setActiveTab('profile')}
         >
-          <span className="tab-icon">👤</span>
+          <span className="text-[1.2rem]">👤</span>
           Profile
         </button>
         <button 
-          className={`tab-btn ${activeTab === 'stats' ? 'active' : ''}`}
+          className={`flex items-center gap-2 py-4 px-8 bg-white border-2 border-transparent rounded-xl cursor-pointer font-semibold transition-all duration-300 shadow-[0_4px_15px_rgba(0,0,0,0.05)] hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.1)] ${activeTab === 'stats' ? 'active' : ''}`}
           onClick={() => setActiveTab('stats')}
         >
-          <span className="tab-icon">📊</span>
+          <span className="text-[1.2rem]">📊</span>
           Stats & Activity
         </button>
         <button 
-          className={`tab-btn ${activeTab === 'settings' ? 'active' : ''}`}
+          className={`flex items-center gap-2 py-4 px-8 bg-white border-2 border-transparent rounded-xl cursor-pointer font-semibold transition-all duration-300 shadow-[0_4px_15px_rgba(0,0,0,0.05)] hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.1)] ${activeTab === 'settings' ? 'active' : ''}`}
           onClick={() => setActiveTab('settings')}
         >
-          <span className="tab-icon">⚙️</span>
+          <span className="text-[1.2rem]">⚙️</span>
           Settings
         </button>
       </div>
 
-      <div className="tab-content">
+      <div className="max-w-[900px] mx-auto">
         {activeTab === 'profile' && renderProfileTab()}
         {activeTab === 'stats' && renderStatsTab()}
         {activeTab === 'settings' && renderSettingsTab()}

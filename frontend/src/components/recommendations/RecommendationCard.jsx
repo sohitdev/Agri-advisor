@@ -1,56 +1,55 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import './RecommendationCard.css';
 
 const RecommendationCard = ({ recommendation, rank }) => {
   const { t } = useTranslation();
   const { cropName, suitabilityScore, yieldPrediction, explanation, environmentalFactors } = recommendation;
 
   return (
-    <div className="recommendation-card">
-      <div className="card-header">
-        <span className="rank-badge">#{rank}</span>
-        <h3 className="crop-name">{cropName}</h3>
+    <div className="bg-white rounded-lg shadow-[0_2px_10px_rgba(0,0,0,0.1)] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,0,0,0.15)]">
+      <div className="flex items-center gap-4 mb-4 pb-4 border-b-2 border-[#ecf0f1]">
+        <span className="bg-[#3498db] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl">#{rank}</span>
+        <h3 className="text-[#2c3e50] m-0 text-2xl">{cropName}</h3>
       </div>
       
-      <div className="card-body">
-        <div className="score-section">
-          <div className="score-label">{t('suitabilityScore')}</div>
-          <div className="score-value">{suitabilityScore}%</div>
-          <div className="score-bar">
+      <div className="flex flex-col gap-4">
+        <div className="bg-[#f8f9fa] p-4 rounded">
+          <div className="text-[0.9rem] text-[#555] mb-2">{t('suitabilityScore')}</div>
+          <div className="text-[2rem] font-bold text-[#27ae60] mb-2">{suitabilityScore}%</div>
+          <div className="w-full h-2 bg-[#ecf0f1] rounded overflow-hidden">
             <div 
-              className="score-fill" 
+              className="h-full bg-[#27ae60] transition-[width] duration-300" 
               style={{ width: `${suitabilityScore}%` }}
             ></div>
           </div>
         </div>
 
-        <div className="yield-section">
-          <div className="yield-label">{t('yieldPrediction')}</div>
-          <div className="yield-value">
+        <div className="p-4 bg-[#e8f5e9] rounded">
+          <div className="text-[0.9rem] text-[#555] mb-2">{t('yieldPrediction')}</div>
+          <div className="text-[1.2rem] font-semibold text-[#2c3e50] mb-1">
             {yieldPrediction.min} - {yieldPrediction.max} kg/hectare
           </div>
-          <div className="yield-expected">
+          <div className="text-[0.9rem] text-[#27ae60]">
             Expected: {yieldPrediction.expected} kg/hectare
           </div>
         </div>
 
-        <div className="explanation-section">
-          <h4>{t('why')}</h4>
-          <p>{explanation}</p>
+        <div className="p-4 bg-[#fff3cd] rounded">
+          <h4 className="text-[#856404] mb-2">{t('why')}</h4>
+          <p className="text-[#856404] leading-[1.6] m-0">{explanation}</p>
         </div>
 
         {environmentalFactors && (
-          <div className="factors-section">
-            <div className="factor-item">
+          <div className="flex flex-col gap-2 p-4 bg-[#f8f9fa] rounded">
+            <div className="flex justify-between text-[#555]">
               <span>Soil Match:</span>
               <span>{environmentalFactors.soilMatch}%</span>
             </div>
-            <div className="factor-item">
+            <div className="flex justify-between text-[#555]">
               <span>Weather Match:</span>
               <span>{environmentalFactors.weatherMatch}%</span>
             </div>
-            <div className="factor-item">
+            <div className="flex justify-between text-[#555]">
               <span>Historical Yield:</span>
               <span>{environmentalFactors.historicalYield}%</span>
             </div>
@@ -62,5 +61,4 @@ const RecommendationCard = ({ recommendation, rank }) => {
 };
 
 export default RecommendationCard;
-
 

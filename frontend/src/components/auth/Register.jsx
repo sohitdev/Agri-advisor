@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../context/AuthContext';
 import { toast } from 'react-toastify'; // Use react-toastify
 import indiaStatesDistricts from '../../data/indiaStatesDistricts.json';
-import './Auth.css';
 
 const API_HOST = (import.meta.env.VITE_API_URL || 'http://localhost:5000').replace(/\/$/, '');
 
@@ -391,41 +390,50 @@ const Register = () => {
   };
 
   return (
-    <div className="auth-container register-container">
-      <div className="auth-background">
-        <div className="blob blob-1"></div>
-        <div className="blob blob-2"></div>
+    <div className="flex justify-center items-center min-h-[calc(100vh-80px)] p-[clamp(1rem,2vw,2rem)_1rem] relative overflow-hidden bg-[linear-gradient(135deg,rgba(245,247,250,0.95),rgba(195,207,226,0.95))] max-md:min-h-auto max-md:p-[1.5rem_1rem]">
+<style>
+{`
+@keyframes slideInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes blob { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(30px, -50px) scale(1.1); } 66% { transform: translate(-20px, 20px) scale(0.9); } }
+@keyframes slideFromLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+`}
+</style>
+
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute rounded-full blur-[60px] opacity-20 mix-blend-multiply w-[300px] h-[300px] bg-[linear-gradient(135deg,#3498db,#5dade2)] -top-[50px] -right-[50px] animate-[blob_8s_infinite]"></div>
+        <div className="absolute rounded-full blur-[60px] opacity-20 mix-blend-multiply w-[300px] h-[300px] bg-[linear-gradient(135deg,#2980b9,#3498db)] -bottom-[50px] -left-[50px] animate-[blob_8s_infinite_reverse_2s]"></div>
       </div>
 
-      <div className={`auth-card register-card ${isVisible ? 'visible' : ''}`}>
+      <div className={`bg-white rounded-[16px] shadow-[0_10px_40px_rgba(52,152,219,0.2)] p-[2.5rem] w-[min(100%,480px)] relative z-10 opacity-0 translate-y-[30px] transition-all duration-[600ms] ease-in-out max-sm:p-[2rem_1.5rem] max-sm:m-[1rem] max-sm:max-w-full  ${isVisible ? 'opacity-100 !translate-y-0' : ''}`}>
         {/* Header */}
-        <div className="auth-header">
-          <div className="auth-icon">
+        <div className="text-center mb-[2rem] [animation:slideInDown_0.6s_ease]">
+          <div className="w-[60px] h-[60px] bg-[linear-gradient(135deg,#3498db,#5dade2)] rounded-full flex items-center justify-center text-white mx-auto mb-[1rem] shadow-[0_4px_16px_rgba(0,0,0,0.12)] transition-all duration-300 ease-in-out hover:scale-110 hover:rotate-[5deg]">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
           </div>
-          <h1 className="auth-title">{t('register')}</h1>
-          <p className="auth-subtitle">Create your account</p>
+          <h1 className="text-[2rem] text-[#2c3e50] mb-[0.5rem] font-bold tracking-[-0.5px] max-sm:text-[1.5rem]">{t('register')}</h1>
+          <p className="text-[#555] text-[0.95rem] font-medium max-sm:text-[0.9rem]">Create your account</p>
         </div>
 
         {/* Progress Bar */}
-        <div className="progress-container">
-          <div className={`progress-bar ${currentStep >= 1 ? 'active' : ''}`}></div>
-          <div className={`progress-bar ${currentStep >= 2 ? 'active' : ''}`}></div>
+        <div className="flex gap-[0.5rem] mb-[2rem]">
+          <div className={`flex-1 h-[3px] bg-[#ecf0f1] rounded-[10px] transition-all duration-300 ease-in-out  ${currentStep >= 1 ? 'bg-[linear-gradient(90deg,#3498db,#5dade2)] [animation:slideFromLeft_0.5s_ease]' : ''}`}></div>
+          <div className={`flex-1 h-[3px] bg-[#ecf0f1] rounded-[10px] transition-all duration-300 ease-in-out  ${currentStep >= 2 ? 'bg-[linear-gradient(90deg,#3498db,#5dade2)] [animation:slideFromLeft_0.5s_ease]' : ''}`}></div>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="auth-form">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-[1.5rem]">
           {/* Step 1: Personal Info */}
-          <div className={`form-step ${currentStep === 1 ? 'active' : ''}`}>
-            <div className="form-group">
-              <label htmlFor="name" className="form-label">
-                {t('name')} <span className="required">*</span>
+          <div className={`hidden opacity-0 translate-x-[20px] transition-all duration-500 ease-in-out  ${currentStep === 1 ? '!flex flex-col gap-[1.5rem] !opacity-100 !translate-x-0' : ''}`}>
+            <div className="flex flex-col gap-[0.5rem] [animation:slideInUp_0.6s_ease]">
+              <label htmlFor="name" className="block text-[0.95rem] font-semibold text-[#2c3e50] transition-all duration-300 ease-in-out focus-within:text-[#3498db]">
+                {t('name')} <span className="text-[#e74c3c] ml-[0.25rem]">*</span>
               </label>
-              <div className="input-wrapper">
-                <svg className="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <div className="relative flex items-center">
+                <svg className="absolute left-[12px] text-[#95a5a6] stroke-current pointer-events-none transition-all duration-300 ease-in-out z-[1]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                   <circle cx="12" cy="7" r="4"></circle>
                 </svg>
@@ -435,18 +443,18 @@ const Register = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="form-input"
+                  className="w-full p-[0.875rem_0.75rem_0.875rem_2.75rem] border-2 border-[#ecf0f1] rounded-[10px] text-[1rem] text-[#2c3e50] bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-[#3498db] focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-[#ecf0f1] disabled:text-[#95a5a6] disabled:cursor-not-allowed"
                   placeholder="Full Name"
                 />
               </div>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="email" className="form-label">
-                {t('email')} <span className="required">*</span>
+            <div className="flex flex-col gap-[0.5rem] [animation:slideInUp_0.6s_ease]">
+              <label htmlFor="email" className="block text-[0.95rem] font-semibold text-[#2c3e50] transition-all duration-300 ease-in-out focus-within:text-[#3498db]">
+                {t('email')} <span className="text-[#e74c3c] ml-[0.25rem]">*</span>
               </label>
-              <div className="input-wrapper">
-                <svg className="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <div className="relative flex items-center">
+                <svg className="absolute left-[12px] text-[#95a5a6] stroke-current pointer-events-none transition-all duration-300 ease-in-out z-[1]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <rect x="2" y="4" width="20" height="16" rx="2"></rect>
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                 </svg>
@@ -456,18 +464,18 @@ const Register = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="form-input"
+                  className="w-full p-[0.875rem_0.75rem_0.875rem_2.75rem] border-2 border-[#ecf0f1] rounded-[10px] text-[1rem] text-[#2c3e50] bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-[#3498db] focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-[#ecf0f1] disabled:text-[#95a5a6] disabled:cursor-not-allowed"
                   placeholder="Email Address"
                 />
               </div>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="password" className="form-label">
-                {t('password')} <span className="required">*</span>
+            <div className="flex flex-col gap-[0.5rem] [animation:slideInUp_0.6s_ease]">
+              <label htmlFor="password" className="block text-[0.95rem] font-semibold text-[#2c3e50] transition-all duration-300 ease-in-out focus-within:text-[#3498db]">
+                {t('password')} <span className="text-[#e74c3c] ml-[0.25rem]">*</span>
               </label>
-              <div className="input-wrapper">
-                <svg className="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <div className="relative flex items-center">
+                <svg className="absolute left-[12px] text-[#95a5a6] stroke-current pointer-events-none transition-all duration-300 ease-in-out z-[1]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                   <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                 </svg>
@@ -477,12 +485,12 @@ const Register = () => {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className="form-input"
+                  className="w-full p-[0.875rem_0.75rem_0.875rem_2.75rem] border-2 border-[#ecf0f1] rounded-[10px] text-[1rem] text-[#2c3e50] bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-[#3498db] focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-[#ecf0f1] disabled:text-[#95a5a6] disabled:cursor-not-allowed"
                   placeholder="At least 6 characters"
                 />
                 <button
                   type="button"
-                  className="password-toggle"
+                  className="absolute right-[12px] bg-transparent border-none text-[#95a5a6] cursor-pointer p-[0.5rem] flex items-center justify-center transition-all duration-300 ease-in-out z-[2] hover:text-[#555] active:scale-95"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
@@ -502,20 +510,20 @@ const Register = () => {
           </div>
 
           {/* Step 2: Location & Preferences */}
-          <div className={`form-step ${currentStep === 2 ? 'active' : ''}`}>
+          <div className={`hidden opacity-0 translate-x-[20px] transition-all duration-500 ease-in-out  ${currentStep === 2 ? '!flex flex-col gap-[1.5rem] !opacity-100 !translate-x-0' : ''}`}>
             <button
               type="button"
-              className="btn-location"
+              className="w-full border border-dashed border-[#5dade2] bg-[rgba(52,152,219,0.08)] text-[#2980b9] rounded-[10px] p-[0.75rem_1rem] text-[0.95rem] font-semibold cursor-pointer transition-all duration-300 ease-in-out hover:not(:disabled):bg-[rgba(52,152,219,0.14)] hover:not(:disabled):border-[#3498db] disabled:opacity-70 disabled:cursor-wait"
               onClick={handleUseCurrentLocation}
               disabled={geoLoading}
             >
               {geoLoading ? 'Detecting location...' : 'Use Current Location'}
             </button>
 
-            <div className="form-group">
-              <label htmlFor="phone" className="form-label">Phone</label>
-              <div className="input-wrapper">
-                <svg className="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <div className="flex flex-col gap-[0.5rem] [animation:slideInUp_0.6s_ease]">
+              <label htmlFor="phone" className="block text-[0.95rem] font-semibold text-[#2c3e50] transition-all duration-300 ease-in-out focus-within:text-[#3498db]">Phone</label>
+              <div className="relative flex items-center">
+                <svg className="absolute left-[12px] text-[#95a5a6] stroke-current pointer-events-none transition-all duration-300 ease-in-out z-[1]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                 </svg>
                 <input
@@ -524,16 +532,16 @@ const Register = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="form-input"
+                  className="w-full p-[0.875rem_0.75rem_0.875rem_2.75rem] border-2 border-[#ecf0f1] rounded-[10px] text-[1rem] text-[#2c3e50] bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-[#3498db] focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-[#ecf0f1] disabled:text-[#95a5a6] disabled:cursor-not-allowed"
                   placeholder="+91 (optional)"
                 />
               </div>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="state" className="form-label">{t('state')}</label>
-              <div className="input-wrapper dropdown-wrapper" ref={stateDropdownRef}>
-                <svg className="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <div className="flex flex-col gap-[0.5rem] [animation:slideInUp_0.6s_ease]">
+              <label htmlFor="state" className="block text-[0.95rem] font-semibold text-[#2c3e50] transition-all duration-300 ease-in-out focus-within:text-[#3498db]">{t('state')}</label>
+              <div className="relative flex items-center" ref={stateDropdownRef}>
+                <svg className="absolute left-[12px] text-[#95a5a6] stroke-current pointer-events-none transition-all duration-300 ease-in-out z-[1]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
@@ -544,13 +552,13 @@ const Register = () => {
                   value={formData.state}
                   onChange={handleStateInputChange}
                   onFocus={() => setIsStateDropdownOpen(true)}
-                  className="form-input"
+                  className="w-full p-[0.875rem_0.75rem_0.875rem_2.75rem] border-2 border-[#ecf0f1] rounded-[10px] text-[1rem] text-[#2c3e50] bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-[#3498db] focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-[#ecf0f1] disabled:text-[#95a5a6] disabled:cursor-not-allowed"
                   autoComplete="address-level1"
                   placeholder="e.g., Uttar Pradesh"
                 />
                 <button
                   type="button"
-                  className="auth-dropdown-toggle"
+                  className="absolute right-[10px] top-1/2 -translate-y-1/2 border-none bg-transparent text-[#95a5a6] inline-flex items-center justify-center cursor-pointer p-[0.35rem] rounded-[8px] transition-all duration-300 ease-in-out z-[2] hover:not(:disabled):text-[#555] hover:not(:disabled):bg-[#f8f9fa] disabled:cursor-not-allowed disabled:text-[#d5dbdb]"
                   onClick={() => setIsStateDropdownOpen((prev) => !prev)}
                   aria-label="Toggle state options"
                 >
@@ -559,11 +567,11 @@ const Register = () => {
                   </svg>
                 </button>
                 {isStateDropdownOpen && filteredStateOptions.length > 0 && (
-                  <ul className="search-dropdown" role="listbox" aria-label="State options">
+                  <ul className="absolute left-0 right-0 top-[calc(100%+0.35rem)] list-none m-0 p-[0.35rem] bg-white border border-[#ecf0f1] rounded-[10px] shadow-[0_4px_16px_rgba(0,0,0,0.12)] max-h-[210px] overflow-y-auto z-[30] [animation:slideInDown_0.2s_ease]" role="listbox" aria-label="State options">
                     {filteredStateOptions.map((stateName) => (
                       <li
                         key={stateName}
-                        className="search-dropdown-item"
+                        className="p-[0.55rem_0.75rem] rounded-[8px] text-[#2c3e50] text-[0.95rem] cursor-pointer transition-all duration-300 ease-in-out hover:bg-[rgba(52,152,219,0.1)] hover:text-[#2980b9]"
                         onMouseDown={(e) => e.preventDefault()}
                         onClick={() => handleStateSelect(stateName)}
                         role="option"
@@ -577,10 +585,10 @@ const Register = () => {
               </div>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="district" className="form-label">{t('district')}</label>
-              <div className="input-wrapper dropdown-wrapper" ref={districtDropdownRef}>
-                <svg className="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <div className="flex flex-col gap-[0.5rem] [animation:slideInUp_0.6s_ease]">
+              <label htmlFor="district" className="block text-[0.95rem] font-semibold text-[#2c3e50] transition-all duration-300 ease-in-out focus-within:text-[#3498db]">{t('district')}</label>
+              <div className="relative flex items-center" ref={districtDropdownRef}>
+                <svg className="absolute left-[12px] text-[#95a5a6] stroke-current pointer-events-none transition-all duration-300 ease-in-out z-[1]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="11" cy="11" r="8"></circle>
                   <path d="M21 21l-4.35-4.35"></path>
                 </svg>
@@ -591,14 +599,14 @@ const Register = () => {
                   value={formData.district}
                   onChange={handleDistrictInputChange}
                   onFocus={() => selectedState && setIsDistrictDropdownOpen(true)}
-                  className="form-input"
+                  className="w-full p-[0.875rem_0.75rem_0.875rem_2.75rem] border-2 border-[#ecf0f1] rounded-[10px] text-[1rem] text-[#2c3e50] bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-[#3498db] focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-[#ecf0f1] disabled:text-[#95a5a6] disabled:cursor-not-allowed"
                   disabled={!selectedState}
                   autoComplete="address-level2"
                   placeholder={selectedState ? 'Select District' : 'Select state first'}
                 />
                 <button
                   type="button"
-                  className="auth-dropdown-toggle"
+                  className="absolute right-[10px] top-1/2 -translate-y-1/2 border-none bg-transparent text-[#95a5a6] inline-flex items-center justify-center cursor-pointer p-[0.35rem] rounded-[8px] transition-all duration-300 ease-in-out z-[2] hover:not(:disabled):text-[#555] hover:not(:disabled):bg-[#f8f9fa] disabled:cursor-not-allowed disabled:text-[#d5dbdb]"
                   onClick={() => selectedState && setIsDistrictDropdownOpen((prev) => !prev)}
                   aria-label="Toggle district options"
                   disabled={!selectedState}
@@ -608,11 +616,11 @@ const Register = () => {
                   </svg>
                 </button>
                 {isDistrictDropdownOpen && filteredDistrictOptions.length > 0 && (
-                  <ul className="search-dropdown" role="listbox" aria-label="District options">
+                  <ul className="absolute left-0 right-0 top-[calc(100%+0.35rem)] list-none m-0 p-[0.35rem] bg-white border border-[#ecf0f1] rounded-[10px] shadow-[0_4px_16px_rgba(0,0,0,0.12)] max-h-[210px] overflow-y-auto z-[30] [animation:slideInDown_0.2s_ease]" role="listbox" aria-label="District options">
                     {filteredDistrictOptions.map((districtName) => (
                       <li
                         key={districtName}
-                        className="search-dropdown-item"
+                        className="p-[0.55rem_0.75rem] rounded-[8px] text-[#2c3e50] text-[0.95rem] cursor-pointer transition-all duration-300 ease-in-out hover:bg-[rgba(52,152,219,0.1)] hover:text-[#2980b9]"
                         onMouseDown={(e) => e.preventDefault()}
                         onClick={() => handleDistrictSelect(districtName)}
                         role="option"
@@ -626,10 +634,10 @@ const Register = () => {
               </div>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="language" className="form-label">Preferred Language</label>
-              <div className="input-wrapper">
-                <svg className="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <div className="flex flex-col gap-[0.5rem] [animation:slideInUp_0.6s_ease]">
+              <label htmlFor="language" className="block text-[0.95rem] font-semibold text-[#2c3e50] transition-all duration-300 ease-in-out focus-within:text-[#3498db]">Preferred Language</label>
+              <div className="relative flex items-center">
+                <svg className="absolute left-[12px] text-[#95a5a6] stroke-current pointer-events-none transition-all duration-300 ease-in-out z-[1]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="12" cy="12" r="10"></circle>
                   <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
                 </svg>
@@ -638,7 +646,7 @@ const Register = () => {
                   name="preferredLanguage"
                   value={formData.preferredLanguage}
                   onChange={handleChange}
-                  className="form-input form-select"
+                  className="w-full p-[0.875rem_0.75rem_0.875rem_2.75rem] border-2 border-[#ecf0f1] rounded-[10px] text-[1rem] text-[#2c3e50] bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-[#3498db] focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-[#ecf0f1] disabled:text-[#95a5a6] disabled:cursor-not-allowed !pl-[2.75rem] !pr-[2.75rem]  bg-no-repeat bg-[right_0.85rem_center] bg-[length:1.25rem] cursor-pointer indent-[0.25rem]"
                 >
                   <option value="en">English</option>
                   <option value="hi">हिन्दी (Hindi)</option>
@@ -654,12 +662,12 @@ const Register = () => {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="form-buttons">
+          <div className="flex gap-[1rem] mt-[1.5rem]">
             {currentStep === 2 && (
               <button
                 type="button"
                 onClick={() => setCurrentStep(1)}
-                className="btn-secondary"
+                className="p-[0.875rem_1.5rem] border-none rounded-[10px] text-[1rem] font-semibold cursor-pointer transition-all duration-300 ease-in-out flex items-center justify-center gap-[0.5rem] uppercase tracking-[0.5px] bg-[#ecf0f1] text-[#2c3e50] flex-1 hover:bg-[#d5dbdb] hover:-translate-y-[2px] active:translate-y-0"
               >
                 Back
               </button>
@@ -667,12 +675,12 @@ const Register = () => {
             <button
               type="submit"
               disabled={loading}
-              className={`btn-submit ${loading ? 'btn-loading' : ''}`}
+              className={`p-[0.875rem_1.5rem] border-none rounded-[10px] text-[1rem] font-semibold cursor-pointer transition-all duration-300 ease-in-out flex items-center justify-center gap-[0.5rem] uppercase tracking-[0.5px] bg-[linear-gradient(135deg,#3498db,#5dade2)] text-white shadow-[0_4px_16px_rgba(0,0,0,0.12)] w-full hover:not(:disabled):-translate-y-[2px] hover:not(:disabled):shadow-[0_10px_40px_rgba(52,152,219,0.2)] active:not(:disabled):translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:bg-[#95a5a6]  ${loading ? '!bg-[#95a5a6]' : ''}`}
               style={{ flex: currentStep === 1 ? 1 : 'auto' }}
             >
               {loading ? (
                 <>
-                  <span className="spinner"></span>
+                  <span className="w-[18px] h-[18px] border-2 border-[rgba(255,255,255,0.3)] border-t-white rounded-full animate-[spin_1s_linear_infinite]"></span>
                   <span>Registering...</span>
                 </>
               ) : currentStep === 2 ? (
@@ -685,16 +693,16 @@ const Register = () => {
         </form>
 
         {/* Login Link */}
-        <p className="auth-footer">
+        <p className="text-center text-[#555] text-[0.9rem] mt-[1.5rem]">
           Already have an account?{' '}
-          <Link to="/login" className="auth-link">
+          <Link to="/login" className="text-[#3498db] no-underline font-semibold transition-all duration-300 ease-in-out border-b-2 border-transparent hover:text-[#2980b9] hover:border-[#3498db]">
             {t('login')}
           </Link>
         </p>
       </div>
 
-      <p className="auth-terms">
-        By logging in, you agree to our <Link to="/terms-of-service" className="auth-link">Terms of Service</Link>
+      <p className="absolute bottom-[1rem] left-1/2 -translate-x-1/2 text-center text-[0.75rem] text-[#95a5a6] max-w-[90%]">
+        By logging in, you agree to our <Link to="/terms-of-service" className="text-[#3498db] no-underline font-semibold transition-all duration-300 ease-in-out border-b-2 border-transparent hover:text-[#2980b9] hover:border-[#3498db]">Terms of Service</Link>
       </p>
     </div>
   );

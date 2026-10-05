@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import RecommendationCard from './RecommendationCard';
-import './RecommendationResults.css';
 
 const RecommendationResults = ({ recommendations }) => {
   const { t } = useTranslation();
@@ -11,9 +10,9 @@ const RecommendationResults = ({ recommendations }) => {
   }
 
   return (
-    <div className="recommendation-results">
-      <h2 className="section-title">{t('recommendations')}</h2>
-      <div className="recommendations-grid">
+    <div className="mb-8">
+      <h2 className="text-[#2c3e50] mb-6 text-2xl">{t('recommendations')}</h2>
+      <div className="grid grid-cols-1 md:grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-6">
         {recommendations.map((rec, index) => (
           <RecommendationCard key={index} recommendation={rec} rank={index + 1} />
         ))}
@@ -23,5 +22,4 @@ const RecommendationResults = ({ recommendations }) => {
 };
 
 export default RecommendationResults;
-
 
