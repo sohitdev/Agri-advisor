@@ -1,0 +1,66 @@
+{
+  "CEREALS_WHEAT": [
+    10,
+    25
+  ],
+  "CEREALS_RICE": [
+    20,
+    35
+  ],
+  "CEREALS_MAIZE": [
+    18,
+    32
+  ],
+  "CEREALS_BARLEY": [
+    8,
+    22
+  ],
+  "CEREALS_MILLETS": [
+    25,
+    40
+  ],
+  "PULSES": [
+    15,
+    30
+  ],
+  "OILSEEDS": [
+    20,
+    35
+  ],
+  "SUGARCANE": [
+    20,
+    35
+  ],
+  "COTTON": [
+    21,
+    35
+  ],
+  "JUTE": [
+    24,
+    37
+  ],
+  "TOBACCO": [
+    18,
+    28
+  ],
+  "VEGETABLES": [
+    15,
+    30
+  ],
+  "FRUITS": [
+    15,
+    35
+  ],
+  "SPICES": [
+    20,
+    35
+  ],
+  "PLANTATION": [
+    20,
+    30
+  ],
+  "FIBER": [
+    25,
+    35
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "KHARIF": [
+    "CEREALS_RICE",
+    "CEREALS_MAIZE",
+    "CEREALS_MILLETS",
+    "PULSES",
+    "OILSEEDS",
+    "COTTON",
+    "JUTE",
+    "SUGARCANE",
+    "VEGETABLES",
+    "FRUITS"
+  ],
+  "RABI": [
+    "CEREALS_WHEAT",
+    "CEREALS_BARLEY",
+    "PULSES",
+    "OILSEEDS",
+    "VEGETABLES",
+    "SPICES",
+    "TOBACCO"
+  ],
+  "SUMMER": [
+    "CEREALS_MAIZE",
+    "PULSES",
+    "VEGETABLES",
+    "FRUITS",
+    "OILSEEDS"
+  ],
+  "WINTER": [
+    "CEREALS_WHEAT",
+    "CEREALS_BARLEY",
+    "VEGETABLES",
+    "SPICES",
+    "OILSEEDS"
+  ],
+  "AUTUMN": [
+    "CEREALS_RICE",
+    "PULSES",
+    "VEGETABLES",
+    "OILSEEDS"
+  ],
+  "WHOLE YEAR": [
+    "SUGARCANE",
+    "VEGETABLES",
+    "FRUITS",
+    "PLANTATION",
+    "SPICES"
+  ]
+}

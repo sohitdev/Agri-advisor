@@ -1,0 +1,158 @@
+{
+  "CEREALS_RICE": [
+    "RICE",
+    "PADDY"
+  ],
+  "CEREALS_WHEAT": [
+    "WHEAT"
+  ],
+  "CEREALS_MAIZE": [
+    "MAIZE"
+  ],
+  "CEREALS_MILLETS": [
+    "BAJRA",
+    "JOWAR",
+    "RAGI",
+    "SMALL MILLETS",
+    "KORRA",
+    "SAMAI",
+    "VARAGU",
+    "OTHER CEREALS"
+  ],
+  "CEREALS_BARLEY": [
+    "BARLEY"
+  ],
+  "PULSES": [
+    "GRAM",
+    "TUR",
+    "URAD",
+    "MOONG",
+    "MASOOR",
+    "ARHAR/TUR",
+    "LENTIL",
+    "PEAS & BEANS",
+    "BLACKGRAM",
+    "GREENGRAM",
+    "HORSEGRAM",
+    "KULTHI",
+    "MOTH",
+    "RAJMASH KHOLAR",
+    "OTHER KHARIF PULSES",
+    "OTHER RABI PULSES",
+    "PULSES",
+    "BEANS & MUTTER(VEGETABLE)",
+    "COWPEA",
+    "FIELD BEANS",
+    "LENTIL",
+    "OTHER  RABI PULSES",
+    "PEA"
+  ],
+  "OILSEEDS": [
+    "GROUNDNUT",
+    "SOYABEAN",
+    "SUNFLOWER",
+    "RAPESEED &MUSTARD",
+    "SESAMUM",
+    "CASTOR SEED",
+    "LINSEED",
+    "SAFFLOWER",
+    "NIGER SEED",
+    "OILSEEDS TOTAL",
+    "OTHER OILSEEDS",
+    "MUSTARD"
+  ],
+  "COTTON": [
+    "COTTON",
+    "COTTON(LINT)"
+  ],
+  "SUGARCANE": [
+    "SUGARCANE"
+  ],
+  "JUTE": [
+    "JUTE",
+    "JUTE & MESTA",
+    "MESTA"
+  ],
+  "TOBACCO": [
+    "TOBACCO"
+  ],
+  "FRUITS": [
+    "BANANA",
+    "MANGO",
+    "ORANGE",
+    "GRAPES",
+    "APPLE",
+    "PAPAYA",
+    "PINEAPPLE",
+    "CITRUS FRUIT",
+    "POMEGRANATE",
+    "SAPOTA",
+    "LITCHI",
+    "JACK FRUIT",
+    "GUAVA",
+    "PLUMS",
+    "PEAR",
+    "PEACH",
+    "BERS",
+    "WATER MELON",
+    "MUSK MELON",
+    "OTHER CITRUS FRUIT",
+    "OTHER FRESH FRUITS"
+  ],
+  "VEGETABLES": [
+    "POTATO",
+    "ONION",
+    "TOMATO",
+    "BRINJAL",
+    "CABBAGE",
+    "CAULIFLOWER",
+    "BHINDI",
+    "BOTTLE GOURD",
+    "BITTER GOURD",
+    "CUCUMBER",
+    "PUMPKIN",
+    "CARROT",
+    "SWEET POTATO",
+    "TAPIOCA",
+    "DRUM STICK",
+    "BEANS",
+    "GARLIC",
+    "TURNIP",
+    "BEET ROOT",
+    "RADISH",
+    "COLOCOSIA",
+    "ASH GOURD",
+    "RIDGE GOURD",
+    "SNAKE GOURD",
+    "KHESARI",
+    "LAB-LAB",
+    "KAPAS",
+    "OTHER VEGETABLES"
+  ],
+  "SPICES": [
+    "GINGER",
+    "TURMERIC",
+    "BLACK PEPPER",
+    "CHILLIES",
+    "DRY CHILLIES",
+    "CORIANDER",
+    "GARLIC",
+    "CARDAMOM",
+    "DRY GINGER",
+    "PEPPER"
+  ],
+  "PLANTATION": [
+    "COCONUT",
+    "ARECANUT",
+    "CASHEWNUT",
+    "TEA",
+    "COFFEE",
+    "RUBBER",
+    "ARCANUT (PROCESSED)",
+    "ATCANUT (RAW)"
+  ],
+  "FIBER": [
+    "SANNHAMP",
+    "SUNHEMP"
+  ]
+}

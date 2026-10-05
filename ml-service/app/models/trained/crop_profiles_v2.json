@@ -1,0 +1,290 @@
+{
+  "CEREALS_RICE": {
+    "avg_yield": 1.9189768136786873,
+    "std_yield": 0.8131066266020287,
+    "avg_area": 683720.4220499109,
+    "states": [
+      "ANDAMAN AND NICOBAR ISLANDS",
+      "ANDHRA PRADESH",
+      "ARUNACHAL PRADESH",
+      "ASSAM",
+      "BIHAR",
+      "CHANDIGARH",
+      "CHHATTISGARH",
+      "DADRA AND NAGAR HAVELI",
+      "GOA",
+      "GUJARAT"
+    ],
+    "num_records": 1122
+  },
+  "PULSES": {
+    "avg_yield": 1.0201436034860196,
+    "std_yield": 1.0731365434013818,
+    "avg_area": 204236.57343750002,
+    "states": [
+      "ANDAMAN AND NICOBAR ISLANDS",
+      "ANDHRA PRADESH",
+      "ARUNACHAL PRADESH",
+      "ASSAM",
+      "BIHAR",
+      "CHANDIGARH",
+      "CHHATTISGARH",
+      "DADRA AND NAGAR HAVELI",
+      "GOA",
+      "GUJARAT"
+    ],
+    "num_records": 1856
+  },
+  "SPICES": {
+    "avg_yield": 1.9874991679981464,
+    "std_yield": 2.4402393962773465,
+    "avg_area": 21284.872238046795,
+    "states": [
+      "ANDAMAN AND NICOBAR ISLANDS",
+      "ANDHRA PRADESH",
+      "ARUNACHAL PRADESH",
+      "ASSAM",
+      "BIHAR",
+      "CHHATTISGARH",
+      "GOA",
+      "GUJARAT",
+      "HARYANA",
+      "HIMACHAL PRADESH"
+    ],
+    "num_records": 983
+  },
+  "FRUITS": {
+    "avg_yield": 20.065304953566326,
+    "std_yield": 14.418593456409198,
+    "avg_area": 18598.673472527473,
+    "states": [
+      "ANDAMAN AND NICOBAR ISLANDS",
+      "ANDHRA PRADESH",
+      "ASSAM",
+      "BIHAR",
+      "CHHATTISGARH",
+      "DADRA AND NAGAR HAVELI",
+      "GOA",
+      "GUJARAT",
+      "HARYANA",
+      "KARNATAKA"
+    ],
+    "num_records": 455
+  },
+  "PLANTATION": {
+    "avg_yield": 2.767037658367416,
+    "std_yield": 2.549002605237741,
+    "avg_area": 114737.33639423076,
+    "states": [
+      "ANDAMAN AND NICOBAR ISLANDS",
+      "ANDHRA PRADESH",
+      "ASSAM",
+      "DADRA AND NAGAR HAVELI",
+      "GOA",
+      "KARNATAKA",
+      "KERALA",
+      "MANIPUR",
+      "MEGHALAYA",
+      "NAGALAND"
+    ],
+    "num_records": 208
+  },
+  "SUGARCANE": {
+    "avg_yield": 46.705427011264064,
+    "std_yield": 18.94941715714698,
+    "avg_area": 90978.04129429892,
+    "states": [
+      "ANDAMAN AND NICOBAR ISLANDS",
+      "ANDHRA PRADESH",
+      "ARUNACHAL PRADESH",
+      "ASSAM",
+      "BIHAR",
+      "CHHATTISGARH",
+      "DADRA AND NAGAR HAVELI",
+      "GOA",
+      "GUJARAT",
+      "HARYANA"
+    ],
+    "num_records": 649
+  },
+  "VEGETABLES": {
+    "avg_yield": 10.01688928947795,
+    "std_yield": 5.565571025975204,
+    "avg_area": 35049.786071706934,
+    "states": [
+      "ANDAMAN AND NICOBAR ISLANDS",
+      "ANDHRA PRADESH",
+      "ARUNACHAL PRADESH",
+      "ASSAM",
+      "BIHAR",
+      "CHANDIGARH",
+      "CHHATTISGARH",
+      "GUJARAT",
+      "HARYANA",
+      "HIMACHAL PRADESH"
+    ],
+    "num_records": 1283
+  },
+  "OILSEEDS": {
+    "avg_yield": 0.8687245759867508,
+    "std_yield": 0.4814184810905136,
+    "avg_area": 286236.4289213894,
+    "states": [
+      "ANDAMAN AND NICOBAR ISLANDS",
+      "ANDHRA PRADESH",
+      "ARUNACHAL PRADESH",
+      "ASSAM",
+      "BIHAR",
+      "CHANDIGARH",
+      "CHHATTISGARH",
+      "DADRA AND NAGAR HAVELI",
+      "GOA",
+      "GUJARAT"
+    ],
+    "num_records": 1641
+  },
+  "CEREALS_MAIZE": {
+    "avg_yield": 2.076169808977114,
+    "std_yield": 1.0777369243549795,
+    "avg_area": 107069.73574283232,
+    "states": [
+      "ANDHRA PRADESH",
+      "ARUNACHAL PRADESH",
+      "ASSAM",
+      "BIHAR",
+      "CHANDIGARH",
+      "CHHATTISGARH",
+      "DADRA AND NAGAR HAVELI",
+      "GUJARAT",
+      "HARYANA",
+      "HIMACHAL PRADESH"
+    ],
+    "num_records": 1151
+  },
+  "CEREALS_MILLETS": {
+    "avg_yield": 1.0430223704813382,
+    "std_yield": 0.5104734228402679,
+    "avg_area": 363109.7186659316,
+    "states": [
+      "ANDHRA PRADESH",
+      "ARUNACHAL PRADESH",
+      "ASSAM",
+      "BIHAR",
+      "CHHATTISGARH",
+      "DADRA AND NAGAR HAVELI",
+      "GOA",
+      "GUJARAT",
+      "HARYANA",
+      "HIMACHAL PRADESH"
+    ],
+    "num_records": 907
+  },
+  "COTTON": {
+    "avg_yield": 1.595146528787244,
+    "std_yield": 0.9131320017583394,
+    "avg_area": 397049.30670103093,
+    "states": [
+      "ANDHRA PRADESH",
+      "ASSAM",
+      "CHHATTISGARH",
+      "GUJARAT",
+      "HARYANA",
+      "HIMACHAL PRADESH",
+      "JAMMU AND KASHMIR",
+      "KARNATAKA",
+      "KERALA",
+      "MADHYA PRADESH"
+    ],
+    "num_records": 388
+  },
+  "JUTE": {
+    "avg_yield": 5.993437690622377,
+    "std_yield": 3.731863914616508,
+    "avg_area": 83216.89285714286,
+    "states": [
+      "ANDHRA PRADESH",
+      "ASSAM",
+      "BIHAR",
+      "CHHATTISGARH",
+      "KARNATAKA",
+      "MADHYA PRADESH",
+      "MEGHALAYA",
+      "NAGALAND",
+      "ODISHA",
+      "RAJASTHAN"
+    ],
+    "num_records": 196
+  },
+  "TOBACCO": {
+    "avg_yield": 2.1368625768849174,
+    "std_yield": 1.8862642631278153,
+    "avg_area": 20487.886731391587,
+    "states": [
+      "ANDHRA PRADESH",
+      "ASSAM",
+      "BIHAR",
+      "CHHATTISGARH",
+      "GUJARAT",
+      "HIMACHAL PRADESH",
+      "JAMMU AND KASHMIR",
+      "KARNATAKA",
+      "KERALA",
+      "MADHYA PRADESH"
+    ],
+    "num_records": 309
+  },
+  "CEREALS_WHEAT": {
+    "avg_yield": 2.0053071537694214,
+    "std_yield": 0.9730042280680431,
+    "avg_area": 832046.9265034966,
+    "states": [
+      "ANDHRA PRADESH",
+      "ARUNACHAL PRADESH",
+      "ASSAM",
+      "BIHAR",
+      "CHANDIGARH",
+      "CHHATTISGARH",
+      "DADRA AND NAGAR HAVELI",
+      "GUJARAT",
+      "HARYANA",
+      "HIMACHAL PRADESH"
+    ],
+    "num_records": 572
+  },
+  "FIBER": {
+    "avg_yield": 1.1835515303666233,
+    "std_yield": 1.4189570661825461,
+    "avg_area": 723.556270096463,
+    "states": [
+      "BIHAR",
+      "CHHATTISGARH",
+      "DADRA AND NAGAR HAVELI",
+      "HARYANA",
+      "HIMACHAL PRADESH",
+      "JAMMU AND KASHMIR",
+      "KARNATAKA",
+      "MADHYA PRADESH",
+      "RAJASTHAN",
+      "TAMIL NADU"
+    ],
+    "num_records": 311
+  },
+  "CEREALS_BARLEY": {
+    "avg_yield": 1.7608977564339672,
+    "std_yield": 0.8256086249151379,
+    "avg_area": 30794.436201780416,
+    "states": [
+      "BIHAR",
+      "CHHATTISGARH",
+      "HARYANA",
+      "HIMACHAL PRADESH",
+      "JAMMU AND KASHMIR",
+      "MADHYA PRADESH",
+      "NAGALAND",
+      "PUNJAB",
+      "RAJASTHAN",
+      "SIKKIM"
+    ],
+    "num_records": 337
+  }
+}

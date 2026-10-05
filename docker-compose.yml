@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:5.0
+    container_name: agri-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+    networks:
+      - agri-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: agri-backend
+    ports:
+      - "5000:5000"
+    environment:
+      NODE_ENV: production
+      MONGODB_URI: mongodb://admin:password@mongodb:27017/agri-advisor?authSource=admin
+      JWT_SECRET: your-super-secret-jwt-key-change-in-production
+      ML_SERVICE_URL: http://ml-service:8000
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+    depends_on:
+      - mongodb
+      - ml-service
+    networks:
+      - agri-network
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+  ml-service:
+    build:
+      context: ./ml-service
+      dockerfile: Dockerfile
+    container_name: agri-ml-service
+    ports:
+      - "8000:8000"
+    environment:
+      MODEL_PATH: /app/models/crop_model.pkl
+    networks:
+      - agri-network
+    volumes:
+      - ./ml-service:/app
+      - ml_models:/app/models
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: agri-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_API_URL: http://localhost:5000/api
+    depends_on:
+      - backend
+    networks:
+      - agri-network
+
+volumes:
+  mongodb_data:
+  ml_models:
+
+networks:
+  agri-network:
+    driver: bridge
+
+

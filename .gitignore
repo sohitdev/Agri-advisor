@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+ENV/
+.env*
+.env.local*
+
+backend/.env
+data-scripts/.env
+frontend/.env.local
+ml-service/.env
+ml-service/app/models/trained/env_profiles_v2.json
+
+# Trained ML models (too large for GitHub)
+ml-service/app/models/trained/*.pkl
+ml-service/app/models/trained/*.npy
+
+# Optional: other large ML artifacts
+ml-service/app/data/*.npy
+ml-service/app/data/*.pkl
+
+# Python cache
+__pycache__/
+*.pyc

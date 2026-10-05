@@ -1,0 +1,288 @@
+{
+  "MAIZE": {
+    "avg_temperature": 30.324156706507303,
+    "temp_range": [
+      20.18,
+      40.0
+    ],
+    "avg_humidity": 59.005949535192556,
+    "humidity_range": [
+      40.33,
+      79.62
+    ],
+    "avg_moisture": 44.52634794156707,
+    "avg_nitrogen": 18.90305444887118,
+    "avg_potassium": 4.138114209827357,
+    "avg_phosphorus": 17.784860557768923,
+    "suitable_soil_types": [
+      "CLAYEY",
+      "SANDY",
+      "RED"
+    ],
+    "recommended_fertilizers": [
+      "14-35-14",
+      "DAP",
+      "Urea"
+    ]
+  },
+  "SUGARCANE": {
+    "avg_temperature": 30.48503276539974,
+    "temp_range": [
+      20.03,
+      40.0
+    ],
+    "avg_humidity": 59.36010484927915,
+    "humidity_range": [
+      40.23,
+      80.0
+    ],
+    "avg_moisture": 43.548938401048495,
+    "avg_nitrogen": 18.764089121887288,
+    "avg_potassium": 3.657929226736566,
+    "avg_phosphorus": 18.466579292267365,
+    "suitable_soil_types": [
+      "LOAMY",
+      "CLAYEY",
+      "SANDY"
+    ],
+    "recommended_fertilizers": [
+      "17-17-17",
+      "10-26-26",
+      "28-28"
+    ]
+  },
+  "COTTON": {
+    "avg_temperature": 30.34890581717452,
+    "temp_range": [
+      20.27,
+      40.0
+    ],
+    "avg_humidity": 58.66772853185596,
+    "humidity_range": [
+      40.79,
+      80.0
+    ],
+    "avg_moisture": 43.64898891966759,
+    "avg_nitrogen": 17.984764542936286,
+    "avg_potassium": 3.8781163434903045,
+    "avg_phosphorus": 19.0,
+    "suitable_soil_types": [
+      "LOAMY",
+      "BLACK",
+      "CLAYEY"
+    ],
+    "recommended_fertilizers": [
+      "14-35-14",
+      "DAP",
+      "17-17-17"
+    ]
+  },
+  "TOBACCO": {
+    "avg_temperature": 30.138661087866108,
+    "temp_range": [
+      20.18,
+      40.0
+    ],
+    "avg_humidity": 59.26670850767084,
+    "humidity_range": [
+      40.37,
+      80.0
+    ],
+    "avg_moisture": 44.25958158995816,
+    "avg_nitrogen": 18.605299860529986,
+    "avg_potassium": 3.8354253835425385,
+    "avg_phosphorus": 18.708507670850768,
+    "suitable_soil_types": [
+      "LOAMY",
+      "RED",
+      "SANDY"
+    ],
+    "recommended_fertilizers": [
+      "14-35-14",
+      "Urea",
+      "DAP"
+    ]
+  },
+  "PADDY": {
+    "avg_temperature": 30.328923512747878,
+    "temp_range": [
+      20.41,
+      40.0
+    ],
+    "avg_humidity": 59.35657223796035,
+    "humidity_range": [
+      40.7,
+      80.0
+    ],
+    "avg_moisture": 42.95168555240793,
+    "avg_nitrogen": 18.518413597733712,
+    "avg_potassium": 3.8626062322946177,
+    "avg_phosphorus": 18.745042492917847,
+    "suitable_soil_types": [
+      "RED",
+      "CLAYEY",
+      "BLACK"
+    ],
+    "recommended_fertilizers": [
+      "10-26-26",
+      "14-35-14",
+      "17-17-17"
+    ]
+  },
+  "BARLEY": {
+    "avg_temperature": 30.19800853485064,
+    "temp_range": [
+      20.0,
+      40.0
+    ],
+    "avg_humidity": 59.23093883357042,
+    "humidity_range": [
+      40.88,
+      80.0
+    ],
+    "avg_moisture": 43.483513513513515,
+    "avg_nitrogen": 17.870554765291608,
+    "avg_potassium": 3.9601706970128023,
+    "avg_phosphorus": 19.028449502133714,
+    "suitable_soil_types": [
+      "SANDY",
+      "LOAMY",
+      "RED"
+    ],
+    "recommended_fertilizers": [
+      "14-35-14",
+      "28-28",
+      "10-26-26"
+    ]
+  },
+  "WHEAT": {
+    "avg_temperature": 30.590334672021417,
+    "temp_range": [
+      20.55,
+      40.0
+    ],
+    "avg_humidity": 60.132289156626506,
+    "humidity_range": [
+      40.17,
+      78.41
+    ],
+    "avg_moisture": 43.424524765729586,
+    "avg_nitrogen": 18.06024096385542,
+    "avg_potassium": 3.825970548862115,
+    "avg_phosphorus": 18.9665327978581,
+    "suitable_soil_types": [
+      "CLAYEY",
+      "RED",
+      "BLACK"
+    ],
+    "recommended_fertilizers": [
+      "DAP",
+      "20-20",
+      "Urea"
+    ]
+  },
+  "MILLETS": {
+    "avg_temperature": 30.28771587743733,
+    "temp_range": [
+      20.26,
+      40.0
+    ],
+    "avg_humidity": 58.766392757660164,
+    "humidity_range": [
+      40.17,
+      79.96
+    ],
+    "avg_moisture": 43.79281337047353,
+    "avg_nitrogen": 19.171309192200557,
+    "avg_potassium": 3.479108635097493,
+    "avg_phosphorus": 17.83426183844011,
+    "suitable_soil_types": [
+      "BLACK",
+      "SANDY",
+      "CLAYEY"
+    ],
+    "recommended_fertilizers": [
+      "17-17-17",
+      "20-20",
+      "Urea"
+    ]
+  },
+  "OIL SEEDS": {
+    "avg_temperature": 30.33410689170183,
+    "temp_range": [
+      20.05,
+      40.0
+    ],
+    "avg_humidity": 58.972925457102676,
+    "humidity_range": [
+      40.36,
+      80.0
+    ],
+    "avg_moisture": 43.85976090014065,
+    "avg_nitrogen": 18.41209563994374,
+    "avg_potassium": 4.272855133614628,
+    "avg_phosphorus": 17.749648382559776,
+    "suitable_soil_types": [
+      "BLACK",
+      "CLAYEY",
+      "RED"
+    ],
+    "recommended_fertilizers": [
+      "DAP",
+      "Urea",
+      "28-28"
+    ]
+  },
+  "PULSES": {
+    "avg_temperature": 30.198104395604396,
+    "temp_range": [
+      20.09,
+      40.0
+    ],
+    "avg_humidity": 59.09331043956044,
+    "humidity_range": [
+      40.02,
+      80.0
+    ],
+    "avg_moisture": 43.01611263736264,
+    "avg_nitrogen": 18.08653846153846,
+    "avg_potassium": 3.927197802197802,
+    "avg_phosphorus": 18.906593406593405,
+    "suitable_soil_types": [
+      "CLAYEY",
+      "BLACK",
+      "LOAMY"
+    ],
+    "recommended_fertilizers": [
+      "Urea",
+      "DAP",
+      "14-35-14"
+    ]
+  },
+  "GROUND NUTS": {
+    "avg_temperature": 30.471188524590165,
+    "temp_range": [
+      20.14,
+      40.0
+    ],
+    "avg_humidity": 59.42953551912568,
+    "humidity_range": [
+      40.44,
+      79.52
+    ],
+    "avg_moisture": 42.85225409836065,
+    "avg_nitrogen": 18.314207650273225,
+    "avg_potassium": 4.248633879781421,
+    "avg_phosphorus": 18.4672131147541,
+    "suitable_soil_types": [
+      "SANDY",
+      "RED",
+      "CLAYEY"
+    ],
+    "recommended_fertilizers": [
+      "10-26-26",
+      "DAP",
+      "28-28"
+    ]
+  }
+}
