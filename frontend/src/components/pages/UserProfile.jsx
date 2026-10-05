@@ -68,11 +68,11 @@ const UserProfile = () => {
     <div className="bg-white rounded-[20px] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
       <div className="flex items-center gap-8 pb-8 border-b border-[#eee] mb-8 flex-wrap max-md:flex-col max-md:text-center">
         <div className="flex flex-col items-center gap-3">
-          <div className="w-[100px] h-[100px] rounded-full bg-gradient-to-br from-[#9C27B0] to-[#7B1FA2] flex items-center justify-center text-white text-[2.5rem] font-bold">
+          <div className="w-[100px] h-[100px] rounded-full bg-emerald-600 flex items-center justify-center text-white text-[2.5rem] font-bold">
             <span>{profileData.name.charAt(0).toUpperCase()}</span>
           </div>
           {isEditing && (
-            <button className="change-w-[100px] h-[100px] rounded-full bg-gradient-to-br from-[#9C27B0] to-[#7B1FA2] flex items-center justify-center text-white text-[2.5rem] font-bold-btn">📷 Change Photo</button>
+            <button className="change-w-[100px] h-[100px] rounded-full bg-emerald-600 flex items-center justify-center text-white text-[2.5rem] font-bold-btn">📷 Change Photo</button>
           )}
         </div>
         <div className="flex-1 max-md:text-center">
@@ -81,7 +81,7 @@ const UserProfile = () => {
           <p className="my-1 text-[#666]">👨‍🌾 {profileData.experience} of farming</p>
         </div>
         <button 
-          className={`py-3 px-6 bg-[#f5f5f5] border-2 border-transparent rounded-xl cursor-pointer font-semibold transition-all duration-300 hover:bg-[#e0e0e0] ${isEditing ? 'bg-gradient-to-br from-[#4CAF50] to-[#2E7D32] text-white' : ''}`}
+          className={`py-3 px-6 bg-[#f5f5f5] border-2 border-transparent rounded-xl cursor-pointer font-semibold transition-all duration-300 hover:bg-[#e0e0e0] ${isEditing ? 'bg-emerald-600 hover:bg-emerald-700 text-white' : ''}`}
           onClick={() => isEditing ? handleSaveProfile() : setIsEditing(true)}
         >
           {isEditing ? '✓ Save Changes' : '✏️ Edit Profile'}
@@ -152,7 +152,7 @@ const UserProfile = () => {
             {profileData.cropTypes.map((crop, index) => (
               <span key={index} className="bg-[#e8f5e9] text-[#2E7D32] py-2 px-4 rounded-[20px] text-[0.9rem]">{crop}</span>
             ))}
-            {isEditing && <button className="bg-[#f5f5f5] border-2 border-dashed border-[#ccc] py-2 px-4 rounded-[20px] cursor-pointer transition-all duration-300 hover:border-[#9C27B0] hover:text-[#9C27B0]">+ Add Crop</button>}
+            {isEditing && <button className="bg-[#f5f5f5] border-2 border-dashed border-[#ccc] py-2 px-4 rounded-[20px] cursor-pointer transition-all duration-300 hover:border-emerald-600 hover:text-emerald-600">+ Add Crop</button>}
           </div>
         </div>
 
@@ -177,22 +177,22 @@ const UserProfile = () => {
       <div className="grid grid-cols-4 gap-6 max-md:grid-cols-2">
         <div className="bg-white rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
           <span className="text-[2.5rem] block mb-3">🌾</span>
-          <span className="block text-[2rem] font-bold text-[#9C27B0] mb-1">{userStats.totalRecommendations}</span>
+          <span className="block text-[2rem] font-bold text-emerald-600 mb-1">{userStats.totalRecommendations}</span>
           <span className="text-[#666] text-[0.9rem]">Recommendations</span>
         </div>
         <div className="bg-white rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
           <span className="text-[2.5rem] block mb-3">💾</span>
-          <span className="block text-[2rem] font-bold text-[#9C27B0] mb-1">{userStats.savedCrops}</span>
+          <span className="block text-[2rem] font-bold text-emerald-600 mb-1">{userStats.savedCrops}</span>
           <span className="text-[#666] text-[0.9rem]">Saved Crops</span>
         </div>
         <div className="bg-white rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
           <span className="text-[2.5rem] block mb-3">🌤️</span>
-          <span className="block text-[2rem] font-bold text-[#9C27B0] mb-1">{userStats.weatherChecks}</span>
+          <span className="block text-[2rem] font-bold text-emerald-600 mb-1">{userStats.weatherChecks}</span>
           <span className="text-[#666] text-[0.9rem]">Weather Checks</span>
         </div>
         <div className="bg-white rounded-2xl p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
           <span className="text-[2.5rem] block mb-3">🔔</span>
-          <span className="block text-[2rem] font-bold text-[#9C27B0] mb-1">{userStats.priceAlerts}</span>
+          <span className="block text-[2rem] font-bold text-emerald-600 mb-1">{userStats.priceAlerts}</span>
           <span className="text-[#666] text-[0.9rem]">Price Alerts</span>
         </div>
       </div>
@@ -201,11 +201,11 @@ const UserProfile = () => {
         <h3>🏆 Achievements</h3>
         <div className="grid grid-cols-3 gap-4 max-md:grid-cols-1">
           {achievements.map(achievement => (
-            <div key={achievement.id} className={`p-5 rounded-xl text-center border-2 border-[#eee] relative ${achievement.unlocked ? 'bg-gradient-to-br from-[rgba(156,39,176,0.1)] to-[rgba(123,31,162,0.05)] border-[#9C27B0]' : 'locked'}`}>
+            <div key={achievement.id} className={`p-5 rounded-xl text-center border-2 border-[#eee] relative ${achievement.unlocked ? 'bg-emerald-50 border-emerald-600' : 'locked'}`}>
               <span className="text-[2rem] block mb-2">{achievement.icon}</span>
               <h4>{achievement.title}</h4>
               <p>{achievement.description}</p>
-              {achievement.earned && <span className="bg-gradient-to-br from-[rgba(156,39,176,0.1)] to-[rgba(123,31,162,0.05)] border-[#9C27B0]-badge">✓ Earned</span>}
+              {achievement.earned && <span className="bg-emerald-50 border-emerald-600-badge">✓ Earned</span>}
             </div>
           ))}
         </div>
@@ -360,14 +360,14 @@ const UserProfile = () => {
         </div>
       </div>
 
-      <button className="bg-gradient-to-br from-[#4CAF50] to-[#2E7D32] text-white-settings-btn" onClick={handleSavePreferences}>
+      <button className="bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-6 rounded-xl transition-colors w-full mt-6" onClick={handleSavePreferences}>
         💾 Save All Settings
       </button>
     </div>
   );
 
   return (
-    <div className="min-h-[calc(100vh-70px)] bg-gradient-to-br from-[#f3e5f5] to-[#e1bee7] p-[clamp(1rem,2vw,2rem)]">
+    <div className="min-h-[calc(100vh-70px)] bg-slate-50 p-[clamp(1rem,2vw,2rem)]">
       <div className="text-center mb-8">
         <h1>👤 My Profile</h1>
         <p>Manage your account settings and preferences</p>

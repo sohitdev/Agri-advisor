@@ -101,7 +101,7 @@ const ResetPassword = () => {
               <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
             </svg>
           </div>
-          <h1 className="text-[2rem] text-[#2c3e50] mb-[0.5rem] font-bold tracking-[-0.5px] max-sm:text-[1.5rem]">Reset Password</h1>
+          <h1 className="text-[2rem] text-slate-900 mb-[0.5rem] font-bold tracking-[-0.5px] max-sm:text-[1.5rem]">Reset Password</h1>
           <p className="text-[#555] text-[0.95rem] font-medium max-sm:text-[0.9rem]">
             {resetSuccess 
               ? 'Your password has been reset successfully' 
@@ -114,7 +114,7 @@ const ResetPassword = () => {
           <form onSubmit={handleSubmit} className="flex flex-col gap-[1.5rem]">
             {/* Password Input */}
             <div className="flex flex-col gap-[0.5rem] [animation:slideInUp_0.6s_ease]">
-              <label htmlFor="password" className="block text-[0.95rem] font-semibold text-[#2c3e50] transition-all duration-300 ease-in-out focus-within:text-[#3498db]">New Password</label>
+              <label htmlFor="password" className="block text-[0.95rem] font-semibold text-slate-900 transition-all duration-300 ease-in-out focus-within:text-emerald-600">New Password</label>
               <div className="relative flex items-center">
                 <svg className="absolute left-[12px] text-[#95a5a6] stroke-current pointer-events-none transition-all duration-300 ease-in-out z-[1]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
@@ -126,7 +126,7 @@ const ResetPassword = () => {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className="w-full p-[0.875rem_0.75rem_0.875rem_2.75rem] border-2 border-[#ecf0f1] rounded-[10px] text-[1rem] text-[#2c3e50] bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-[#3498db] focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-[#ecf0f1] disabled:text-[#95a5a6] disabled:cursor-not-allowed"
+                  className="w-full p-[0.875rem_0.75rem_0.875rem_2.75rem] border-2 border-slate-200 rounded-[10px] text-[1rem] text-slate-900 bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-emerald-600 focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-slate-200 disabled:text-[#95a5a6] disabled:cursor-not-allowed"
                   placeholder="At least 6 characters"
                   disabled={loading}
                 />
@@ -152,7 +152,7 @@ const ResetPassword = () => {
 
             {/* Confirm Password Input */}
             <div className="flex flex-col gap-[0.5rem] [animation:slideInUp_0.6s_ease]">
-              <label htmlFor="confirmPassword" className="block text-[0.95rem] font-semibold text-[#2c3e50] transition-all duration-300 ease-in-out focus-within:text-[#3498db]">Confirm Password</label>
+              <label htmlFor="confirmPassword" className="block text-[0.95rem] font-semibold text-slate-900 transition-all duration-300 ease-in-out focus-within:text-emerald-600">Confirm Password</label>
               <div className="relative flex items-center">
                 <svg className="absolute left-[12px] text-[#95a5a6] stroke-current pointer-events-none transition-all duration-300 ease-in-out z-[1]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
@@ -164,7 +164,7 @@ const ResetPassword = () => {
                   name="confirmPassword"
                   value={formData.confirmPassword}
                   onChange={handleChange}
-                  className="w-full p-[0.875rem_0.75rem_0.875rem_2.75rem] border-2 border-[#ecf0f1] rounded-[10px] text-[1rem] text-[#2c3e50] bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-[#3498db] focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-[#ecf0f1] disabled:text-[#95a5a6] disabled:cursor-not-allowed"
+                  className="w-full p-[0.875rem_0.75rem_0.875rem_2.75rem] border-2 border-slate-200 rounded-[10px] text-[1rem] text-slate-900 bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-emerald-600 focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-slate-200 disabled:text-[#95a5a6] disabled:cursor-not-allowed"
                   placeholder="Re-enter your password"
                   disabled={loading}
                 />
@@ -213,7 +213,7 @@ const ResetPassword = () => {
                 <polyline points="22 4 12 14.01 9 11.01"></polyline>
               </svg>
             </div>
-            <p className="text-[#2c3e50] text-[1.25rem] font-bold mb-[0.5rem]">
+            <p className="text-slate-900 text-[1.25rem] font-bold mb-[0.5rem]">
               Your password has been reset successfully!
             </p>
             <p className="text-[#555] text-[0.95rem] max-w-[300px] mx-auto leading-relaxed">
@@ -233,7 +233,7 @@ const ResetPassword = () => {
         {!resetSuccess && (
           <p className="text-center text-[#555] text-[0.9rem] mt-[1.5rem]" style={{ marginTop: '1.5rem' }}>
             Remember your password?{' '}
-            <Link to="/login" className="text-[#3498db] no-underline font-semibold transition-all duration-300 ease-in-out border-b-2 border-transparent hover:text-[#2980b9] hover:border-[#3498db]">
+            <Link to="/login" className="text-emerald-600 no-underline font-semibold transition-all duration-300 ease-in-out border-b-2 border-transparent hover:text-[#2980b9] hover:border-emerald-600">
               {t('login')}
             </Link>
           </p>

@@ -501,7 +501,7 @@ const CropLibrary = () => {
       case 'kharif': return 'bg-[#ff6b6b]/15 text-[#e74c3c]';
       case 'rabi': return 'bg-[#4ecdc4]/15 text-[#00b894]';
       case 'summer': return 'bg-[#ffc107]/15 text-[#f39c12]';
-      case 'winter': return 'bg-[#3498db]/15 text-[#3498db]';
+      case 'winter': return 'bg-emerald-600/15 text-emerald-600';
       case 'whole-year': return 'bg-[#9b59b6]/15 text-[#9b59b6]';
       default: return 'bg-gray-100 text-gray-800';
     }

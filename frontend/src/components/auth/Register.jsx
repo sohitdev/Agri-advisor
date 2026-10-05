@@ -414,7 +414,7 @@ const Register = () => {
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
           </div>
-          <h1 className="text-[2rem] text-[#2c3e50] mb-[0.5rem] font-bold tracking-[-0.5px] max-sm:text-[1.5rem]">{t('register')}</h1>
+          <h1 className="text-[2rem] text-slate-900 mb-[0.5rem] font-bold tracking-[-0.5px] max-sm:text-[1.5rem]">{t('register')}</h1>
           <p className="text-[#555] text-[0.95rem] font-medium max-sm:text-[0.9rem]">Create your account</p>
         </div>
 
@@ -429,7 +429,7 @@ const Register = () => {
           {/* Step 1: Personal Info */}
           <div className={`hidden opacity-0 translate-x-[20px] transition-all duration-500 ease-in-out  ${currentStep === 1 ? '!flex flex-col gap-[1.5rem] !opacity-100 !translate-x-0' : ''}`}>
             <div className="flex flex-col gap-[0.5rem] [animation:slideInUp_0.6s_ease]">
-              <label htmlFor="name" className="block text-[0.95rem] font-semibold text-[#2c3e50] transition-all duration-300 ease-in-out focus-within:text-[#3498db]">
+              <label htmlFor="name" className="block text-[0.95rem] font-semibold text-slate-900 transition-all duration-300 ease-in-out focus-within:text-emerald-600">
                 {t('name')} <span className="text-[#e74c3c] ml-[0.25rem]">*</span>
               </label>
               <div className="relative flex items-center">
@@ -443,14 +443,14 @@ const Register = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full p-[0.875rem_0.75rem_0.875rem_2.75rem] border-2 border-[#ecf0f1] rounded-[10px] text-[1rem] text-[#2c3e50] bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-[#3498db] focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-[#ecf0f1] disabled:text-[#95a5a6] disabled:cursor-not-allowed"
+                  className="w-full py-3 pr-4 pl-11 border-2 border-slate-200 rounded-[10px] text-[1rem] text-slate-900 bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-emerald-600 focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-slate-200 disabled:text-[#95a5a6] disabled:cursor-not-allowed"
                   placeholder="Full Name"
                 />
               </div>
             </div>
 
             <div className="flex flex-col gap-[0.5rem] [animation:slideInUp_0.6s_ease]">
-              <label htmlFor="email" className="block text-[0.95rem] font-semibold text-[#2c3e50] transition-all duration-300 ease-in-out focus-within:text-[#3498db]">
+              <label htmlFor="email" className="block text-[0.95rem] font-semibold text-slate-900 transition-all duration-300 ease-in-out focus-within:text-emerald-600">
                 {t('email')} <span className="text-[#e74c3c] ml-[0.25rem]">*</span>
               </label>
               <div className="relative flex items-center">
@@ -464,14 +464,14 @@ const Register = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full p-[0.875rem_0.75rem_0.875rem_2.75rem] border-2 border-[#ecf0f1] rounded-[10px] text-[1rem] text-[#2c3e50] bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-[#3498db] focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-[#ecf0f1] disabled:text-[#95a5a6] disabled:cursor-not-allowed"
+                  className="w-full py-3 pr-4 pl-11 border-2 border-slate-200 rounded-[10px] text-[1rem] text-slate-900 bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-emerald-600 focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-slate-200 disabled:text-[#95a5a6] disabled:cursor-not-allowed"
                   placeholder="Email Address"
                 />
               </div>
             </div>
 
             <div className="flex flex-col gap-[0.5rem] [animation:slideInUp_0.6s_ease]">
-              <label htmlFor="password" className="block text-[0.95rem] font-semibold text-[#2c3e50] transition-all duration-300 ease-in-out focus-within:text-[#3498db]">
+              <label htmlFor="password" className="block text-[0.95rem] font-semibold text-slate-900 transition-all duration-300 ease-in-out focus-within:text-emerald-600">
                 {t('password')} <span className="text-[#e74c3c] ml-[0.25rem]">*</span>
               </label>
               <div className="relative flex items-center">
@@ -485,7 +485,7 @@ const Register = () => {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className="w-full p-[0.875rem_0.75rem_0.875rem_2.75rem] border-2 border-[#ecf0f1] rounded-[10px] text-[1rem] text-[#2c3e50] bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-[#3498db] focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-[#ecf0f1] disabled:text-[#95a5a6] disabled:cursor-not-allowed"
+                  className="w-full py-3 pr-4 pl-11 border-2 border-slate-200 rounded-[10px] text-[1rem] text-slate-900 bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-emerald-600 focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-slate-200 disabled:text-[#95a5a6] disabled:cursor-not-allowed"
                   placeholder="At least 6 characters"
                 />
                 <button
@@ -513,7 +513,7 @@ const Register = () => {
           <div className={`hidden opacity-0 translate-x-[20px] transition-all duration-500 ease-in-out  ${currentStep === 2 ? '!flex flex-col gap-[1.5rem] !opacity-100 !translate-x-0' : ''}`}>
             <button
               type="button"
-              className="w-full border border-dashed border-[#5dade2] bg-[rgba(52,152,219,0.08)] text-[#2980b9] rounded-[10px] p-[0.75rem_1rem] text-[0.95rem] font-semibold cursor-pointer transition-all duration-300 ease-in-out hover:not(:disabled):bg-[rgba(52,152,219,0.14)] hover:not(:disabled):border-[#3498db] disabled:opacity-70 disabled:cursor-wait"
+              className="w-full border border-dashed border-[#5dade2] bg-[rgba(52,152,219,0.08)] text-[#2980b9] rounded-[10px] p-[0.75rem_1rem] text-[0.95rem] font-semibold cursor-pointer transition-all duration-300 ease-in-out hover:not(:disabled):bg-[rgba(52,152,219,0.14)] hover:not(:disabled):border-emerald-600 disabled:opacity-70 disabled:cursor-wait"
               onClick={handleUseCurrentLocation}
               disabled={geoLoading}
             >
@@ -521,7 +521,7 @@ const Register = () => {
             </button>
 
             <div className="flex flex-col gap-[0.5rem] [animation:slideInUp_0.6s_ease]">
-              <label htmlFor="phone" className="block text-[0.95rem] font-semibold text-[#2c3e50] transition-all duration-300 ease-in-out focus-within:text-[#3498db]">Phone</label>
+              <label htmlFor="phone" className="block text-[0.95rem] font-semibold text-slate-900 transition-all duration-300 ease-in-out focus-within:text-emerald-600">Phone</label>
               <div className="relative flex items-center">
                 <svg className="absolute left-[12px] text-[#95a5a6] stroke-current pointer-events-none transition-all duration-300 ease-in-out z-[1]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
@@ -532,14 +532,14 @@ const Register = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full p-[0.875rem_0.75rem_0.875rem_2.75rem] border-2 border-[#ecf0f1] rounded-[10px] text-[1rem] text-[#2c3e50] bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-[#3498db] focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-[#ecf0f1] disabled:text-[#95a5a6] disabled:cursor-not-allowed"
+                  className="w-full py-3 pr-4 pl-11 border-2 border-slate-200 rounded-[10px] text-[1rem] text-slate-900 bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-emerald-600 focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-slate-200 disabled:text-[#95a5a6] disabled:cursor-not-allowed"
                   placeholder="+91 (optional)"
                 />
               </div>
             </div>
 
             <div className="flex flex-col gap-[0.5rem] [animation:slideInUp_0.6s_ease]">
-              <label htmlFor="state" className="block text-[0.95rem] font-semibold text-[#2c3e50] transition-all duration-300 ease-in-out focus-within:text-[#3498db]">{t('state')}</label>
+              <label htmlFor="state" className="block text-[0.95rem] font-semibold text-slate-900 transition-all duration-300 ease-in-out focus-within:text-emerald-600">{t('state')}</label>
               <div className="relative flex items-center" ref={stateDropdownRef}>
                 <svg className="absolute left-[12px] text-[#95a5a6] stroke-current pointer-events-none transition-all duration-300 ease-in-out z-[1]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -552,7 +552,7 @@ const Register = () => {
                   value={formData.state}
                   onChange={handleStateInputChange}
                   onFocus={() => setIsStateDropdownOpen(true)}
-                  className="w-full p-[0.875rem_0.75rem_0.875rem_2.75rem] border-2 border-[#ecf0f1] rounded-[10px] text-[1rem] text-[#2c3e50] bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-[#3498db] focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-[#ecf0f1] disabled:text-[#95a5a6] disabled:cursor-not-allowed"
+                  className="w-full py-3 pr-4 pl-11 border-2 border-slate-200 rounded-[10px] text-[1rem] text-slate-900 bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-emerald-600 focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-slate-200 disabled:text-[#95a5a6] disabled:cursor-not-allowed"
                   autoComplete="address-level1"
                   placeholder="e.g., Uttar Pradesh"
                 />
@@ -567,11 +567,11 @@ const Register = () => {
                   </svg>
                 </button>
                 {isStateDropdownOpen && filteredStateOptions.length > 0 && (
-                  <ul className="absolute left-0 right-0 top-[calc(100%+0.35rem)] list-none m-0 p-[0.35rem] bg-white border border-[#ecf0f1] rounded-[10px] shadow-[0_4px_16px_rgba(0,0,0,0.12)] max-h-[210px] overflow-y-auto z-[30] [animation:slideInDown_0.2s_ease]" role="listbox" aria-label="State options">
+                  <ul className="absolute left-0 right-0 top-[calc(100%+0.35rem)] list-none m-0 p-[0.35rem] bg-white border border-slate-200 rounded-[10px] shadow-[0_4px_16px_rgba(0,0,0,0.12)] max-h-[210px] overflow-y-auto z-[30] [animation:slideInDown_0.2s_ease]" role="listbox" aria-label="State options">
                     {filteredStateOptions.map((stateName) => (
                       <li
                         key={stateName}
-                        className="p-[0.55rem_0.75rem] rounded-[8px] text-[#2c3e50] text-[0.95rem] cursor-pointer transition-all duration-300 ease-in-out hover:bg-[rgba(52,152,219,0.1)] hover:text-[#2980b9]"
+                        className="p-[0.55rem_0.75rem] rounded-[8px] text-slate-900 text-[0.95rem] cursor-pointer transition-all duration-300 ease-in-out hover:bg-[rgba(52,152,219,0.1)] hover:text-[#2980b9]"
                         onMouseDown={(e) => e.preventDefault()}
                         onClick={() => handleStateSelect(stateName)}
                         role="option"
@@ -586,7 +586,7 @@ const Register = () => {
             </div>
 
             <div className="flex flex-col gap-[0.5rem] [animation:slideInUp_0.6s_ease]">
-              <label htmlFor="district" className="block text-[0.95rem] font-semibold text-[#2c3e50] transition-all duration-300 ease-in-out focus-within:text-[#3498db]">{t('district')}</label>
+              <label htmlFor="district" className="block text-[0.95rem] font-semibold text-slate-900 transition-all duration-300 ease-in-out focus-within:text-emerald-600">{t('district')}</label>
               <div className="relative flex items-center" ref={districtDropdownRef}>
                 <svg className="absolute left-[12px] text-[#95a5a6] stroke-current pointer-events-none transition-all duration-300 ease-in-out z-[1]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="11" cy="11" r="8"></circle>
@@ -599,7 +599,7 @@ const Register = () => {
                   value={formData.district}
                   onChange={handleDistrictInputChange}
                   onFocus={() => selectedState && setIsDistrictDropdownOpen(true)}
-                  className="w-full p-[0.875rem_0.75rem_0.875rem_2.75rem] border-2 border-[#ecf0f1] rounded-[10px] text-[1rem] text-[#2c3e50] bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-[#3498db] focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-[#ecf0f1] disabled:text-[#95a5a6] disabled:cursor-not-allowed"
+                  className="w-full py-3 pr-4 pl-11 border-2 border-slate-200 rounded-[10px] text-[1rem] text-slate-900 bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-emerald-600 focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-slate-200 disabled:text-[#95a5a6] disabled:cursor-not-allowed"
                   disabled={!selectedState}
                   autoComplete="address-level2"
                   placeholder={selectedState ? 'Select District' : 'Select state first'}
@@ -616,11 +616,11 @@ const Register = () => {
                   </svg>
                 </button>
                 {isDistrictDropdownOpen && filteredDistrictOptions.length > 0 && (
-                  <ul className="absolute left-0 right-0 top-[calc(100%+0.35rem)] list-none m-0 p-[0.35rem] bg-white border border-[#ecf0f1] rounded-[10px] shadow-[0_4px_16px_rgba(0,0,0,0.12)] max-h-[210px] overflow-y-auto z-[30] [animation:slideInDown_0.2s_ease]" role="listbox" aria-label="District options">
+                  <ul className="absolute left-0 right-0 top-[calc(100%+0.35rem)] list-none m-0 p-[0.35rem] bg-white border border-slate-200 rounded-[10px] shadow-[0_4px_16px_rgba(0,0,0,0.12)] max-h-[210px] overflow-y-auto z-[30] [animation:slideInDown_0.2s_ease]" role="listbox" aria-label="District options">
                     {filteredDistrictOptions.map((districtName) => (
                       <li
                         key={districtName}
-                        className="p-[0.55rem_0.75rem] rounded-[8px] text-[#2c3e50] text-[0.95rem] cursor-pointer transition-all duration-300 ease-in-out hover:bg-[rgba(52,152,219,0.1)] hover:text-[#2980b9]"
+                        className="p-[0.55rem_0.75rem] rounded-[8px] text-slate-900 text-[0.95rem] cursor-pointer transition-all duration-300 ease-in-out hover:bg-[rgba(52,152,219,0.1)] hover:text-[#2980b9]"
                         onMouseDown={(e) => e.preventDefault()}
                         onClick={() => handleDistrictSelect(districtName)}
                         role="option"
@@ -635,7 +635,7 @@ const Register = () => {
             </div>
 
             <div className="flex flex-col gap-[0.5rem] [animation:slideInUp_0.6s_ease]">
-              <label htmlFor="language" className="block text-[0.95rem] font-semibold text-[#2c3e50] transition-all duration-300 ease-in-out focus-within:text-[#3498db]">Preferred Language</label>
+              <label htmlFor="language" className="block text-[0.95rem] font-semibold text-slate-900 transition-all duration-300 ease-in-out focus-within:text-emerald-600">Preferred Language</label>
               <div className="relative flex items-center">
                 <svg className="absolute left-[12px] text-[#95a5a6] stroke-current pointer-events-none transition-all duration-300 ease-in-out z-[1]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="12" cy="12" r="10"></circle>
@@ -646,7 +646,7 @@ const Register = () => {
                   name="preferredLanguage"
                   value={formData.preferredLanguage}
                   onChange={handleChange}
-                  className="w-full p-[0.875rem_0.75rem_0.875rem_2.75rem] border-2 border-[#ecf0f1] rounded-[10px] text-[1rem] text-[#2c3e50] bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-[#3498db] focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-[#ecf0f1] disabled:text-[#95a5a6] disabled:cursor-not-allowed !pl-[2.75rem] !pr-[2.75rem]  bg-no-repeat bg-[right_0.85rem_center] bg-[length:1.25rem] cursor-pointer indent-[0.25rem]"
+                  className="w-full py-3 pr-4 pl-11 border-2 border-slate-200 rounded-[10px] text-[1rem] text-slate-900 bg-white transition-all duration-300 ease-in-out appearance-none hover:border-[#d5dbdb] hover:bg-[#f8f9fa] focus:outline-none focus:border-emerald-600 focus:bg-[rgba(52,152,219,0.05)] focus:shadow-[0_0_0_3px_rgba(52,152,219,0.1)] disabled:bg-[#f8f9fa] disabled:border-slate-200 disabled:text-[#95a5a6] disabled:cursor-not-allowed   bg-no-repeat bg-[right_0.85rem_center] bg-[length:1.25rem] cursor-pointer indent-[0.25rem]"
                 >
                   <option value="en">English</option>
                   <option value="hi">हिन्दी (Hindi)</option>
@@ -667,7 +667,7 @@ const Register = () => {
               <button
                 type="button"
                 onClick={() => setCurrentStep(1)}
-                className="p-[0.875rem_1.5rem] border-none rounded-[10px] text-[1rem] font-semibold cursor-pointer transition-all duration-300 ease-in-out flex items-center justify-center gap-[0.5rem] uppercase tracking-[0.5px] bg-[#ecf0f1] text-[#2c3e50] flex-1 hover:bg-[#d5dbdb] hover:-translate-y-[2px] active:translate-y-0"
+                className="p-[0.875rem_1.5rem] border-none rounded-[10px] text-[1rem] font-semibold cursor-pointer transition-all duration-300 ease-in-out flex items-center justify-center gap-[0.5rem] uppercase tracking-[0.5px] bg-[#ecf0f1] text-slate-900 flex-1 hover:bg-[#d5dbdb] hover:-translate-y-[2px] active:translate-y-0"
               >
                 Back
               </button>
@@ -695,14 +695,14 @@ const Register = () => {
         {/* Login Link */}
         <p className="text-center text-[#555] text-[0.9rem] mt-[1.5rem]">
           Already have an account?{' '}
-          <Link to="/login" className="text-[#3498db] no-underline font-semibold transition-all duration-300 ease-in-out border-b-2 border-transparent hover:text-[#2980b9] hover:border-[#3498db]">
+          <Link to="/login" className="text-emerald-600 no-underline font-semibold transition-all duration-300 ease-in-out border-b-2 border-transparent hover:text-[#2980b9] hover:border-emerald-600">
             {t('login')}
           </Link>
         </p>
       </div>
 
       <p className="absolute bottom-[1rem] left-1/2 -translate-x-1/2 text-center text-[0.75rem] text-[#95a5a6] max-w-[90%]">
-        By logging in, you agree to our <Link to="/terms-of-service" className="text-[#3498db] no-underline font-semibold transition-all duration-300 ease-in-out border-b-2 border-transparent hover:text-[#2980b9] hover:border-[#3498db]">Terms of Service</Link>
+        By logging in, you agree to our <Link to="/terms-of-service" className="text-emerald-600 no-underline font-semibold transition-all duration-300 ease-in-out border-b-2 border-transparent hover:text-[#2980b9] hover:border-emerald-600">Terms of Service</Link>
       </p>
     </div>
   );

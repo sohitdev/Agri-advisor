@@ -91,7 +91,7 @@ const HistoryDetailPage = () => {
             <div className="mb-6">
               <div className="w-[50px] h-[50px] mx-auto rounded-full border-4 border-[#e0e0e0] border-t-[#27ae60]" style={{ animation: 'spin 1s linear infinite' }}></div>
             </div>
-            <h2 className="text-[#2c3e50] m-0 mb-2">Loading recommendation...</h2>
+            <h2 className="text-slate-900 m-0 mb-2">Loading recommendation...</h2>
             <p className="text-[#7f8c8d]">Please wait while we fetch the details</p>
           </div>
         </div>
@@ -111,7 +111,7 @@ const HistoryDetailPage = () => {
                 <line x1="12" y1="16" x2="12.01" y2="16"></line>
               </svg>
             </div>
-            <h2 className="text-[#2c3e50] m-0 mb-2">Recommendation Not Found</h2>
+            <h2 className="text-slate-900 m-0 mb-2">Recommendation Not Found</h2>
             <p className="text-[#7f8c8d] mb-6">The recommendation you're looking for doesn't exist or has been deleted</p>
             <Link to="/history" className="inline-flex items-center gap-2 py-3.5 px-6 text-white no-underline rounded-xl font-semibold transition-all duration-300 hover:-translate-y-0.5" style={{ background: 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)', boxShadow: '0 4px 15px rgba(39, 174, 96, 0.4)' }}>
               Back to History
@@ -153,7 +153,7 @@ const HistoryDetailPage = () => {
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
               <div>
-                <h1 className="text-[#2c3e50] m-0 mb-2 text-2xl">{location?.district || 'Unknown District'}, {location?.state || 'Unknown State'}</h1>
+                <h1 className="text-slate-900 m-0 mb-2 text-2xl">{location?.district || 'Unknown District'}, {location?.state || 'Unknown State'}</h1>
                 <div className="flex items-center gap-3 flex-wrap">
                   <span className="inline-block py-1.5 px-3 text-white rounded-[15px] text-[0.85rem] font-medium" style={{ background: 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)' }}>{season} Season</span>
                   <span className="inline-flex items-center gap-1.5 py-1.5 px-3 bg-[#f0f0f0] text-[#666] rounded-[15px] text-[0.85rem]">
@@ -210,35 +210,35 @@ const HistoryDetailPage = () => {
         {/* Environmental Snapshot */}
         {environmentalSnapshot && (
           <div className="mb-8">
-            <h2 className="text-[#2c3e50] m-0 mb-4 text-xl">Environmental Conditions</h2>
+            <h2 className="text-slate-900 m-0 mb-4 text-xl">Environmental Conditions</h2>
             <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
               <div className="bg-white rounded-2xl p-6" style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)' }}>
                 <div className="flex items-center gap-3 mb-5 pb-4 border-b-2 border-[#f0f0f0] text-[#e65100]">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M2 22h20M12 2v6m0 0l-3-3m3 3l3-3M7 11l5 5 5-5"></path>
                   </svg>
-                  <h3 className="m-0 text-[#2c3e50] text-[1.1rem]">Soil Properties</h3>
+                  <h3 className="m-0 text-slate-900 text-[1.1rem]">Soil Properties</h3>
                 </div>
                 <div className="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-4">
                   <div className="text-center p-3 bg-[#f8f9fa] rounded-lg">
                     <span className="block text-[0.75rem] text-[#7f8c8d] mb-1">pH</span>
-                    <span className="text-base font-semibold text-[#2c3e50]">{environmentalSnapshot.soil?.ph?.toFixed(2)}</span>
+                    <span className="text-base font-semibold text-slate-900">{environmentalSnapshot.soil?.ph?.toFixed(2)}</span>
                   </div>
                   <div className="text-center p-3 bg-[#f8f9fa] rounded-lg">
                     <span className="block text-[0.75rem] text-[#7f8c8d] mb-1">Organic Carbon</span>
-                    <span className="text-base font-semibold text-[#2c3e50]">{environmentalSnapshot.soil?.organicCarbon?.toFixed(2)}%</span>
+                    <span className="text-base font-semibold text-slate-900">{environmentalSnapshot.soil?.organicCarbon?.toFixed(2)}%</span>
                   </div>
                   <div className="text-center p-3 bg-[#f8f9fa] rounded-lg">
                     <span className="block text-[0.75rem] text-[#7f8c8d] mb-1">Nitrogen</span>
-                    <span className="text-base font-semibold text-[#2c3e50]">{environmentalSnapshot.soil?.nitrogen?.toFixed(0)} kg/ha</span>
+                    <span className="text-base font-semibold text-slate-900">{environmentalSnapshot.soil?.nitrogen?.toFixed(0)} kg/ha</span>
                   </div>
                   <div className="text-center p-3 bg-[#f8f9fa] rounded-lg">
                     <span className="block text-[0.75rem] text-[#7f8c8d] mb-1">Phosphorus</span>
-                    <span className="text-base font-semibold text-[#2c3e50]">{environmentalSnapshot.soil?.phosphorus?.toFixed(0)} kg/ha</span>
+                    <span className="text-base font-semibold text-slate-900">{environmentalSnapshot.soil?.phosphorus?.toFixed(0)} kg/ha</span>
                   </div>
                   <div className="text-center p-3 bg-[#f8f9fa] rounded-lg">
                     <span className="block text-[0.75rem] text-[#7f8c8d] mb-1">Potassium</span>
-                    <span className="text-base font-semibold text-[#2c3e50]">{environmentalSnapshot.soil?.potassium?.toFixed(0)} kg/ha</span>
+                    <span className="text-base font-semibold text-slate-900">{environmentalSnapshot.soil?.potassium?.toFixed(0)} kg/ha</span>
                   </div>
                 </div>
               </div>
@@ -249,20 +249,20 @@ const HistoryDetailPage = () => {
                     <path d="M12 2v2m0 16v2M4 12H2m4.314-5.686L4.9 4.9m12.786 1.414L19.1 4.9M6.314 17.686L4.9 19.1m12.786-1.414L19.1 19.1M22 12h-2"></path>
                     <circle cx="12" cy="12" r="4"></circle>
                   </svg>
-                  <h3 className="m-0 text-[#2c3e50] text-[1.1rem]">Weather Conditions</h3>
+                  <h3 className="m-0 text-slate-900 text-[1.1rem]">Weather Conditions</h3>
                 </div>
                 <div className="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-4">
                   <div className="text-center p-3 bg-[#f8f9fa] rounded-lg">
                     <span className="block text-[0.75rem] text-[#7f8c8d] mb-1">Avg Temperature</span>
-                    <span className="text-base font-semibold text-[#2c3e50]">{environmentalSnapshot.weather?.avgTemperature?.toFixed(1)}°C</span>
+                    <span className="text-base font-semibold text-slate-900">{environmentalSnapshot.weather?.avgTemperature?.toFixed(1)}°C</span>
                   </div>
                   <div className="text-center p-3 bg-[#f8f9fa] rounded-lg">
                     <span className="block text-[0.75rem] text-[#7f8c8d] mb-1">Avg Rainfall</span>
-                    <span className="text-base font-semibold text-[#2c3e50]">{environmentalSnapshot.weather?.avgRainfall?.toFixed(0)} mm</span>
+                    <span className="text-base font-semibold text-slate-900">{environmentalSnapshot.weather?.avgRainfall?.toFixed(0)} mm</span>
                   </div>
                   <div className="text-center p-3 bg-[#f8f9fa] rounded-lg">
                     <span className="block text-[0.75rem] text-[#7f8c8d] mb-1">Avg Humidity</span>
-                    <span className="text-base font-semibold text-[#2c3e50]">{environmentalSnapshot.weather?.avgHumidity?.toFixed(0)}%</span>
+                    <span className="text-base font-semibold text-slate-900">{environmentalSnapshot.weather?.avgHumidity?.toFixed(0)}%</span>
                   </div>
                 </div>
               </div>
@@ -272,7 +272,7 @@ const HistoryDetailPage = () => {
 
         {/* Recommendations */}
         <div>
-          <h2 className="text-[#2c3e50] m-0 mb-2 text-xl">Recommended Crops</h2>
+          <h2 className="text-slate-900 m-0 mb-2 text-xl">Recommended Crops</h2>
           <p className="text-[#7f8c8d] text-[0.9rem] m-0 mb-4">Click on a crop to see details, or select it as your choice</p>
           <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] max-md:grid-cols-1 gap-6 mb-8">
             {crops?.map((crop, index) => {
@@ -311,7 +311,7 @@ const HistoryDetailPage = () => {
                   <div className="absolute -top-2.5 left-5 text-white py-1.5 px-3 rounded-full font-bold text-[0.9rem]" style={{ background: 'linear-gradient(135deg, #3498db 0%, #2980b9 100%)' }}>#{index + 1}</div>
                   
                   <div className="flex justify-between items-center mt-2 mb-4">
-                    <h3 className="text-[#2c3e50] m-0 text-xl">{crop.cropName}</h3>
+                    <h3 className="text-slate-900 m-0 text-xl">{crop.cropName}</h3>
                     <div className={`py-1.5 px-3 rounded-full font-bold text-[0.95rem] ${suitClass.bg} ${suitClass.text}`}>
                       {Number(crop.suitabilityScore).toFixed(2)}%
                     </div>
@@ -333,22 +333,22 @@ const HistoryDetailPage = () => {
                     <div className="flex gap-2 mb-4">
                       <div className="flex-1 text-center p-2 bg-[#f8f9fa] rounded-lg">
                         <span className="block text-[0.7rem] text-[#95a5a6] mb-1">Soil</span>
-                        <span className="font-semibold text-[#2c3e50] text-[0.9rem]">{crop.environmentalFactors.soilMatch}%</span>
+                        <span className="font-semibold text-slate-900 text-[0.9rem]">{crop.environmentalFactors.soilMatch}%</span>
                       </div>
                       <div className="flex-1 text-center p-2 bg-[#f8f9fa] rounded-lg">
                         <span className="block text-[0.7rem] text-[#95a5a6] mb-1">Weather</span>
-                        <span className="font-semibold text-[#2c3e50] text-[0.9rem]">{crop.environmentalFactors.weatherMatch}%</span>
+                        <span className="font-semibold text-slate-900 text-[0.9rem]">{crop.environmentalFactors.weatherMatch}%</span>
                       </div>
                       <div className="flex-1 text-center p-2 bg-[#f8f9fa] rounded-lg">
                         <span className="block text-[0.7rem] text-[#95a5a6] mb-1">History</span>
-                        <span className="font-semibold text-[#2c3e50] text-[0.9rem]">{crop.environmentalFactors.historicalYield}%</span>
+                        <span className="font-semibold text-slate-900 text-[0.9rem]">{crop.environmentalFactors.historicalYield}%</span>
                       </div>
                     </div>
                   )}
                   
                   <div className="flex flex-col gap-2 mt-auto">
                     <button 
-                      className={`flex items-center justify-center gap-2 p-3 border-2 rounded-lg font-semibold text-[0.9rem] cursor-pointer transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed ${isSelected ? 'bg-[#27ae60] text-white border-[#27ae60]' : 'bg-white text-[#3498db] border-[#3498db] hover:bg-[#3498db] hover:text-white'}`}
+                      className={`flex items-center justify-center gap-2 p-3 border-2 rounded-lg font-semibold text-[0.9rem] cursor-pointer transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed ${isSelected ? 'bg-[#27ae60] text-white border-[#27ae60]' : 'bg-white text-emerald-600 border-emerald-600 hover:bg-emerald-600 hover:text-white'}`}
                       onClick={(e) => handleSelectCrop(e, crop.cropName)}
                       disabled={isSelecting || isSelected}
                     >
@@ -395,7 +395,7 @@ const HistoryDetailPage = () => {
             </svg>
             Get New Recommendations
           </button>
-          <button onClick={() => navigate('/history')} className="flex-1 flex items-center justify-center gap-2 py-4 px-6 bg-white text-[#2c3e50] border-2 border-[#e0e0e0] rounded-xl text-base font-semibold cursor-pointer transition-all duration-300 hover:border-[#27ae60] hover:text-[#27ae60]">
+          <button onClick={() => navigate('/history')} className="flex-1 flex items-center justify-center gap-2 py-4 px-6 bg-white text-slate-900 border-2 border-[#e0e0e0] rounded-xl text-base font-semibold cursor-pointer transition-all duration-300 hover:border-[#27ae60] hover:text-[#27ae60]">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path>
             </svg>

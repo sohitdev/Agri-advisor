@@ -22,7 +22,7 @@ const RecommendationDetailPage = () => {
                 <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
               </svg>
             </div>
-            <h2 className="text-[#2c3e50] mb-2 text-2xl font-bold">Recommendation Not Found</h2>
+            <h2 className="text-slate-900 mb-2 text-2xl font-bold">Recommendation Not Found</h2>
             <p className="text-[#7f8c8d] mb-6">The recommendation you're looking for doesn't exist</p>
             <Link to="/dashboard" className="inline-flex items-center gap-2 py-3.5 px-6 text-white no-underline rounded-lg font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(39,174,96,0.4)]" style={{ background: 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)' }}>
               Go to Dashboard
@@ -107,7 +107,7 @@ const RecommendationDetailPage = () => {
           {/* Suitability Score Card */}
           <div className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
             <div className="flex justify-between items-center mb-6 flex-wrap gap-3">
-              <h2 className="m-0 text-[#2c3e50] text-xl font-bold">Suitability Score</h2>
+              <h2 className="m-0 text-slate-900 text-xl font-bold">Suitability Score</h2>
               <span className={`py-2 px-4 rounded-[20px] font-semibold text-[0.9rem] ${suit.bg} ${suit.text}`}>
                 {getSuitabilityLabel(suitabilityScore)}
               </span>
@@ -122,10 +122,10 @@ const RecommendationDetailPage = () => {
                     d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" 
                   />
                 </svg>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-bold text-[#2c3e50]">{Number(suitabilityScore).toFixed(2)}%</div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-bold text-slate-900">{Number(suitabilityScore).toFixed(2)}%</div>
               </div>
               <div className="flex-1 min-w-[200px]">
-                <p className="text-[#7f8c8d] leading-[1.6] m-0">This crop has a <strong className="text-[#2c3e50]">{getSuitabilityLabel(suitabilityScore).toLowerCase()}</strong> with your location's soil and weather conditions.</p>
+                <p className="text-[#7f8c8d] leading-[1.6] m-0">This crop has a <strong className="text-slate-900">{getSuitabilityLabel(suitabilityScore).toLowerCase()}</strong> with your location's soil and weather conditions.</p>
               </div>
             </div>
           </div>
@@ -137,12 +137,12 @@ const RecommendationDetailPage = () => {
                 <path d="M12 20V10m0 10l-3-3m3 3l3-3"></path>
                 <path d="M17.5 6.5c0 2.485-2.462 4.5-5.5 4.5S6.5 8.985 6.5 6.5 8.962 2 12 2s5.5 2.015 5.5 4.5z"></path>
               </svg>
-              <h2 className="m-0 text-[#2c3e50] text-xl font-bold">Yield Prediction</h2>
+              <h2 className="m-0 text-slate-900 text-xl font-bold">Yield Prediction</h2>
             </div>
             <div className="grid grid-cols-3 gap-6 mb-6 max-md:grid-cols-1">
               <div className="text-center p-5 bg-[#f8f9fa] rounded-xl">
                 <span className="block text-[0.85rem] mb-2 opacity-80 text-[#6c757d]">Minimum</span>
-                <span className="block text-[1.75rem] font-bold text-[#2c3e50]">{yieldPrediction?.min?.toLocaleString()}</span>
+                <span className="block text-[1.75rem] font-bold text-slate-900">{yieldPrediction?.min?.toLocaleString()}</span>
                 <span className="block text-[0.8rem] mt-1 opacity-70 text-[#6c757d]">kg/hectare</span>
               </div>
               <div className="text-center p-5 rounded-xl text-white" style={{ background: 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)' }}>
@@ -152,7 +152,7 @@ const RecommendationDetailPage = () => {
               </div>
               <div className="text-center p-5 bg-[#f8f9fa] rounded-xl">
                 <span className="block text-[0.85rem] mb-2 opacity-80 text-[#6c757d]">Maximum</span>
-                <span className="block text-[1.75rem] font-bold text-[#2c3e50]">{yieldPrediction?.max?.toLocaleString()}</span>
+                <span className="block text-[1.75rem] font-bold text-slate-900">{yieldPrediction?.max?.toLocaleString()}</span>
                 <span className="block text-[0.8rem] mt-1 opacity-70 text-[#6c757d]">kg/hectare</span>
               </div>
             </div>
@@ -173,7 +173,7 @@ const RecommendationDetailPage = () => {
           {/* Environmental Factors */}
           {environmentalFactors && (
             <div className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
-              <h2 className="m-0 mb-6 text-[#2c3e50] text-xl font-bold">Environmental Compatibility</h2>
+              <h2 className="m-0 mb-6 text-slate-900 text-xl font-bold">Environmental Compatibility</h2>
               <div className="flex flex-col gap-5">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 flex items-center justify-center rounded-xl shrink-0 bg-[#fff3e0] text-[#e65100]">
@@ -182,11 +182,11 @@ const RecommendationDetailPage = () => {
                     </svg>
                   </div>
                   <div className="flex-1 flex items-center gap-4">
-                    <span className="w-[120px] font-medium text-[#2c3e50]">Soil Match</span>
+                    <span className="w-[120px] font-medium text-slate-900">Soil Match</span>
                     <div className="flex-1 h-2.5 bg-[#ecf0f1] rounded-[5px] overflow-hidden">
                       <div className="h-full rounded-[5px] transition-all duration-500 bg-gradient-to-r from-[#e65100] to-[#ff9800]" style={{ width: `${environmentalFactors.soilMatch}%` }}></div>
                     </div>
-                    <span className="w-[50px] text-right font-bold text-[#2c3e50]">{environmentalFactors.soilMatch}%</span>
+                    <span className="w-[50px] text-right font-bold text-slate-900">{environmentalFactors.soilMatch}%</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -197,11 +197,11 @@ const RecommendationDetailPage = () => {
                     </svg>
                   </div>
                   <div className="flex-1 flex items-center gap-4">
-                    <span className="w-[120px] font-medium text-[#2c3e50]">Weather Match</span>
+                    <span className="w-[120px] font-medium text-slate-900">Weather Match</span>
                     <div className="flex-1 h-2.5 bg-[#ecf0f1] rounded-[5px] overflow-hidden">
                       <div className="h-full rounded-[5px] transition-all duration-500 bg-gradient-to-r from-[#1565c0] to-[#42a5f5]" style={{ width: `${environmentalFactors.weatherMatch}%` }}></div>
                     </div>
-                    <span className="w-[50px] text-right font-bold text-[#2c3e50]">{environmentalFactors.weatherMatch}%</span>
+                    <span className="w-[50px] text-right font-bold text-slate-900">{environmentalFactors.weatherMatch}%</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -211,11 +211,11 @@ const RecommendationDetailPage = () => {
                     </svg>
                   </div>
                   <div className="flex-1 flex items-center gap-4">
-                    <span className="w-[120px] font-medium text-[#2c3e50]">Historical Yield</span>
+                    <span className="w-[120px] font-medium text-slate-900">Historical Yield</span>
                     <div className="flex-1 h-2.5 bg-[#ecf0f1] rounded-[5px] overflow-hidden">
                       <div className="h-full rounded-[5px] transition-all duration-500 bg-gradient-to-r from-[#7b1fa2] to-[#ba68c8]" style={{ width: `${environmentalFactors.historicalYield}%` }}></div>
                     </div>
-                    <span className="w-[50px] text-right font-bold text-[#2c3e50]">{environmentalFactors.historicalYield}%</span>
+                    <span className="w-[50px] text-right font-bold text-slate-900">{environmentalFactors.historicalYield}%</span>
                   </div>
                 </div>
               </div>
@@ -228,7 +228,7 @@ const RecommendationDetailPage = () => {
               <div className="flex justify-between items-start gap-4 mb-6 max-sm:flex-col">
                 <div>
                   <span className="block text-[#16a085] text-[0.78rem] font-bold uppercase mb-[0.35rem]">Per hectare estimate</span>
-                  <h2 className="m-0 text-[#2c3e50] text-xl font-bold">Investment & Profit Potential</h2>
+                  <h2 className="m-0 text-slate-900 text-xl font-bold">Investment & Profit Potential</h2>
                 </div>
                 <span className={`shrink-0 py-2 px-4 rounded-[20px] text-[0.85rem] font-bold ${getRiskClass(economics.riskLevel)}`}>
                   {economics.riskLevel || 'Moderate'} Risk
@@ -238,48 +238,48 @@ const RecommendationDetailPage = () => {
               <div className="grid grid-cols-3 max-md:grid-cols-1 gap-4 mb-6">
                 <div className="p-5 rounded-xl bg-[#fff8e1]">
                   <span className="block text-[#6c757d] text-[0.82rem] leading-[1.4]">Investment Needed</span>
-                  <strong className="block text-[#2c3e50] text-[1.45rem] my-[0.35rem]">{formatCurrency(economics.investment?.expected)}</strong>
+                  <strong className="block text-slate-900 text-[1.45rem] my-[0.35rem]">{formatCurrency(economics.investment?.expected)}</strong>
                   <span className="block text-[#6c757d] text-[0.82rem]">{formatCurrencyRange(economics.investment?.range)}</span>
                 </div>
                 <div className="p-5 rounded-xl bg-[#e8f5e9]">
                   <span className="block text-[#6c757d] text-[0.82rem] leading-[1.4]">Expected Revenue</span>
-                  <strong className="block text-[#2c3e50] text-[1.45rem] my-[0.35rem]">{formatCurrency(economics.revenue?.expected)}</strong>
+                  <strong className="block text-slate-900 text-[1.45rem] my-[0.35rem]">{formatCurrency(economics.revenue?.expected)}</strong>
                   <span className="block text-[#6c757d] text-[0.82rem]">{formatCurrencyRange(economics.revenue?.range)}</span>
                 </div>
                 <div className={`p-5 rounded-xl ${(economics.profit?.expected || 0) < 0 ? 'bg-[#ffebee]' : 'bg-[#e0f2f1]'}`}>
                   <span className="block text-[#6c757d] text-[0.82rem] leading-[1.4]">Estimated Profit</span>
-                  <strong className="block text-[#2c3e50] text-[1.45rem] my-[0.35rem]">{formatCurrency(economics.profit?.expected)}</strong>
+                  <strong className="block text-slate-900 text-[1.45rem] my-[0.35rem]">{formatCurrency(economics.profit?.expected)}</strong>
                   <span className="block text-[#6c757d] text-[0.82rem]">{economics.profit?.roiPercent || 0}% return on investment</span>
                 </div>
               </div>
 
               <div className="grid grid-cols-[minmax(240px,0.9fr)_minmax(280px,1.1fr)] max-md:grid-cols-1 gap-6">
                 <div className="bg-[#f8f9fa] rounded-xl p-5">
-                  <h3 className="m-0 mb-4 text-[#2c3e50] text-base font-bold">Cost Breakdown</h3>
+                  <h3 className="m-0 mb-4 text-slate-900 text-base font-bold">Cost Breakdown</h3>
                   <div className="flex flex-col gap-[0.65rem]">
                     {(economics.investment?.costBreakdown || []).map((item) => (
                       <div className="flex justify-between gap-4 text-[#555] text-[0.9rem]" key={item.key}>
                         <span>{formatCostLabel(item.key)}</span>
-                        <strong className="shrink-0 text-[#2c3e50]">{formatCurrency(item.amount)}</strong>
+                        <strong className="shrink-0 text-slate-900">{formatCurrency(item.amount)}</strong>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 <div className="bg-[#f8f9fa] rounded-xl p-5">
-                  <h3 className="m-0 mb-4 text-[#2c3e50] text-base font-bold">Planning Assumptions</h3>
+                  <h3 className="m-0 mb-4 text-slate-900 text-base font-bold">Planning Assumptions</h3>
                   <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-3 mb-4">
                     <div className="bg-white rounded-lg p-[0.85rem]">
                       <span className="block text-[#7f8c8d] text-[0.78rem] mb-[0.3rem]">Sale price used</span>
-                      <strong className="text-[#2c3e50] text-[0.95rem]">Rs. {formatNumber(economics.revenue?.assumedPricePerKg)}/kg</strong>
+                      <strong className="text-slate-900 text-[0.95rem]">Rs. {formatNumber(economics.revenue?.assumedPricePerKg)}/kg</strong>
                     </div>
                     <div className="bg-white rounded-lg p-[0.85rem]">
                       <span className="block text-[#7f8c8d] text-[0.78rem] mb-[0.3rem]">Yield used</span>
-                      <strong className="text-[#2c3e50] text-[0.95rem]">{formatNumber(economics.revenue?.expectedYieldKgPerHectare)} kg/ha</strong>
+                      <strong className="text-slate-900 text-[0.95rem]">{formatNumber(economics.revenue?.expectedYieldKgPerHectare)} kg/ha</strong>
                     </div>
                     <div className="bg-white rounded-lg p-[0.85rem]">
                       <span className="block text-[#7f8c8d] text-[0.78rem] mb-[0.3rem]">Break-even yield</span>
-                      <strong className="text-[#2c3e50] text-[0.95rem]">{formatNumber(economics.profit?.breakEvenYieldKgPerHectare)} kg/ha</strong>
+                      <strong className="text-slate-900 text-[0.95rem]">{formatNumber(economics.profit?.breakEvenYieldKgPerHectare)} kg/ha</strong>
                     </div>
                   </div>
                   <p className="m-0 text-[#6c757d] leading-[1.6] text-[0.9rem]">
@@ -297,7 +297,7 @@ const RecommendationDetailPage = () => {
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
               </svg>
-              <h2 className="m-0 text-[#2c3e50] text-xl font-bold">Why This Crop?</h2>
+              <h2 className="m-0 text-slate-900 text-xl font-bold">Why This Crop?</h2>
             </div>
             <p className="text-[#555] leading-[1.8] text-[1.05rem] m-0">{explanation}</p>
           </div>
@@ -305,7 +305,7 @@ const RecommendationDetailPage = () => {
           {/* Environmental Data */}
           {environmentalSnapshot && (
             <div className="mt-4">
-              <h2 className="m-0 mb-6 text-[#2c3e50] text-xl font-bold">Location Environmental Data</h2>
+              <h2 className="m-0 mb-6 text-slate-900 text-xl font-bold">Location Environmental Data</h2>
               <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
                 {/* Soil Data */}
                 <div className="bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
@@ -313,28 +313,28 @@ const RecommendationDetailPage = () => {
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M2 22h20M12 2v6m0 0l-3-3m3 3l3-3M7 11l5 5 5-5"></path>
                     </svg>
-                    <h3 className="m-0 text-[#2c3e50] text-[1.1rem]">Soil Properties</h3>
+                    <h3 className="m-0 text-slate-900 text-[1.1rem]">Soil Properties</h3>
                   </div>
                   <div className="grid grid-cols-[repeat(auto-fit,minmax(120px,1fr))] gap-4">
                     <div className="text-center p-3 bg-[#f8f9fa] rounded-lg">
                       <span className="block text-[0.8rem] text-[#7f8c8d] mb-1.5">pH Level</span>
-                      <span className="text-[1.1rem] font-semibold text-[#2c3e50]">{soil?.ph?.toFixed(2)}</span>
+                      <span className="text-[1.1rem] font-semibold text-slate-900">{soil?.ph?.toFixed(2)}</span>
                     </div>
                     <div className="text-center p-3 bg-[#f8f9fa] rounded-lg">
                       <span className="block text-[0.8rem] text-[#7f8c8d] mb-1.5">Organic Carbon</span>
-                      <span className="text-[1.1rem] font-semibold text-[#2c3e50]">{soil?.organicCarbon?.toFixed(2)}%</span>
+                      <span className="text-[1.1rem] font-semibold text-slate-900">{soil?.organicCarbon?.toFixed(2)}%</span>
                     </div>
                     <div className="text-center p-3 bg-[#f8f9fa] rounded-lg">
                       <span className="block text-[0.8rem] text-[#7f8c8d] mb-1.5">Nitrogen (N)</span>
-                      <span className="text-[1.1rem] font-semibold text-[#2c3e50]">{soil?.nitrogen?.toFixed(0)} kg/ha</span>
+                      <span className="text-[1.1rem] font-semibold text-slate-900">{soil?.nitrogen?.toFixed(0)} kg/ha</span>
                     </div>
                     <div className="text-center p-3 bg-[#f8f9fa] rounded-lg">
                       <span className="block text-[0.8rem] text-[#7f8c8d] mb-1.5">Phosphorus (P)</span>
-                      <span className="text-[1.1rem] font-semibold text-[#2c3e50]">{soil?.phosphorus?.toFixed(0)} kg/ha</span>
+                      <span className="text-[1.1rem] font-semibold text-slate-900">{soil?.phosphorus?.toFixed(0)} kg/ha</span>
                     </div>
                     <div className="text-center p-3 bg-[#f8f9fa] rounded-lg">
                       <span className="block text-[0.8rem] text-[#7f8c8d] mb-1.5">Potassium (K)</span>
-                      <span className="text-[1.1rem] font-semibold text-[#2c3e50]">{soil?.potassium?.toFixed(0)} kg/ha</span>
+                      <span className="text-[1.1rem] font-semibold text-slate-900">{soil?.potassium?.toFixed(0)} kg/ha</span>
                     </div>
                   </div>
                 </div>
@@ -346,20 +346,20 @@ const RecommendationDetailPage = () => {
                       <path d="M12 2v2m0 16v2M4 12H2m4.314-5.686L4.9 4.9m12.786 1.414L19.1 4.9M6.314 17.686L4.9 19.1m12.786-1.414L19.1 19.1M22 12h-2"></path>
                       <circle cx="12" cy="12" r="4"></circle>
                     </svg>
-                    <h3 className="m-0 text-[#2c3e50] text-[1.1rem]">Weather Conditions</h3>
+                    <h3 className="m-0 text-slate-900 text-[1.1rem]">Weather Conditions</h3>
                   </div>
                   <div className="grid grid-cols-[repeat(auto-fit,minmax(120px,1fr))] gap-4">
                     <div className="text-center p-3 bg-[#f8f9fa] rounded-lg">
                       <span className="block text-[0.8rem] text-[#7f8c8d] mb-1.5">Avg Temperature</span>
-                      <span className="text-[1.1rem] font-semibold text-[#2c3e50]">{weather?.avgTemperature?.toFixed(1)}°C</span>
+                      <span className="text-[1.1rem] font-semibold text-slate-900">{weather?.avgTemperature?.toFixed(1)}°C</span>
                     </div>
                     <div className="text-center p-3 bg-[#f8f9fa] rounded-lg">
                       <span className="block text-[0.8rem] text-[#7f8c8d] mb-1.5">Avg Rainfall</span>
-                      <span className="text-[1.1rem] font-semibold text-[#2c3e50]">{weather?.avgRainfall?.toFixed(0)} mm</span>
+                      <span className="text-[1.1rem] font-semibold text-slate-900">{weather?.avgRainfall?.toFixed(0)} mm</span>
                     </div>
                     <div className="text-center p-3 bg-[#f8f9fa] rounded-lg">
                       <span className="block text-[0.8rem] text-[#7f8c8d] mb-1.5">Avg Humidity</span>
-                      <span className="text-[1.1rem] font-semibold text-[#2c3e50]">{weather?.avgHumidity?.toFixed(0)}%</span>
+                      <span className="text-[1.1rem] font-semibold text-slate-900">{weather?.avgHumidity?.toFixed(0)}%</span>
                     </div>
                   </div>
                 </div>
@@ -376,7 +376,7 @@ const RecommendationDetailPage = () => {
               </svg>
               Get New Recommendations
             </button>
-            <button onClick={() => navigate('/history')} className="flex-1 flex items-center justify-center gap-2 py-4 px-6 bg-white text-[#2c3e50] border-2 border-[#e0e0e0] rounded-xl text-base font-semibold cursor-pointer transition-all duration-300 hover:border-[#27ae60] hover:text-[#27ae60]">
+            <button onClick={() => navigate('/history')} className="flex-1 flex items-center justify-center gap-2 py-4 px-6 bg-white text-slate-900 border-2 border-[#e0e0e0] rounded-xl text-base font-semibold cursor-pointer transition-all duration-300 hover:border-[#27ae60] hover:text-[#27ae60]">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path>
               </svg>

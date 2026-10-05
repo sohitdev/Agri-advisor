@@ -7,9 +7,9 @@ const RecommendationCard = ({ recommendation, rank }) => {
 
   return (
     <div className="bg-white rounded-lg shadow-[0_2px_10px_rgba(0,0,0,0.1)] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,0,0,0.15)]">
-      <div className="flex items-center gap-4 mb-4 pb-4 border-b-2 border-[#ecf0f1]">
-        <span className="bg-[#3498db] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl">#{rank}</span>
-        <h3 className="text-[#2c3e50] m-0 text-2xl">{cropName}</h3>
+      <div className="flex items-center gap-4 mb-4 pb-4 border-b-2 border-slate-200">
+        <span className="bg-emerald-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl">#{rank}</span>
+        <h3 className="text-slate-900 m-0 text-2xl">{cropName}</h3>
       </div>
       
       <div className="flex flex-col gap-4">
@@ -26,7 +26,7 @@ const RecommendationCard = ({ recommendation, rank }) => {
 
         <div className="p-4 bg-[#e8f5e9] rounded">
           <div className="text-[0.9rem] text-[#555] mb-2">{t('yieldPrediction')}</div>
-          <div className="text-[1.2rem] font-semibold text-[#2c3e50] mb-1">
+          <div className="text-[1.2rem] font-semibold text-slate-900 mb-1">
             {yieldPrediction.min} - {yieldPrediction.max} kg/hectare
           </div>
           <div className="text-[0.9rem] text-[#27ae60]">

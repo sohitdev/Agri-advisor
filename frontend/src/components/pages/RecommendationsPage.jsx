@@ -23,7 +23,7 @@ const RecommendationsPage = () => {
                 <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
               </svg>
             </div>
-            <h2 className="text-[#2c3e50] mb-2">No Recommendations Found</h2>
+            <h2 className="text-slate-900 mb-2">No Recommendations Found</h2>
             <p className="text-[#7f8c8d] mb-6">Please generate recommendations from the dashboard first</p>
             <Link to="/dashboard" className="inline-flex items-center gap-2 py-3.5 px-6 bg-gradient-to-br from-[#27ae60] to-[#2ecc71] text-white border-none rounded-lg text-base font-semibold cursor-pointer no-underline transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(39,174,96,0.4)]">
               Go to Dashboard
@@ -77,7 +77,7 @@ const RecommendationsPage = () => {
           </button>
           
           <div className="bg-white py-6 px-8 rounded-2xl shadow-[0_6px_20px_rgba(25,40,62,0.08)] border border-[rgba(37,64,102,0.08)]">
-            <h1 className="text-[#2c3e50] m-0 mb-3 text-[1.5rem] md:text-2xl">Crop Recommendations</h1>
+            <h1 className="text-slate-900 m-0 mb-3 text-[1.5rem] md:text-2xl">Crop Recommendations</h1>
             {locationInfo && (
               <div className="inline-flex items-center gap-2 py-2 px-4 bg-[#f6f8fc] border border-[rgba(37,64,102,0.1)] rounded-[20px] text-[#555] text-[0.95rem]">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#e74c3c]">
@@ -101,7 +101,7 @@ const RecommendationsPage = () => {
                 </svg>
               </div>
               <div>
-                <h4 className="text-[#2c3e50] m-0 mb-1 text-[0.95rem]">Soil Conditions</h4>
+                <h4 className="text-slate-900 m-0 mb-1 text-[0.95rem]">Soil Conditions</h4>
                 <p className="text-[#7f8c8d] m-0 text-[0.85rem]">pH: {soil?.ph?.toFixed(1)} | N: {soil?.nitrogen?.toFixed(0)} | P: {soil?.phosphorus?.toFixed(0)} | K: {soil?.potassium?.toFixed(0)}</p>
               </div>
             </div>
@@ -113,7 +113,7 @@ const RecommendationsPage = () => {
                 </svg>
               </div>
               <div>
-                <h4 className="text-[#2c3e50] m-0 mb-1 text-[0.95rem]">Weather Conditions</h4>
+                <h4 className="text-slate-900 m-0 mb-1 text-[0.95rem]">Weather Conditions</h4>
                 <p className="text-[#7f8c8d] m-0 text-[0.85rem]">Temp: {weather?.avgTemperature?.toFixed(1)}°C | Rain: {weather?.avgRainfall?.toFixed(0)}mm | Humidity: {weather?.avgHumidity?.toFixed(0)}%</p>
               </div>
             </div>
@@ -122,7 +122,7 @@ const RecommendationsPage = () => {
 
         {/* Results Count */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 px-2 flex-wrap gap-2 md:gap-3">
-          <span className="text-[1.1rem] font-semibold text-[#2c3e50]">{crops.length} crops recommended</span>
+          <span className="text-[1.1rem] font-semibold text-slate-900">{crops.length} crops recommended</span>
           <span className="text-[0.9rem] text-[#7f8c8d]">Click on any crop to see detailed analysis</span>
         </div>
 
@@ -145,7 +145,7 @@ const RecommendationsPage = () => {
               <div className="absolute -top-2.5 left-5 bg-[#e8f2fb] border border-[#b8d6ef] text-[#2f6ea1] py-1.5 px-3 rounded-[20px] font-bold text-[0.9rem]">#{index + 1}</div>
               
               <div className="flex justify-between items-center mt-2 mb-4">
-                <h3 className="text-[#2c3e50] m-0 text-[1.95rem] leading-[1.1]">{formatCropName(crop.cropName)}</h3>
+                <h3 className="text-slate-900 m-0 text-[1.95rem] leading-[1.1]">{formatCropName(crop.cropName)}</h3>
                 <div className={`py-1.5 px-3 rounded-[20px] font-bold text-base ${getSuitabilityBadgeClass(crop.suitabilityScore)}`}>
                   {formatScore(crop.suitabilityScore)}%
                 </div>
@@ -172,15 +172,15 @@ const RecommendationsPage = () => {
                 <div className="flex flex-wrap md:flex-nowrap gap-3 mb-4">
                   <div className="flex-1 text-center p-2 bg-[#f6f8fc] border border-[rgba(37,64,102,0.08)] rounded-lg">
                     <span className="block text-[0.75rem] text-[#95a5a6] mb-1">Soil</span>
-                    <span className="font-semibold text-[#2c3e50]">{crop.environmentalFactors.soilMatch}%</span>
+                    <span className="font-semibold text-slate-900">{crop.environmentalFactors.soilMatch}%</span>
                   </div>
                   <div className="flex-1 text-center p-2 bg-[#f6f8fc] border border-[rgba(37,64,102,0.08)] rounded-lg">
                     <span className="block text-[0.75rem] text-[#95a5a6] mb-1">Weather</span>
-                    <span className="font-semibold text-[#2c3e50]">{crop.environmentalFactors.weatherMatch}%</span>
+                    <span className="font-semibold text-slate-900">{crop.environmentalFactors.weatherMatch}%</span>
                   </div>
                   <div className="flex-1 text-center p-2 bg-[#f6f8fc] border border-[rgba(37,64,102,0.08)] rounded-lg">
                     <span className="block text-[0.75rem] text-[#95a5a6] mb-1">History</span>
-                    <span className="font-semibold text-[#2c3e50]">{crop.environmentalFactors.historicalYield}%</span>
+                    <span className="font-semibold text-slate-900">{crop.environmentalFactors.historicalYield}%</span>
                   </div>
                 </div>
               )}

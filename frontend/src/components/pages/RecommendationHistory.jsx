@@ -44,7 +44,7 @@ const RecommendationHistory = () => {
             <div className="mb-8 flex justify-center">
               <div className="w-[60px] h-[60px] rounded-full border-4 border-[rgba(52,152,219,0.2)] border-t-[#3498db]" style={{ animation: 'spin 1s linear infinite' }}></div>
             </div>
-            <h2 className="text-[#2c3e50] m-0 mb-2 text-2xl">Loading your history...</h2>
+            <h2 className="text-slate-900 m-0 mb-2 text-2xl">Loading your history...</h2>
             <p className="text-[#7f8c8d] m-0">Please wait while we fetch your recommendations</p>
           </div>
         </div>
@@ -65,7 +65,7 @@ const RecommendationHistory = () => {
                 <line x1="12" y1="16" x2="12.01" y2="16"></line>
               </svg>
             </div>
-            <h2 className="text-[#2c3e50] m-0 mb-2 text-2xl">Oops! Something went wrong</h2>
+            <h2 className="text-slate-900 m-0 mb-2 text-2xl">Oops! Something went wrong</h2>
             <p className="text-[#7f8c8d] m-0 mb-8">We couldn't load your recommendation history</p>
             <button 
               onClick={() => window.location.reload()} 
@@ -111,7 +111,7 @@ const RecommendationHistory = () => {
                 <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
               </svg>
             </div>
-            <h2 className="text-[#2c3e50] m-0 mb-2 text-2xl">No Recommendations Yet</h2>
+            <h2 className="text-slate-900 m-0 mb-2 text-2xl">No Recommendations Yet</h2>
             <p className="text-[#7f8c8d] m-0 mb-8">Start by getting your first crop recommendation from the dashboard</p>
             <a 
               href="/" 
@@ -132,7 +132,7 @@ const RecommendationHistory = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="m-0 mb-1 text-[2rem] max-sm:text-[1.75rem] text-[#2c3e50] font-bold">{data.recommendations.length}</h3>
+                  <h3 className="m-0 mb-1 text-[2rem] max-sm:text-[1.75rem] text-slate-900 font-bold">{data.recommendations.length}</h3>
                   <p className="m-0 text-[#7f8c8d] text-[0.9rem]">Total Recommendations</p>
                 </div>
               </div>
@@ -148,7 +148,7 @@ const RecommendationHistory = () => {
                 >
                   <div className="absolute top-0 left-0 w-1 h-full origin-top scale-y-0 transition-transform duration-300 group-hover:scale-y-100" style={{ background: 'linear-gradient(135deg, #3498db, #5dade2)' }}></div>
 
-                  <div className="flex items-center justify-between gap-4 mb-6 pb-4 border-b-2 border-[#ecf0f1] flex-wrap max-md:flex-col max-md:items-start">
+                  <div className="flex items-center justify-between gap-4 mb-6 pb-4 border-b-2 border-slate-200 flex-wrap max-md:flex-col max-md:items-start">
                     <div className="flex items-center gap-3 flex-1">
                       <div className="w-10 h-10 max-sm:w-[35px] max-sm:h-[35px] rounded-lg flex items-center justify-center text-white shrink-0" style={{ background: 'linear-gradient(135deg, #3498db, #5dade2)' }}>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -156,7 +156,7 @@ const RecommendationHistory = () => {
                           <circle cx="12" cy="10" r="3"></circle>
                         </svg>
                       </div>
-                      <h3 className="text-[#2c3e50] m-0 text-xl max-md:text-[1.1rem] max-sm:text-[1rem] font-semibold">{rec.location?.state || 'Unknown'} - {rec.location?.district || 'Unknown'}</h3>
+                      <h3 className="text-slate-900 m-0 text-xl max-md:text-[1.1rem] max-sm:text-[1rem] font-semibold">{rec.location?.state || 'Unknown'} - {rec.location?.district || 'Unknown'}</h3>
                     </div>
                     <div className="flex items-center gap-4 flex-wrap max-md:w-full max-md:justify-between">
                       <span className="text-white py-2 px-4 max-sm:py-1.5 max-sm:px-3 rounded-lg text-[0.9rem] max-sm:text-[0.85rem] font-semibold inline-flex items-center" style={{ background: 'linear-gradient(135deg, #3498db, #5dade2)', boxShadow: '0 2px 8px rgba(52, 152, 219, 0.3)' }}>{rec.season}</span>
@@ -192,13 +192,13 @@ const RecommendationHistory = () => {
                   )}
 
                   <div>
-                    <h4 className="text-[#2c3e50] m-0 mb-4 text-base font-semibold">Top Recommendations:</h4>
+                    <h4 className="text-slate-900 m-0 mb-4 text-base font-semibold">Top Recommendations:</h4>
                     <div className="flex flex-col gap-3">
                       {(rec.recommendations || []).slice(0, 3).map((recItem, idx) => (
                         <div key={idx} className="flex items-center gap-4 p-4 max-md:flex-wrap rounded-lg transition-all duration-300 hover:translate-x-1" style={{ background: 'linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%)' }}>
                           <div className="text-white w-9 h-9 max-sm:w-8 max-sm:h-8 max-sm:text-[0.85rem] rounded-lg flex items-center justify-center text-[0.9rem] font-bold shrink-0" style={{ background: 'linear-gradient(135deg, #3498db, #5dade2)', boxShadow: '0 2px 8px rgba(52, 152, 219, 0.3)' }}>#{idx + 1}</div>
                           <div className="flex-1 flex flex-col gap-2 min-w-0">
-                            <span className="font-semibold text-[#2c3e50] text-base max-sm:text-[0.95rem]">{recItem.cropName}</span>
+                            <span className="font-semibold text-slate-900 text-base max-sm:text-[0.95rem]">{recItem.cropName}</span>
                             <div className="w-full h-1.5 bg-[#e0e0e0] rounded-full overflow-hidden">
                               <div 
                                 className="h-full rounded-full transition-all duration-600 ease-out" 
@@ -213,7 +213,7 @@ const RecommendationHistory = () => {
                   </div>
 
                   {(rec.recommendations?.length || 0) > 3 && (
-                    <div className="mt-4 pt-4 border-t border-[#ecf0f1] text-center">
+                    <div className="mt-4 pt-4 border-t border-slate-200 text-center">
                       <span className="text-[#7f8c8d] text-[0.9rem] italic">+{(rec.recommendations?.length || 0) - 3} more crops</span>
                     </div>
                   )}
