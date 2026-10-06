@@ -12,7 +12,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # MongoDB connection
-MONGODB_URI = os.getenv('MONGODB_URI', 'mongodb+srv://harshagarwal0412003:harshagarwal0412003@cluster0.ufibm.mongodb.net/?appName=Cluster0')
+MONGODB_URI = os.getenv('MONGODB_URI')
+if not MONGODB_URI:
+    raise ValueError("MONGODB_URI environment variable not set")
 
 # Data paths - CSV files are in root project directory
 ROOT_DIR = os.path.join(os.path.dirname(__file__), '..')
