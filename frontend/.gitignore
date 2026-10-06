@@ -1,0 +1,11 @@
+# Build & Cache
+dist/
+build/
+.vite/
+.cache/
+
+# Tests & Coverage
+coverage/
+playwright-report/
+test-results/
+.playwright/

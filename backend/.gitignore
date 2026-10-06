@@ -1,0 +1,7 @@
+# Tests & Coverage
+coverage/
+.nyc_output/
+
+# Application
+uploads/
+*.log

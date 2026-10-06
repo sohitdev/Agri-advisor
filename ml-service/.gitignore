@@ -1,0 +1,9 @@
+# Cache
+.pytest_cache/
+.mypy_cache/
+
+# Trained Models & Artifacts
+app/models/trained/*.pkl
+app/models/trained/*.npy
+app/data/*.npy
+app/data/*.pkl
