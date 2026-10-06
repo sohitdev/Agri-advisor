@@ -1,258 +1,75 @@
 # Setup Guide - Agri-Advisor AI
 
-Complete setup instructions for the Agri-Advisor AI application.
-
 ## Prerequisites
+- Node.js (v18 or higher recommended)
+- Python (v3.10 or higher recommended)
+- MongoDB (running locally or a cloud URI)
+- Docker (optional)
 
-- Node.js (v16 or higher)
-- Python (v3.8 or higher)
-- MongoDB (v5 or higher)
-- Docker (optional, for containerized deployment)
-- Git
-
-## Step-by-Step Setup
-
-### 1. Clone/Download the Project
-
-```bash
-cd Agri-advisor
-```
-
-### 2. Backend Setup
+## 1. Backend Setup (Node.js)
 
 ```bash
 cd backend
 npm install
 cp .env.example .env
 ```
-
-Edit `backend/.env`:
-```
-NODE_ENV=development
+Edit `backend/.env` with your values (using MongoDB defaults):
+```env
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/agri-advisor
-JWT_SECRET=your-super-secret-jwt-key
+JWT_SECRET=super_secret_key
 JWT_EXPIRE=7d
-ML_SERVICE_URL=http://localhost:8000
 CORS_ORIGIN=http://localhost:3000
-GEMINI_API_KEY=your-gemini-api-key
+ML_SERVICE_URL=http://localhost:8000
 ```
-
-Start MongoDB (if running locally):
-```bash
-mongod
-```
-
-Start backend:
+Start the backend:
 ```bash
 npm run dev
 ```
 
-Backend will run on `http://localhost:5000`
-
-### 3. ML Service Setup
+## 2. ML Service Setup (Python/FastAPI)
 
 ```bash
 cd ml-service
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 pip install -r requirements.txt
 cp .env.example .env
 ```
-
-Edit `ml-service/.env`:
-```
-MODEL_PATH=./models/crop_model.pkl
-DEBUG=True
-```
-
-Start ML service:
+Start the ML service:
 ```bash
-uvicorn app.main:app --reload
+uvicorn app.main:app --reload --port 8000
 ```
 
-ML service will run on `http://localhost:8000`
-
-### 4. Frontend Setup
+## 3. Frontend Setup (React/Vite)
 
 ```bash
 cd frontend
 npm install
 cp .env.example .env
 ```
-
-Edit `frontend/.env`:
+Edit `frontend/.env` with your API URLs (must use VITE_ prefix):
+```env
+VITE_API_URL=http://localhost:5000/api
+VITE_ML_SERVICE_URL=http://localhost:8000
 ```
-REACT_APP_API_URL=http://localhost:5000/api
-REACT_APP_ML_SERVICE_URL=http://localhost:8000
-```
-
-Start frontend:
+Start the frontend:
 ```bash
-npm start
+npm run start
 ```
+Frontend will run on `http://localhost:3000` (or another port if 3000 is busy).
 
-Frontend will run on `http://localhost:3000`
-
-### 5. Data Acquisition (Optional)
-
-To fetch and process agricultural data:
-
+## 4. Docker Setup (Alternative)
+You can run the entire stack using Docker Compose from the root directory:
 ```bash
-cd data-scripts
-pip install -r requirements.txt
-cp .env.example .env
+docker-compose up --build
 ```
+This starts MongoDB, Backend, ML Service, and Frontend together.
 
-Add API keys to `data-scripts/.env`:
-```
-OPENWEATHER_API_KEY=your-key
-WEATHERAPI_KEY=your-key
-MONGODB_URI=mongodb://localhost:27017/agri-advisor
-```
-
-Run data acquisition scripts:
+## 5. Model Training (Optional)
+If you want to train the models locally from data scripts:
 ```bash
-# Fetch soil data
-python fetch_soil_data.py
-
-# Fetch weather data
-python fetch_weather_data.py
-
-# Process crop data
-python fetch_crop_data.py
-
-# Aggregate all data
-python aggregate_district_data.py
-```
-
-## Docker Setup (Alternative)
-
-### Using Docker Compose
-
-```bash
-# From project root
-docker-compose up -d
-```
-
-This will start:
-- MongoDB on port 27017
-- Backend on port 5000
-- ML Service on port 8000
-- Frontend on port 3000
-
-### Individual Docker Containers
-
-```bash
-# Backend
-cd backend
-docker build -t agri-backend .
-docker run -p 5000:5000 agri-backend
-
-# ML Service
 cd ml-service
-docker build -t agri-ml-service .
-docker run -p 8000:8000 agri-ml-service
-
-# Frontend
-cd frontend
-docker build -t agri-frontend .
-docker run -p 3000:80 agri-frontend
+python run_training.py
 ```
-
-## Initial Data Setup
-
-### Create Admin User
-
-You can create an admin user through the registration API or directly in MongoDB:
-
-```javascript
-// In MongoDB shell or Compass
-use agri-advisor
-db.users.insertOne({
-  name: "Admin",
-  email: "admin@agriadvisor.com",
-  password: "$2a$12$...", // bcrypt hash of password
-  role: "admin"
-})
-```
-
-### Seed Crop Data
-
-Create some initial crop records:
-
-```javascript
-db.crops.insertMany([
-  {
-    name: "Rice",
-    scientificName: "Oryza sativa",
-    season: "Kharif",
-    minTemperature: 20,
-    maxTemperature: 35,
-    minRainfall: 1000,
-    maxRainfall: 2500,
-    soilTypes: ["Clay", "Loam"],
-    phRange: { min: 5.5, max: 7.0 }
-  },
-  // Add more crops...
-])
-```
-
-### Seed Location Data
-
-After running data acquisition scripts, location data will be automatically stored in MongoDB.
-
-## Testing
-
-### Backend Tests
-
-```bash
-cd backend
-npm test
-```
-
-### Manual Testing
-
-1. Register a new user at `http://localhost:3000/register`
-2. Login at `http://localhost:3000/login`
-3. Select State, District, and Season
-4. Get crop recommendations
-
-## Troubleshooting
-
-### MongoDB Connection Issues
-
-- Ensure MongoDB is running: `mongod` or check service status
-- Verify connection string in `.env`
-- Check firewall settings
-
-### ML Service Not Responding
-
-- Verify ML service is running on port 8000
-- Check `ML_SERVICE_URL` in backend `.env`
-- Review ML service logs
-
-### CORS Errors
-
-- Ensure `CORS_ORIGIN` in backend `.env` matches frontend URL
-- Check browser console for specific CORS errors
-
-### Port Conflicts
-
-- Change ports in respective `.env` files if conflicts occur
-- Update `docker-compose.yml` if using Docker
-
-## Next Steps
-
-1. Train ML model with actual data (see `ml-service/app/models/train_model.py`)
-2. Add more districts and location data
-3. Integrate with actual government APIs
-4. Deploy to cloud (see `DEPLOYMENT.md`)
-
-## Support
-
-For issues or questions, refer to individual component README files:
-- `backend/README.md`
-- `frontend/README.md`
-- `ml-service/README.md`
-- `data-scripts/README.md`
-
-
+This regenerates the `.pkl` and `.json` model files in `app/models/trained/`.
