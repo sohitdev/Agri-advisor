@@ -498,7 +498,7 @@ const CropLibrary = () => {
   const getSeasonClasses = (season) => {
     const s = season.toLowerCase().replace(' ', '-');
     switch (s) {
-      case 'kharif': return 'bg-[#ff6b6b]/15 text-[#e74c3c]';
+      case 'kharif': return 'bg-[#ff6b6b]/15 text-red-500';
       case 'rabi': return 'bg-[#4ecdc4]/15 text-[#00b894]';
       case 'summer': return 'bg-[#ffc107]/15 text-[#f39c12]';
       case 'winter': return 'bg-emerald-600/15 text-emerald-600';
@@ -508,16 +508,16 @@ const CropLibrary = () => {
   };
 
   return (
-    <div className="min-h-[calc(100vh-70px)] bg-gradient-to-br from-[#f0f4f0] to-[#e8ece8] p-4 sm:p-8">
+    <div className="min-h-screen bg-zinc-50 w-full font-sans py-12 px-4 sm:px-6 lg:px-8">
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-[1.8rem] sm:text-[2.5rem] text-[#1a1a2e] m-0 font-bold">🌾 Crop Information Library</h1>
-        <p className="text-[#666] text-base sm:text-[1.1rem] mt-2">Comprehensive guide to major crops grown in India</p>
+        <p className="text-zinc-500 text-base sm:text-[1.1rem] mt-2">Comprehensive guide to major crops grown in India</p>
       </div>
 
       {/* Search and Filter */}
-      <div className="max-w-[1200px] mx-auto mb-8">
-        <div className="flex items-center bg-white p-4 sm:px-6 sm:py-4 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] mb-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex items-center bg-white p-4 sm:px-6 sm:py-4 rounded-xl shadow-md mb-4">
           <svg className="text-[#888] mr-4 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="11" cy="11" r="8" />
             <path d="m21 21-4.35-4.35" />
@@ -538,7 +538,7 @@ const CropLibrary = () => {
               className={`shrink-0 flex items-center gap-2 px-5 py-3 border-2 rounded-full cursor-pointer transition-all duration-300 text-[0.9rem] ${
                 selectedCategory === cat.id
                   ? 'bg-gradient-to-br from-[#2E7D32] to-[#4CAF50] text-white border-transparent'
-                  : 'bg-white border-transparent hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,0,0,0.1)]'
+                  : 'bg-white border-transparent hover:-translate-y-0.5 hover:shadow-md'
               }`}
               onClick={() => setSelectedCategory(cat.id)}
             >
@@ -554,7 +554,7 @@ const CropLibrary = () => {
         {filteredCrops.map(crop => (
           <div 
             key={crop.id} 
-            className="group bg-white rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:-translate-y-2 hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)]"
+            className="group bg-white rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 shadow-md hover:-translate-y-2 hover:shadow-md"
             onClick={() => setSelectedCrop(crop)}
           >
             <div className="h-[120px] bg-gradient-to-br from-[#e8f5e9] to-[#c8e6c9] flex items-center justify-center text-[4rem]">
@@ -570,11 +570,11 @@ const CropLibrary = () => {
                   </span>
                 ))}
               </div>
-              <div className="text-[#666] text-[0.9rem]">
+              <div className="text-zinc-500 text-[0.9rem]">
                 🌡️ {crop.temperature.optimal}
               </div>
             </div>
-            <div className="px-5 py-4 bg-[#f8f9fa] text-[#2E7D32] font-semibold text-[0.9rem] text-center transition-all duration-300 group-hover:bg-[#2E7D32] group-hover:text-white">
+            <div className="px-5 py-4 bg-zinc-50 text-[#2E7D32] font-semibold text-[0.9rem] text-center transition-all duration-300 group-hover:bg-[#2E7D32] group-hover:text-white">
               View Details →
             </div>
           </div>
@@ -582,7 +582,7 @@ const CropLibrary = () => {
       </div>
 
       {filteredCrops.length === 0 && (
-        <div className="text-center p-12 text-[#666]">
+        <div className="text-center p-12 text-zinc-500">
           <p>No crops found matching your search.</p>
         </div>
       )}
@@ -591,7 +591,7 @@ const CropLibrary = () => {
       {selectedCrop && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-[1000] p-4 sm:p-8 backdrop-blur-[4px]" onClick={() => setSelectedCrop(null)}>
           <div className="bg-white rounded-[20px] max-w-[700px] w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto relative m-4 sm:m-0" onClick={e => e.stopPropagation()}>
-            <button className="absolute top-4 right-4 bg-[#f1f1f1] border-none rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition-all duration-300 z-10 hover:bg-[#e0e0e0]" onClick={() => setSelectedCrop(null)}>
+            <button className="absolute top-4 right-4 bg-[#f1f1f1] border-none rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition-all duration-300 z-10 hover:bg-slate-200" onClick={() => setSelectedCrop(null)}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
@@ -602,27 +602,27 @@ const CropLibrary = () => {
               <div className="text-[4rem]">{selectedCrop.image}</div>
               <div>
                 <h2 className="m-0 text-[2rem] text-[#1a1a2e] font-bold">{selectedCrop.name}</h2>
-                <p className="text-[#666] italic mt-1">{selectedCrop.scientificName}</p>
+                <p className="text-zinc-500 italic mt-1">{selectedCrop.scientificName}</p>
               </div>
             </div>
 
             <div className="p-4 sm:p-6 sm:px-8">
               {/* Quick Stats */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                <div className="bg-[#f8f9fa] p-4 rounded-xl text-center">
-                  <span className="block text-[#666] text-[0.85rem] mb-2">🌡️ Temperature</span>
+                <div className="bg-zinc-50 p-4 rounded-xl text-center">
+                  <span className="block text-zinc-500 text-[0.85rem] mb-2">🌡️ Temperature</span>
                   <span className="font-semibold text-[#1a1a2e] text-[0.95rem]">{selectedCrop.temperature.optimal}</span>
                 </div>
-                <div className="bg-[#f8f9fa] p-4 rounded-xl text-center">
-                  <span className="block text-[#666] text-[0.85rem] mb-2">💧 Water Need</span>
+                <div className="bg-zinc-50 p-4 rounded-xl text-center">
+                  <span className="block text-zinc-500 text-[0.85rem] mb-2">💧 Water Need</span>
                   <span className="font-semibold text-[#1a1a2e] text-[0.95rem]">{selectedCrop.waterRequirement}</span>
                 </div>
-                <div className="bg-[#f8f9fa] p-4 rounded-xl text-center">
-                  <span className="block text-[#666] text-[0.85rem] mb-2">⏱️ Duration</span>
+                <div className="bg-zinc-50 p-4 rounded-xl text-center">
+                  <span className="block text-zinc-500 text-[0.85rem] mb-2">⏱️ Duration</span>
                   <span className="font-semibold text-[#1a1a2e] text-[0.95rem]">{selectedCrop.growingPeriod}</span>
                 </div>
-                <div className="bg-[#f8f9fa] p-4 rounded-xl text-center">
-                  <span className="block text-[#666] text-[0.85rem] mb-2">📈 Yield</span>
+                <div className="bg-zinc-50 p-4 rounded-xl text-center">
+                  <span className="block text-zinc-500 text-[0.85rem] mb-2">📈 Yield</span>
                   <span className="font-semibold text-[#1a1a2e] text-[0.95rem]">{selectedCrop.yieldPotential}</span>
                 </div>
               </div>
@@ -642,9 +642,9 @@ const CropLibrary = () => {
               {/* Soil & Rainfall */}
               <div className="mb-6 pb-6 border-b border-[#eee]">
                 <h4 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">🌍 Soil & Climate</h4>
-                <p className="my-2 text-[#555] leading-relaxed"><strong>Soil Type:</strong> {selectedCrop.soil}</p>
-                <p className="my-2 text-[#555] leading-relaxed"><strong>Rainfall:</strong> {selectedCrop.rainfall}</p>
-                <p className="my-2 text-[#555] leading-relaxed"><strong>Temperature Range:</strong> {selectedCrop.temperature.min}°C - {selectedCrop.temperature.max}°C</p>
+                <p className="my-2 text-zinc-600 leading-relaxed"><strong>Soil Type:</strong> {selectedCrop.soil}</p>
+                <p className="my-2 text-zinc-600 leading-relaxed"><strong>Rainfall:</strong> {selectedCrop.rainfall}</p>
+                <p className="my-2 text-zinc-600 leading-relaxed"><strong>Temperature Range:</strong> {selectedCrop.temperature.min}°C - {selectedCrop.temperature.max}°C</p>
               </div>
 
               {/* Major States */}
@@ -660,8 +660,8 @@ const CropLibrary = () => {
               {/* Market Info */}
               <div className="mb-6 pb-6 border-b border-[#eee]">
                 <h4 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">💰 Market Information</h4>
-                <p className="my-2 text-[#555] leading-relaxed"><strong>Current Price:</strong> {selectedCrop.marketPrice}</p>
-                <p className="my-2 text-[#555] leading-relaxed"><strong>Nutritional Value:</strong> {selectedCrop.nutritionalValue}</p>
+                <p className="my-2 text-zinc-600 leading-relaxed"><strong>Current Price:</strong> {selectedCrop.marketPrice}</p>
+                <p className="my-2 text-zinc-600 leading-relaxed"><strong>Nutritional Value:</strong> {selectedCrop.nutritionalValue}</p>
               </div>
 
               {/* Growing Tips */}
@@ -669,13 +669,13 @@ const CropLibrary = () => {
                 <h4 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">💡 Growing Tips</h4>
                 <ul className="m-0 pl-6">
                   {selectedCrop.tips.map((tip, index) => (
-                    <li key={index} className="text-[#555] mb-2 leading-relaxed">{tip}</li>
+                    <li key={index} className="text-zinc-600 mb-2 leading-relaxed">{tip}</li>
                   ))}
                 </ul>
               </div>
             </div>
 
-            <div className="p-6 sm:px-8 bg-[#f8f9fa] text-center">
+            <div className="p-6 sm:px-8 bg-zinc-50 text-center">
               <button 
                 className="bg-gradient-to-br from-[#2E7D32] to-[#4CAF50] text-white border-none px-8 py-4 rounded-xl text-base font-semibold cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(46,125,50,0.3)]"
                 onClick={() => navigate('/dashboard')}

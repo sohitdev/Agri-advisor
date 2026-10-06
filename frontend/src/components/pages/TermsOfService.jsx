@@ -63,7 +63,7 @@ const TermsOfService = () => {
   ];
 
   return (
-    <div className="relative overflow-hidden min-h-screen p-[clamp(1rem,2vw,2rem)_1rem] max-sm:p-4" style={{ background: 'linear-gradient(135deg, rgba(245, 247, 250, 0.95), rgba(195, 207, 226, 0.95))' }}>
+    <div className="relative overflow-hidden min-h-screen px-4 py-8 sm:px-6 lg:px-8 max-sm:p-4" >
       <style>{`
         @keyframes slideInUp {
           from { opacity: 0; transform: translateY(20px); }
@@ -79,11 +79,11 @@ const TermsOfService = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div 
           className="absolute rounded-full blur-[60px] opacity-20 mix-blend-multiply w-[300px] h-[300px] max-sm:w-[150px] max-sm:h-[150px] -top-[50px] -right-[50px]" 
-          style={{ background: 'linear-gradient(135deg, #3498db, #5dade2)', animation: 'blob 8s infinite' }}
+          
         ></div>
         <div 
           className="absolute rounded-full blur-[60px] opacity-20 mix-blend-multiply w-[300px] h-[300px] max-sm:w-[150px] max-sm:h-[150px] -bottom-[50px] -left-[50px]" 
-          style={{ background: 'linear-gradient(135deg, #2980b9, #3498db)', animation: 'blob 8s infinite reverse', animationDelay: '2s' }}
+          
         ></div>
       </div>
 
@@ -92,11 +92,11 @@ const TermsOfService = () => {
         style={{ boxShadow: '0 10px 40px rgba(52, 152, 219, 0.2)', animation: 'slideInUp 0.6s ease' }}
       >
         {/* Header */}
-        <div className="flex items-start gap-6 max-md:gap-4 max-sm:gap-3 mb-8 max-sm:mb-6 pb-8 border-b-2 border-slate-200 flex-wrap">
+        <div className="flex items-start gap-6 max-md:gap-4 max-sm:gap-3 mb-8 max-sm:mb-6 pb-8 border-b-2 border-zinc-200 flex-wrap">
           <Link 
             to="/" 
             className="flex items-center justify-center w-12 h-12 max-md:w-10 max-md:h-10 rounded-full text-white shrink-0 mt-1 transition-all duration-300 hover:-translate-x-[3px]"
-            style={{ background: 'linear-gradient(135deg, #3498db, #5dade2)', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)' }}
+            
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <line x1="19" y1="12" x2="5" y2="12"></line>
@@ -104,15 +104,15 @@ const TermsOfService = () => {
             </svg>
           </Link>
           <div>
-            <h1 className="text-[2.5rem] max-md:text-[1.8rem] max-sm:text-[1.5rem] text-slate-900 mb-2 font-bold">Terms of Service</h1>
-            <p className="text-[#555] text-[0.95rem] max-sm:text-[0.85rem]">Last updated: January 2026</p>
+            <h1 className="text-[2.5rem] max-md:text-[1.8rem] max-sm:text-[1.5rem] text-zinc-900 mb-2 font-bold">Terms of Service</h1>
+            <p className="text-zinc-600 text-[0.95rem] max-sm:text-[0.85rem]">Last updated: January 2026</p>
           </div>
         </div>
 
         {/* Introduction */}
-        <div className="border-l-4 border-emerald-600 p-6 max-sm:p-4 rounded-lg mb-8 max-sm:mb-6 text-[1rem] max-sm:text-[0.9rem] leading-[1.6] text-slate-900" style={{ background: 'linear-gradient(135deg, rgba(52, 152, 219, 0.08), rgba(93, 173, 226, 0.08))' }}>
+        <div className="border-l-4 border-emerald-600 p-6 max-sm:p-4 rounded-lg mb-8 max-sm:mb-6 text-[1rem] max-sm:text-[0.9rem] leading-[1.6] text-zinc-900" >
           <p className="m-0">
-            Welcome to <strong className="text-[#2980b9]">Agri-Advisor AI</strong>, an intelligent agricultural advisory platform designed to help farmers make better crop recommendations based on their location and seasonal data. Please read these Terms of Service carefully before using our platform.
+            Welcome to <strong className="text-emerald-700">Agri-Advisor AI</strong>, an intelligent agricultural advisory platform designed to help farmers make better crop recommendations based on their location and seasonal data. Please read these Terms of Service carefully before using our platform.
           </p>
         </div>
 
@@ -121,11 +121,11 @@ const TermsOfService = () => {
           {sections.map((section) => (
             <div 
               key={section.id} 
-              className="border border-slate-200 rounded-[10px] overflow-hidden transition-all duration-300 hover:border-[#5dade2]"
+              className="border border-zinc-200 rounded-[10px] overflow-hidden transition-all duration-300 hover:border-emerald-400"
               style={{ boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)' }}
             >
               <button
-                className={`flex justify-between items-center w-full px-6 py-5 max-sm:px-5 max-sm:py-4 border-none cursor-pointer transition-all duration-300 text-left text-[1.1rem] max-sm:text-[1rem] font-semibold ${expandedSection === section.id ? 'text-white' : 'text-slate-900 hover:text-emerald-600'}`}
+                className={`flex justify-between items-center w-full px-6 py-5 max-sm:px-5 max-sm:py-4 border-none cursor-pointer transition-all duration-300 text-left text-[1.1rem] max-sm:text-[1rem] font-semibold ${expandedSection === section.id ? 'text-white' : 'text-zinc-900 hover:text-emerald-600'}`}
                 style={{ 
                   background: expandedSection === section.id 
                     ? 'linear-gradient(135deg, #5dade2, #3498db)' 
@@ -149,10 +149,10 @@ const TermsOfService = () => {
 
               {expandedSection === section.id && (
                 <div 
-                  className="p-6 max-sm:p-5 bg-white border-t border-slate-200"
+                  className="p-6 max-sm:p-5 bg-white border-t border-zinc-200"
                   style={{ animation: 'slideInUp 0.3s ease' }}
                 >
-                  <p className="m-0 leading-[1.8] text-slate-900 text-[0.95rem] max-sm:text-[0.9rem] whitespace-pre-wrap break-words">{section.content}</p>
+                  <p className="m-0 leading-[1.8] text-zinc-900 text-[0.95rem] max-sm:text-[0.9rem] whitespace-pre-wrap break-words">{section.content}</p>
                 </div>
               )}
             </div>
@@ -160,15 +160,15 @@ const TermsOfService = () => {
         </div>
 
         {/* Footer */}
-        <div className="rounded-[10px] p-8 max-sm:p-6 border border-slate-200 text-center" style={{ background: 'linear-gradient(135deg, #f8f9fa, rgba(52, 152, 219, 0.05))' }}>
+        <div className="rounded-[10px] p-8 max-sm:p-6 border border-zinc-200 text-center" >
           <div>
-            <h3 className="text-[1.3rem] max-sm:text-[1.1rem] text-slate-900 mb-3">Questions?</h3>
-            <p className="text-[#555] mb-2 leading-[1.6]">If you have any questions about these Terms of Service, please contact us at:</p>
+            <h3 className="text-[1.3rem] max-sm:text-[1.1rem] text-zinc-900 mb-3">Questions?</h3>
+            <p className="text-zinc-600 mb-2 leading-[1.6]">If you have any questions about these Terms of Service, please contact us at:</p>
             <p className="font-semibold text-emerald-600 text-[1rem] mb-6">support@agri-advisor.com</p>
             <Link 
               to="/" 
               className="inline-block px-8 py-3 max-sm:px-6 max-sm:py-[0.6rem] max-sm:text-[0.9rem] text-white no-underline rounded-lg font-semibold transition-all duration-300 hover:-translate-y-[2px]"
-              style={{ background: 'linear-gradient(135deg, #3498db, #5dade2)', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)' }}
+              
             >
               Return to Home
             </Link>

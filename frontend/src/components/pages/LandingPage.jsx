@@ -1,226 +1,245 @@
 import React from 'react';
-import { Link, Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useAuth } from '../../context/AuthContext';
+import { Link } from 'react-router-dom';
+import { CloudSun, Droplets, BrainCircuit, CalendarClock, Globe2, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const LandingPage = () => {
-  const { user } = useAuth();
   const { t } = useTranslation();
 
-  if (user) {
-    return <Navigate to="/dashboard" replace />;
-  }
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
+  };
 
   return (
-    <div className="min-h-screen bg-slate-50 w-full font-sans">
+    <div className="min-h-screen bg-zinc-50 w-full font-sans selection:bg-emerald-200">
       
-      {/* 1. Hero Section */}
-      <section className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 md:pt-24 lg:pt-32">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-8">
+      {/* 1. Hero Section - Asymmetric Premium Layout */}
+      <section className="relative w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 pt-28 pb-32 md:pt-40 lg:pt-48 overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
           
-          {/* Hero Content (Left) */}
-          <div className="flex-1 max-w-2xl text-center md:text-left z-10">
-            <div className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-semibold bg-emerald-100 text-emerald-800 mb-8 border border-emerald-200">
-              <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-              </svg>
-              {t('landing_badge')}
-            </div>
+          <motion.div 
+            className="lg:col-span-7 z-10"
+            initial="hidden"
+            animate="show"
+            variants={containerVariants}
+          >
+            <motion.div variants={itemVariants} className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium bg-zinc-100 text-zinc-600 mb-8 border border-zinc-200">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 mr-2.5"></span>
+              {t('landing_badge').replace('🌱 ', '')}
+            </motion.div>
             
-            <h1 className="text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.15] mb-6">
-              {t('landing_title')} <span className="text-emerald-600 block mt-2">{t('landing_title_highlight')}</span>
-            </h1>
+            <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tighter text-zinc-900 leading-[1.05] mb-8">
+              {t('landing_title')} <br />
+              <span className="text-emerald-600 block mt-2">{t('landing_title_highlight')}</span>
+            </motion.h1>
             
-            <p className="text-lg md:text-xl text-slate-600 max-w-xl leading-relaxed mb-10 mx-auto md:mx-0">
+            <motion.p variants={itemVariants} className="text-lg md:text-xl text-zinc-600 max-w-xl leading-relaxed mb-12">
               {t('landing_description')}
-            </p>
+            </motion.p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-12">
-              <Link to="/register" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-emerald-600 text-white rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-emerald-700 hover:-translate-y-1 shadow-lg shadow-emerald-600/20">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="8.5" cy="7" r="4"></circle>
-                  <line x1="20" y1="8" x2="20" y2="14"></line>
-                  <line x1="23" y1="11" x2="17" y2="11"></line>
-                </svg>
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
+              <Link to="/register" className="inline-flex items-center justify-center px-8 py-4 bg-zinc-900 text-white rounded-lg font-medium text-lg transition-transform hover:-translate-y-0.5 shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:bg-zinc-800">
                 {t('create_account')}
               </Link>
-              <Link to="/login" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-emerald-600 border-2 border-emerald-200 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-emerald-50 hover:-translate-y-1">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
-                  <polyline points="10 17 15 12 10 7"></polyline>
-                  <line x1="15" y1="12" x2="3" y2="12"></line>
-                </svg>
+              <Link to="/login" className="inline-flex items-center justify-center px-8 py-4 bg-white text-zinc-900 border border-zinc-200 rounded-lg font-medium text-lg transition-transform hover:-translate-y-0.5 hover:bg-zinc-50">
                 {t('sign_in')}
               </Link>
+            </motion.div>
+          </motion.div>
+          
+          <motion.div 
+            className="lg:col-span-5 relative"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            {/* Abstract UI representation */}
+            <div className="relative bg-white rounded-3xl p-6 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-zinc-100/80 aspect-[4/5] flex flex-col overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/50 to-transparent pointer-events-none" />
+              
+              <div className="flex justify-between items-center mb-8 relative z-10">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+                    <Globe2 size={20} strokeWidth={2.5} />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-zinc-900">Pune, Maharashtra</h3>
+                    <p className="text-xs text-zinc-500">Live Analysis</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-4 relative z-10">
+                {[
+                  { name: t('crop_rice', 'Rice'), score: 94, color: 'bg-emerald-500' },
+                  { name: t('crop_maize', 'Maize'), score: 87, color: 'bg-emerald-400' },
+                  { name: t('crop_soybean', 'Soybean'), score: 82, color: 'bg-emerald-300' }
+                ].map((crop, i) => (
+                  <div key={i} className={`p-4 bg-zinc-50 rounded-2xl border border-zinc-100 transition-transform duration-500 hover:translate-x-2`} style={{ transitionDelay: `${i * 100}ms` }}>
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="font-medium text-zinc-900">{crop.name}</p>
+                      <p className="text-xs font-semibold text-emerald-700 bg-emerald-100 px-2 py-1 rounded-md">{crop.score}% Match</p>
+                    </div>
+                    <div className="w-full h-1.5 bg-zinc-200 rounded-full overflow-hidden">
+                      <div className={`h-full ${crop.color}`} style={{ width: `${crop.score}%` }}></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Decorative elements */}
+              <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-emerald-100/50 rounded-full blur-3xl opacity-50 group-hover:opacity-70 transition-opacity duration-700" />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 1.5 Trust Section - Brutalist/Minimal */}
+      <section className="py-12 border-y border-zinc-200 bg-white">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-zinc-200 text-center md:text-left">
+            <div className="py-8 md:py-4 md:pr-12">
+              <p className="text-5xl font-semibold tracking-tighter text-zinc-900 mb-2">500+</p>
+              <p className="text-sm font-medium text-zinc-500 uppercase tracking-widest">{t('districts_covered')}</p>
+            </div>
+            <div className="py-8 md:py-4 md:px-12">
+              <p className="text-5xl font-semibold tracking-tighter text-zinc-900 mb-2">50+</p>
+              <p className="text-sm font-medium text-zinc-500 uppercase tracking-widest">{t('crop_types')}</p>
+            </div>
+            <div className="py-8 md:py-4 md:pl-12">
+              <p className="text-5xl font-semibold tracking-tighter text-emerald-600 mb-2">96%</p>
+              <p className="text-sm font-medium text-zinc-500 uppercase tracking-widest">{t('accuracy_rate')}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Features Grid - Bento Box Style */}
+      <section className="py-32 bg-zinc-50">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="max-w-2xl mb-20">
+            <h2 className="text-4xl md:text-5xl font-semibold text-zinc-900 tracking-tighter mb-6">{t('why_choose')}</h2>
+            <p className="text-xl text-zinc-600 leading-relaxed">{t('features_subtitle')}</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-12 auto-rows-[320px] gap-6">
+            {/* Large Card 1 */}
+            <div className="md:col-span-8 bg-zinc-900 text-white p-10 rounded-3xl relative overflow-hidden group">
+              <div className="relative z-10 max-w-sm h-full flex flex-col justify-between">
+                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-md">
+                  <CloudSun size={24} strokeWidth={2} />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-semibold mb-3">{t('weather_intelligence')}</h3>
+                  <p className="text-zinc-400 leading-relaxed text-lg">{t('weather_desc')}</p>
+                </div>
+              </div>
+              <div className="absolute right-0 top-0 bottom-0 w-1/2 bg-gradient-to-l from-emerald-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            </div>
+
+            {/* Square Card 1 */}
+            <div className="md:col-span-4 bg-white p-10 rounded-3xl border border-zinc-200 flex flex-col justify-between hover:border-zinc-300 transition-colors">
+              <div className="w-12 h-12 bg-zinc-100 text-zinc-900 rounded-full flex items-center justify-center">
+                <Droplets size={24} strokeWidth={2} />
+              </div>
+              <div>
+                <h3 className="text-2xl font-semibold text-zinc-900 mb-3">{t('soil_analysis_title')}</h3>
+                <p className="text-zinc-500 leading-relaxed">{t('soil_desc')}</p>
+              </div>
+            </div>
+
+            {/* Square Card 2 */}
+            <div className="md:col-span-4 bg-white p-10 rounded-3xl border border-zinc-200 flex flex-col justify-between hover:border-zinc-300 transition-colors">
+              <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center">
+                <BrainCircuit size={24} strokeWidth={2} />
+              </div>
+              <div>
+                <h3 className="text-2xl font-semibold text-zinc-900 mb-3">{t('ml_predictions')}</h3>
+                <p className="text-zinc-500 leading-relaxed">{t('ml_desc')}</p>
+              </div>
+            </div>
+
+            {/* Large Card 2 */}
+            <div className="md:col-span-8 bg-emerald-50 p-10 rounded-3xl border border-emerald-100 flex flex-col justify-between overflow-hidden relative group">
+              <div className="relative z-10 max-w-sm">
+                <div className="w-12 h-12 bg-emerald-200/50 text-emerald-800 rounded-full flex items-center justify-center mb-12">
+                  <CalendarClock size={24} strokeWidth={2} />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-semibold text-zinc-900 mb-3">{t('season_specific')}</h3>
+                  <p className="text-emerald-800/80 leading-relaxed text-lg">{t('season_desc')}</p>
+                </div>
+              </div>
+              <div className="absolute right-0 -bottom-20 w-80 h-80 bg-emerald-200/30 rounded-full blur-3xl group-hover:scale-110 transition-transform duration-700" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. How It Works - Staggered List */}
+      <section className="py-32 bg-white">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-semibold text-zinc-900 tracking-tighter mb-6 sticky top-32">{t('how_it_works')}</h2>
             </div>
             
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-8 pt-8 border-t border-slate-200">
-              <div>
-                <p className="text-3xl font-bold text-slate-900 mb-1">500+</p>
-                <p className="text-sm font-medium text-slate-500 uppercase tracking-wider">Districts Covered</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-slate-900 mb-1">50+</p>
-                <p className="text-sm font-medium text-slate-500 uppercase tracking-wider">Crop Types</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-emerald-600 mb-1">96%</p>
-                <p className="text-sm font-medium text-slate-500 uppercase tracking-wider">Accuracy Rate</p>
-              </div>
+            <div className="space-y-16">
+              {[
+                { step: '01', title: t('step1_title'), desc: t('step1_desc') },
+                { step: '02', title: t('step2_title'), desc: t('step2_desc') },
+                { step: '03', title: t('step3_title'), desc: t('step3_desc') }
+              ].map((step, idx) => (
+                <div key={idx} className="relative pl-10 border-l border-zinc-200 pb-16 last:pb-0">
+                  <div className="absolute left-[-16px] top-0 w-8 h-8 rounded-full bg-white border border-zinc-300 flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                  </div>
+                  <p className="text-sm font-bold text-zinc-400 tracking-widest mb-4">{step.step}</p>
+                  <h3 className="text-3xl font-semibold text-zinc-900 mb-4">{step.title}</h3>
+                  <p className="text-xl text-zinc-500 leading-relaxed max-w-md">{step.desc}</p>
+                </div>
+              ))}
             </div>
-          </div>
-          
-          {/* Hero Visual (Right) */}
-          <div className="flex-1 w-full max-w-lg relative z-0 mt-12 md:mt-0">
-            <div className="absolute inset-0 bg-emerald-200 rounded-full blur-3xl opacity-30 animate-pulse"></div>
-            <div className="relative bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-slate-100 flex flex-col gap-4">
-              <div className="flex items-center justify-between p-4 bg-slate-50 rounded-2xl border border-slate-100 transition-transform hover:-translate-y-1">
-                <div className="flex items-center gap-4">
-                  <div className="text-3xl">🌾</div>
-                  <div>
-                    <p className="font-bold text-slate-900 text-lg">Rice</p>
-                    <p className="text-sm text-slate-500">Suitability: 94%</p>
-                  </div>
-                </div>
-                <div className="w-16 h-2 bg-slate-200 rounded-full overflow-hidden">
-                  <div className="w-[94%] h-full bg-emerald-500"></div>
-                </div>
-              </div>
-              
-              <div className="flex items-center justify-between p-4 bg-slate-50 rounded-2xl border border-slate-100 transition-transform hover:-translate-y-1 ml-4 sm:ml-8">
-                <div className="flex items-center gap-4">
-                  <div className="text-3xl">🌽</div>
-                  <div>
-                    <p className="font-bold text-slate-900 text-lg">Maize</p>
-                    <p className="text-sm text-slate-500">Suitability: 87%</p>
-                  </div>
-                </div>
-                <div className="w-16 h-2 bg-slate-200 rounded-full overflow-hidden">
-                  <div className="w-[87%] h-full bg-emerald-500"></div>
-                </div>
-              </div>
-              
-              <div className="flex items-center justify-between p-4 bg-slate-50 rounded-2xl border border-slate-100 transition-transform hover:-translate-y-1 ml-8 sm:ml-16">
-                <div className="flex items-center gap-4">
-                  <div className="text-3xl">🌿</div>
-                  <div>
-                    <p className="font-bold text-slate-900 text-lg">Soybean</p>
-                    <p className="text-sm text-slate-500">Suitability: 82%</p>
-                  </div>
-                </div>
-                <div className="w-16 h-2 bg-slate-200 rounded-full overflow-hidden">
-                  <div className="w-[82%] h-full bg-emerald-500"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </section>
-
-      {/* 2. Features Grid */}
-      <section className="py-24 bg-white border-y border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 tracking-tight mb-4">{t('why_agri_advisor')}</h2>
-            <p className="text-xl text-slate-600 leading-relaxed">{t('features_subtitle')}</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2"></path><circle cx="12" cy="12" r="5"></circle></svg>,
-                title: t('weather_intelligence'),
-                desc: t('weather_desc')
-              },
-              {
-                icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M2 22h20M12 6V2M6 14v4M12 14v6M18 14v2"></path><circle cx="12" cy="9" r="3"></circle></svg>,
-                title: t('soil_analysis_title'),
-                desc: t('soil_desc')
-              },
-              {
-                icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>,
-                title: t('ml_predictions'),
-                desc: t('ml_desc')
-              },
-              {
-                icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>,
-                title: t('season_specific'),
-                desc: t('season_desc')
-              },
-              {
-                icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><line x1="2" y1="12" x2="22" y2="12"></line></svg>,
-                title: t('multi_language'),
-                desc: t('multi_lang_desc')
-              }
-            ].map((feat, idx) => (
-              <div key={idx} className="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-lg transition-all duration-300">
-                <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6">
-                  {feat.icon}
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{feat.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{feat.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 3. How It Works - Dark Mode Block */}
-      <section className="py-24 bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl font-bold mb-4">{t('how_it_works')}</h2>
-            <p className="text-xl text-slate-400">{t('three_simple_steps')}</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center relative">
-            <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-px bg-slate-800" aria-hidden="true" />
-            {[
-              { step: '1', title: t('step1_title'), desc: t('step1_desc') },
-              { step: '2', title: t('step2_title'), desc: t('step2_desc') },
-              { step: '3', title: t('step3_title'), desc: t('step3_desc') }
-            ].map((step, idx) => (
-              <div key={idx} className="relative z-10 flex flex-col items-center">
-                <div className="w-24 h-24 rounded-full bg-slate-800 border-4 border-slate-900 flex items-center justify-center text-3xl font-bold mb-6 text-emerald-400 shadow-xl">
-                  {step.step}
-                </div>
-                <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
-                <p className="text-slate-400 leading-relaxed max-w-xs">{step.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
       {/* 4. CTA Footer Banner */}
-      <section className="py-20 bg-emerald-600 text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-white mb-6">{t('ready_to_grow')}</h2>
-          <p className="text-xl text-emerald-50 mb-10 max-w-2xl mx-auto">{t('join_farmers')}</p>
-          <Link to="/register" className="inline-flex items-center gap-3 px-10 py-5 bg-white text-emerald-700 rounded-xl font-bold text-lg transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-2xl">
+      <section className="py-32 bg-zinc-900 text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800 via-zinc-900 to-zinc-900" />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+          <h2 className="text-5xl md:text-7xl font-semibold tracking-tighter text-white mb-8">{t('ready_to_grow')}</h2>
+          <p className="text-xl text-zinc-400 mb-12 max-w-2xl mx-auto font-light">{t('join_farmers')}</p>
+          <Link to="/register" className="inline-flex items-center gap-3 px-8 py-4 bg-emerald-500 text-white rounded-full font-medium text-lg transition-transform hover:-translate-y-1 hover:bg-emerald-400">
             {t('get_started_free')}
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
+            <ArrowRight size={20} strokeWidth={2.5} />
           </Link>
         </div>
       </section>
 
       {/* 5. Minimal Footer */}
-      <footer className="bg-slate-50 py-12 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <footer className="bg-zinc-950 py-12 border-t border-zinc-800">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">
-            <span className="text-2xl">🌱</span>
-            <span className="text-xl font-bold text-slate-900">Agri-Advisor</span>
+            <span className="text-xl font-bold text-white tracking-tight">Agri-Advisor</span>
           </div>
-          <div className="flex flex-wrap justify-center gap-8 font-medium text-slate-600">
-            <Link to="/about" className="hover:text-emerald-600 transition-colors">{t('about')}</Link>
-            <Link to="/terms-of-service" className="hover:text-emerald-600 transition-colors">{t('terms_of_service')}</Link>
+          <div className="flex flex-wrap justify-center gap-8 text-sm font-medium text-zinc-400">
+            <Link to="/about" className="hover:text-white transition-colors">{t('about')}</Link>
+            <Link to="/terms-of-service" className="hover:text-white transition-colors">{t('terms_of_service')}</Link>
           </div>
-          <div className="text-slate-500 text-sm">
+          <div className="text-zinc-600 text-sm">
             © 2026 Agri-Advisor. {t('made_with_love')}
           </div>
         </div>

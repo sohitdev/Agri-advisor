@@ -233,10 +233,10 @@ const Analytics = () => {
 
   if (loading || authLoading) {
     return (
-      <div className="min-h-[calc(100vh-70px)] bg-gradient-to-br from-[#f5f7fa] to-[#e4e8ec] p-[clamp(1rem,2vw,2rem)]">
+      <div className="min-h-screen bg-zinc-50 w-full font-sans py-12 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-center min-h-[60vh]">
-          <div className="w-[50px] h-[50px] border-4 border-[#e0e0e0] border-t-[#2E7D32] rounded-full animate-spin"></div>
-          <p className="mt-4 text-[#666]">Loading analytics...</p>
+          <div className="w-[50px] h-[50px] border-4 border-zinc-200 border-t-[#2E7D32] rounded-full animate-spin"></div>
+          <p className="mt-4 text-zinc-500">Loading analytics...</p>
         </div>
       </div>
     );
@@ -244,18 +244,18 @@ const Analytics = () => {
 
   const getSeasonBadgeClass = (season) => {
     switch (season.toLowerCase().replace(' ', '-')) {
-      case 'kharif': return 'bg-[rgba(255,107,107,0.2)] text-[#FF6B6B]';
-      case 'rabi': return 'bg-[rgba(78,205,196,0.2)] text-[#4ECDC4]';
-      case 'summer': return 'bg-[rgba(255,230,109,0.3)] text-[#c9a227]';
-      case 'winter': return 'bg-[rgba(149,225,211,0.3)] text-[#2a9d8f]';
-      case 'autumn': return 'bg-[rgba(243,129,129,0.2)] text-[#F38181]';
-      case 'whole-year': return 'bg-[rgba(170,150,218,0.2)] text-[#AA96DA]';
+      case 'kharif': return 'bg-orange-100 text-orange-700';
+      case 'rabi': return 'bg-sky-100 text-sky-700';
+      case 'summer': return 'bg-yellow-100 text-yellow-700';
+      case 'winter': return 'bg-teal-100 text-teal-700';
+      case 'autumn': return 'bg-red-100 text-red-700';
+      case 'whole-year': return 'bg-indigo-100 text-indigo-700';
       default: return 'bg-gray-200 text-gray-700';
     }
   };
 
   return (
-    <div className="min-h-[calc(100vh-70px)] bg-gradient-to-br from-[#f5f7fa] to-[#e4e8ec] p-[clamp(1rem,2vw,2rem)]">
+    <div className="min-h-screen bg-zinc-50 w-full font-sans py-12 px-4 sm:px-6 lg:px-8">
       {/* Debug: Show logged-in user info */}
       <div style={{ background: '#f6f6f6', padding: '8px 16px', borderRadius: 6, marginBottom: 12, fontSize: 14, color: '#333' }}>
         <strong>Logged in as:</strong> {user?.email || user?.name || user?._id || 'Unknown'}
@@ -264,7 +264,7 @@ const Analytics = () => {
       <div className="flex justify-between items-center mb-8 pb-4 border-b-2 border-[rgba(46,125,50,0.1)] flex-wrap gap-4 max-md:flex-col max-md:text-center">
         <div>
           <h1 className="text-2xl text-[#1a1a2e] m-0 flex items-center gap-2 max-md:text-xl">📊 Analytics Dashboard</h1>
-          <p className="text-[#666] mt-2 mb-0">Insights from your crop recommendations</p>
+          <p className="text-zinc-500 mt-2 mb-0">Insights from your crop recommendations</p>
         </div>
         <div className="flex items-center gap-4 flex-wrap justify-end">
           {useDemoData && (
@@ -277,7 +277,7 @@ const Analytics = () => {
             </div>
           )}
           {recommendations.length > 0 && (
-            <button className="py-2.5 px-5 bg-[#f5f5f5] border-2 border-[#ddd] text-[#555] rounded-xl cursor-pointer font-semibold transition-all duration-300 hover:bg-[#e0e0e0] hover:border-[#bbb]" onClick={toggleDemoData}>
+            <button className="py-2.5 px-5 bg-slate-100 border-2 border-[#ddd] text-zinc-600 rounded-xl cursor-pointer font-semibold transition-all duration-300 hover:bg-slate-200 hover:border-[#bbb]" onClick={toggleDemoData}>
               {useDemoData ? 'Show My Data' : 'Show Demo'}
             </button>
           )}
@@ -310,7 +310,7 @@ const Analytics = () => {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-6 mb-8 items-stretch max-md:grid-cols-2 max-sm:grid-cols-1">
-        <div className="bg-white rounded-2xl p-6 flex items-center gap-4 shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] max-md:flex-col max-md:text-center max-md:p-4">
+        <div className="bg-white rounded-2xl p-6 flex items-center gap-4 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-md max-md:flex-col max-md:text-center max-md:p-4">
           <div className="w-[60px] h-[60px] rounded-2xl flex items-center justify-center text-white bg-gradient-to-br from-[#2E7D32] to-[#4CAF50]">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M12 20V10M18 20V4M6 20v-4" />
@@ -318,11 +318,11 @@ const Analytics = () => {
           </div>
           <div>
             <h3 className="text-2xl text-[#1a1a2e] m-0 font-bold max-md:text-xl">{analytics.totalRecommendations}</h3>
-            <p className="text-[#666] m-0 text-[0.9rem]">Total Recommendations</p>
+            <p className="text-zinc-500 m-0 text-[0.9rem]">Total Recommendations</p>
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 flex items-center gap-4 shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] max-md:flex-col max-md:text-center max-md:p-4">
+        <div className="bg-white rounded-2xl p-6 flex items-center gap-4 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-md max-md:flex-col max-md:text-center max-md:p-4">
           <div className="w-[60px] h-[60px] rounded-2xl flex items-center justify-center text-white bg-gradient-to-br from-[#1976D2] to-[#42A5F5]">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
@@ -330,11 +330,11 @@ const Analytics = () => {
           </div>
           <div>
             <h3 className="text-2xl text-[#1a1a2e] m-0 font-bold max-md:text-xl">{analytics.cropDistribution.length}</h3>
-            <p className="text-[#666] m-0 text-[0.9rem]">Unique Crops</p>
+            <p className="text-zinc-500 m-0 text-[0.9rem]">Unique Crops</p>
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 flex items-center gap-4 shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] max-md:flex-col max-md:text-center max-md:p-4">
+        <div className="bg-white rounded-2xl p-6 flex items-center gap-4 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-md max-md:flex-col max-md:text-center max-md:p-4">
           <div className="w-[60px] h-[60px] rounded-2xl flex items-center justify-center text-white bg-gradient-to-br from-[#F57C00] to-[#FFB74D]">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="12" cy="12" r="10" />
@@ -343,12 +343,12 @@ const Analytics = () => {
           </div>
           <div>
             <h3 className="text-2xl text-[#1a1a2e] m-0 font-bold max-md:text-xl">{analytics.seasonDistribution.length}</h3>
-            <p className="text-[#666] m-0 text-[0.9rem]">Seasons Covered</p>
+            <p className="text-zinc-500 m-0 text-[0.9rem]">Seasons Covered</p>
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 flex items-center gap-4 shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] max-md:flex-col max-md:text-center max-md:p-4">
-          <div className="w-[60px] h-[60px] rounded-2xl flex items-center justify-center text-white bg-gradient-to-br from-[#7B1FA2] to-[#BA68C8]">
+        <div className="bg-white rounded-2xl p-6 flex items-center gap-4 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-md max-md:flex-col max-md:text-center max-md:p-4">
+          <div className="w-[60px] h-[60px] rounded-2xl flex items-center justify-center text-white bg-gradient-to-br from-emerald-700 to-emerald-400">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
               <circle cx="12" cy="10" r="3" />
@@ -356,7 +356,7 @@ const Analytics = () => {
           </div>
           <div>
             <h3 className="text-2xl text-[#1a1a2e] m-0 font-bold max-md:text-xl">{analytics.stateDistribution.length}</h3>
-            <p className="text-[#666] m-0 text-[0.9rem]">States Analyzed</p>
+            <p className="text-zinc-500 m-0 text-[0.9rem]">States Analyzed</p>
           </div>
         </div>
       </div>
@@ -364,7 +364,7 @@ const Analytics = () => {
       {/* Charts Grid */}
       <div className="grid grid-cols-2 gap-6 mb-8 items-stretch max-lg:grid-cols-1">
         {/* Crop Distribution - Pie Chart */}
-        <div className="bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)] h-full">
+        <div className="bg-white rounded-2xl p-6 shadow-md h-full">
           <h3 className="text-[1.2rem] text-[#1a1a2e] m-0 mb-1 flex items-center gap-2">🌾 Crop Distribution</h3>
           <p className="text-[#888] text-[0.85rem] m-0 mb-4">Most recommended crop categories</p>
           {analytics.cropDistribution.length > 0 ? (
@@ -384,7 +384,7 @@ const Analytics = () => {
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
-                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-[#eee] rounded-lg shadow-[0_4px_12px_rgba(0,0,0,0.1)]" itemStyle={{fontWeight:600, color:'#333'}} />
+                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-[#eee] rounded-lg shadow-md" itemStyle={{fontWeight:600, color:'#333'}} />
               </PieChart>
             </ResponsiveContainer>
           ) : (
@@ -393,7 +393,7 @@ const Analytics = () => {
         </div>
 
         {/* Season Distribution - Bar Chart */}
-        <div className="bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)] h-full">
+        <div className="bg-white rounded-2xl p-6 shadow-md h-full">
           <h3 className="text-[1.2rem] text-[#1a1a2e] m-0 mb-1 flex items-center gap-2">🗓️ Season Distribution</h3>
           <p className="text-[#888] text-[0.85rem] m-0 mb-4">Recommendations by season</p>
           {analytics.seasonDistribution.length > 0 ? (
@@ -402,7 +402,7 @@ const Analytics = () => {
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
-                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-[#eee] rounded-lg shadow-[0_4px_12px_rgba(0,0,0,0.1)]" itemStyle={{fontWeight:600, color:'#333'}} />
+                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-[#eee] rounded-lg shadow-md" itemStyle={{fontWeight:600, color:'#333'}} />
                 <Bar dataKey="value" name="Recommendations">
                   {analytics.seasonDistribution.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.fill} />
@@ -416,7 +416,7 @@ const Analytics = () => {
         </div>
 
         {/* Monthly Trend - Area Chart */}
-        <div className="bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)] h-full col-span-2 max-lg:col-span-1">
+        <div className="bg-white rounded-2xl p-6 shadow-md h-full col-span-2 max-lg:col-span-1">
           <h3 className="text-[1.2rem] text-[#1a1a2e] m-0 mb-1 flex items-center gap-2">📈 Monthly Trend</h3>
           <p className="text-[#888] text-[0.85rem] m-0 mb-4">Recommendation activity over time</p>
           {analytics.monthlyTrend.length > 0 ? (
@@ -425,7 +425,7 @@ const Analytics = () => {
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="month" />
                 <YAxis />
-                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-[#eee] rounded-lg shadow-[0_4px_12px_rgba(0,0,0,0.1)]" itemStyle={{fontWeight:600, color:'#333'}} />
+                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-[#eee] rounded-lg shadow-md" itemStyle={{fontWeight:600, color:'#333'}} />
                 <Area 
                   type="monotone" 
                   dataKey="recommendations" 
@@ -447,7 +447,7 @@ const Analytics = () => {
         </div>
 
         {/* State Distribution - Horizontal Bar */}
-        <div className="bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)] h-full">
+        <div className="bg-white rounded-2xl p-6 shadow-md h-full">
           <h3 className="text-[1.2rem] text-[#1a1a2e] m-0 mb-1 flex items-center gap-2">📍 Top States</h3>
           <p className="text-[#888] text-[0.85rem] m-0 mb-4">Recommendations by location</p>
           {analytics.stateDistribution.length > 0 ? (
@@ -456,7 +456,7 @@ const Analytics = () => {
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis type="number" />
                 <YAxis dataKey="name" type="category" width={100} />
-                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-[#eee] rounded-lg shadow-[0_4px_12px_rgba(0,0,0,0.1)]" itemStyle={{fontWeight:600, color:'#333'}} />
+                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-[#eee] rounded-lg shadow-md" itemStyle={{fontWeight:600, color:'#333'}} />
                 <Bar dataKey="value" fill="#4CAF50" name="Recommendations" radius={[0, 4, 4, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -466,7 +466,7 @@ const Analytics = () => {
         </div>
 
         {/* Suitability Radar */}
-        <div className="bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)] h-full">
+        <div className="bg-white rounded-2xl p-6 shadow-md h-full">
           <h3 className="text-[1.2rem] text-[#1a1a2e] m-0 mb-1 flex items-center gap-2">🎯 Crop Suitability</h3>
           <p className="text-[#888] text-[0.85rem] m-0 mb-4">Average suitability scores</p>
           {analytics.avgSuitabilityByCategory.length > 0 ? (
@@ -482,7 +482,7 @@ const Analytics = () => {
                   fill="#4CAF50" 
                   fillOpacity={0.5} 
                 />
-                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-[#eee] rounded-lg shadow-[0_4px_12px_rgba(0,0,0,0.1)]" itemStyle={{fontWeight:600, color:'#333'}} />
+                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-[#eee] rounded-lg shadow-md" itemStyle={{fontWeight:600, color:'#333'}} />
               </RadarChart>
             </ResponsiveContainer>
           ) : (
@@ -492,22 +492,22 @@ const Analytics = () => {
       </div>
 
       {/* Recent Activity Table */}
-      <div className="bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)] mb-8">
+      <div className="bg-white rounded-2xl p-6 shadow-md mb-8">
         <h3 className="text-[1.2rem] text-[#1a1a2e] m-0 mb-4 flex items-center gap-2">🕐 Recent Activity</h3>
         {analytics.recentActivity.length > 0 ? (
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
                 <tr>
-                  <th className="p-4 text-left border-b border-[#eee] bg-[#f8f9fa] font-semibold text-[#333]">Date</th>
-                  <th className="p-4 text-left border-b border-[#eee] bg-[#f8f9fa] font-semibold text-[#333]">Location</th>
-                  <th className="p-4 text-left border-b border-[#eee] bg-[#f8f9fa] font-semibold text-[#333]">Season</th>
-                  <th className="p-4 text-left border-b border-[#eee] bg-[#f8f9fa] font-semibold text-[#333]">Top Recommendation</th>
+                  <th className="p-4 text-left border-b border-[#eee] bg-zinc-50 font-semibold text-zinc-800">Date</th>
+                  <th className="p-4 text-left border-b border-[#eee] bg-zinc-50 font-semibold text-zinc-800">Location</th>
+                  <th className="p-4 text-left border-b border-[#eee] bg-zinc-50 font-semibold text-zinc-800">Season</th>
+                  <th className="p-4 text-left border-b border-[#eee] bg-zinc-50 font-semibold text-zinc-800">Top Recommendation</th>
                 </tr>
               </thead>
               <tbody>
                 {analytics.recentActivity.map((activity, index) => (
-                  <tr key={index} className="hover:bg-[#f8f9fa]">
+                  <tr key={index} className="hover:bg-zinc-50">
                     <td className="p-4 text-left border-b border-[#eee]">{activity.date}</td>
                     <td className="p-4 text-left border-b border-[#eee]">{activity.location}</td>
                     <td className="p-4 text-left border-b border-[#eee]">

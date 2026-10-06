@@ -284,20 +284,20 @@ const MarketPrices = () => {
   const marketScope = selectedDistrict || selectedState || 'the selected market';
 
   return (
-    <div className="min-h-[calc(100vh-70px)] bg-gradient-to-br from-[#fff8e1] to-[#ffecb3] p-[clamp(1rem,2vw,2rem)]">
+    <div className="min-h-screen bg-zinc-50 w-full font-sans py-12 px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-8">
         <h1 className="text-[2.5rem] text-[#1a1a2e] m-0 max-md:text-[1.8rem]">Market Prices</h1>
-        <p className="text-[#666] text-[1.1rem] mt-2">Live Agmarknet mandi prices by crop, state, and district</p>
+        <p className="text-zinc-500 text-[1.1rem] mt-2">Live Agmarknet mandi prices by crop, state, and district</p>
       </div>
 
-      <div className="bg-white rounded-[20px] p-6 max-w-[1200px] mx-auto mb-8 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+      <div className="bg-white rounded-[20px] p-6 max-w-[1200px] mx-auto mb-8 shadow-md">
         <div className="mb-6">
-          <label className="block font-semibold text-[#333] mb-3">Select Crop</label>
+          <label className="block font-semibold text-zinc-800 mb-3">Select Crop</label>
           <div className="flex flex-wrap gap-3 items-stretch max-md:justify-start max-md:overflow-x-auto max-md:flex-nowrap max-md:pb-2">
             {crops.map((crop) => (
               <button
                 key={crop.id}
-                className={`flex items-center gap-2 py-3 px-4 border-2 rounded-xl cursor-pointer transition-all duration-300 max-md:shrink-0 ${selectedCrop === crop.id ? 'bg-gradient-to-br from-[#4CAF50] to-[#2E7D32] text-white border-transparent' : 'bg-[#f8f9fa] border-transparent hover:bg-[#e8f5e9] hover:border-[#4CAF50]'}`}
+                className={`flex items-center gap-2 py-3 px-4 border-2 rounded-xl cursor-pointer transition-all duration-300 max-md:shrink-0 ${selectedCrop === crop.id ? 'bg-gradient-to-br from-[#4CAF50] to-[#2E7D32] text-white border-transparent' : 'bg-zinc-50 border-transparent hover:bg-emerald-50 hover:border-[#4CAF50]'}`}
                 onClick={() => setSelectedCrop(crop.id)}
               >
                 <span className="text-[1.3rem]">{crop.icon}</span>
@@ -309,9 +309,9 @@ const MarketPrices = () => {
 
         <div className="flex gap-6 items-end flex-wrap max-md:flex-col max-md:gap-4">
           <div className="flex-1 max-md:w-full">
-            <label className="block font-semibold text-[#333] mb-2">State</label>
+            <label className="block font-semibold text-zinc-800 mb-2">State</label>
             <select
-              className="w-full py-3 px-4 border-2 border-[#e0e0e0] rounded-[10px] text-[1rem] cursor-pointer transition-all duration-300 focus:border-[#4CAF50] focus:outline-none"
+              className="w-full py-3 px-4 border-2 border-zinc-200 rounded-[10px] text-[1rem] cursor-pointer transition-all duration-300 focus:border-[#4CAF50] focus:outline-none"
               value={selectedState}
               onChange={(event) => setSelectedState(event.target.value)}
               disabled={statesLoading || !stateOptions.length}
@@ -324,9 +324,9 @@ const MarketPrices = () => {
           </div>
 
           <div className="flex-1 max-md:w-full">
-            <label className="block font-semibold text-[#333] mb-2">District</label>
+            <label className="block font-semibold text-zinc-800 mb-2">District</label>
             <select
-              className="w-full py-3 px-4 border-2 border-[#e0e0e0] rounded-[10px] text-[1rem] cursor-pointer transition-all duration-300 focus:border-[#4CAF50] focus:outline-none"
+              className="w-full py-3 px-4 border-2 border-zinc-200 rounded-[10px] text-[1rem] cursor-pointer transition-all duration-300 focus:border-[#4CAF50] focus:outline-none"
               value={selectedDistrict}
               onChange={(event) => setSelectedDistrict(event.target.value)}
               disabled={districtsLoading || !selectedState}
@@ -339,12 +339,12 @@ const MarketPrices = () => {
           </div>
 
           <div className="flex-1 max-md:w-full">
-            <label className="block font-semibold text-[#333] mb-2">Time Range</label>
+            <label className="block font-semibold text-zinc-800 mb-2">Time Range</label>
             <div className="flex gap-2 flex-wrap max-md:w-full">
               {timeRanges.map((range) => (
                 <button
                   key={range.id}
-                  className={`py-3 px-5 border-2 rounded-[10px] cursor-pointer font-medium transition-all duration-300 hover:border-[#4CAF50] max-md:flex-1 max-md:p-3 ${timeRange === range.id ? 'bg-[#4CAF50] border-[#4CAF50] text-white' : 'bg-white border-[#e0e0e0]'}`}
+                  className={`py-3 px-5 border-2 rounded-[10px] cursor-pointer font-medium transition-all duration-300 hover:border-[#4CAF50] max-md:flex-1 max-md:p-3 ${timeRange === range.id ? 'bg-[#4CAF50] border-[#4CAF50] text-white' : 'bg-white border-zinc-200'}`}
                   onClick={() => setTimeRange(range.id)}
                 >
                   {range.label}
@@ -357,34 +357,34 @@ const MarketPrices = () => {
 
       {loading ? (
         <div className="text-center p-16">
-          <div className="w-[50px] h-[50px] border-4 border-[#e0e0e0] border-t-[#4CAF50] rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-[50px] h-[50px] border-4 border-zinc-200 border-t-[#4CAF50] rounded-full animate-spin mx-auto mb-4"></div>
           <p>Loading latest mandi prices...</p>
         </div>
       ) : (
         <>
-          {error && <div className="max-w-[1200px] mx-auto mb-4 bg-[#ffebee] text-[#b71c1c] border border-[#ef9a9a] rounded-[10px] py-[0.8rem] px-4 font-medium">{error}</div>}
+          {error && <div className="max-w-7xl mx-auto">{error}</div>}
 
           <div className="grid grid-cols-4 gap-6 max-w-[1200px] mx-auto mb-8 items-stretch max-lg:grid-cols-2 max-md:grid-cols-1">
-            <div className="bg-gradient-to-br from-[#4CAF50] to-[#2E7D32] text-white rounded-[16px] p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)] h-full">
+            <div className="bg-gradient-to-br from-[#4CAF50] to-[#2E7D32] text-white rounded-[16px] p-6 text-center shadow-md h-full">
               <span className="block text-[0.9rem] opacity-90 mb-2">Current Price</span>
               <span className="block text-[1.8rem] font-bold mb-1">{formatPrice(currentPrice?.price)}</span>
               <span className="block text-[0.8rem] opacity-80">per {selectedCropData?.unit}</span>
             </div>
 
-            <div className={`bg-white rounded-[16px] p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)] h-full border-l-4 ${parseFloat(priceChange) >= 0 ? 'border-[#4CAF50]' : 'border-[#f44336]'}`}>
+            <div className={`bg-white rounded-[16px] p-6 text-center shadow-md h-full border-l-4 ${parseFloat(priceChange) >= 0 ? 'border-[#4CAF50]' : 'border-red-500'}`}>
               <span className="block text-[0.9rem] opacity-90 mb-2 text-gray-700">Price Change</span>
               <span className="block text-[1.8rem] font-bold mb-1">{parseFloat(priceChange) >= 0 ? '+' : ''}{priceChange}%</span>
               <span className="block text-[0.8rem] opacity-80 text-gray-700">in selected period</span>
             </div>
 
-            <div className="bg-white rounded-[16px] p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)] h-full">
+            <div className="bg-white rounded-[16px] p-6 text-center shadow-md h-full">
               <span className="block text-[0.9rem] opacity-90 mb-2 text-gray-700">Price Range</span>
               <span className="block text-[1.8rem] font-bold mb-1">{formatPrice(rangeMin)} - {formatPrice(rangeMax)}</span>
               <span className="block text-[0.8rem] opacity-80 text-gray-700">min - max</span>
             </div>
 
             {mspPrices[selectedCrop] && (
-              <div className="bg-gradient-to-br from-[#FF9800] to-[#F57C00] text-white rounded-[16px] p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)] h-full">
+              <div className="bg-gradient-to-br from-[#FF9800] to-[#F57C00] text-white rounded-[16px] p-6 text-center shadow-md h-full">
                 <span className="block text-[0.9rem] opacity-90 mb-2">MSP (2024-25)</span>
                 <span className="block text-[1.8rem] font-bold mb-1">{formatPrice(mspPrices[selectedCrop])}</span>
                 <span className="block text-[0.8rem] opacity-80">Minimum Support Price</span>
@@ -392,7 +392,7 @@ const MarketPrices = () => {
             )}
           </div>
 
-          <div className="bg-white rounded-[20px] p-6 max-w-[1200px] mx-auto mb-8 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+          <div className="bg-white rounded-[20px] p-6 max-w-[1200px] mx-auto mb-8 shadow-md">
             <h3 className="m-0 mb-6 text-[#1a1a2e] text-xl font-bold">Price Trend - {selectedCropData?.name}</h3>
             <ResponsiveContainer width="100%" height={350}>
               <LineChart data={priceData}>
@@ -411,10 +411,10 @@ const MarketPrices = () => {
             </ResponsiveContainer>
           </div>
 
-          <div className="bg-white rounded-[20px] p-6 max-w-[1200px] mx-auto mb-8 shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+          <div className="bg-white rounded-[20px] p-6 max-w-[1200px] mx-auto mb-8 shadow-md">
             <h3 className="m-0 mb-6 text-[#1a1a2e] text-xl font-bold">Mandi-wise Prices</h3>
             {(coverageMessage || lastUpdated || confidence) && (
-              <p className="-mt-2 mb-4 text-[#555] text-[0.92rem]">
+              <p className="-mt-2 mb-4 text-zinc-600 text-[0.92rem]">
                 {coverageMessage ? `${coverageMessage} ` : ''}
                 {lastUpdated ? `Last update: ${new Date(lastUpdated).toLocaleString('en-IN')}` : ''}
                 {lastUpdated && confidence ? ' | ' : ''}
@@ -425,17 +425,17 @@ const MarketPrices = () => {
               <table className="w-full border-collapse">
                 <thead>
                   <tr>
-                    <th className="bg-[#f8f9fa] p-4 text-left font-semibold text-[#333] border-b-2 border-[#e0e0e0]">Mandi</th>
-                    <th className="bg-[#f8f9fa] p-4 text-left font-semibold text-[#333] border-b-2 border-[#e0e0e0]">Location</th>
-                    <th className="bg-[#f8f9fa] p-4 text-left font-semibold text-[#333] border-b-2 border-[#e0e0e0]">Price (Rs./{selectedCropData?.unit})</th>
-                    <th className="bg-[#f8f9fa] p-4 text-left font-semibold text-[#333] border-b-2 border-[#e0e0e0]">Change</th>
-                    <th className="bg-[#f8f9fa] p-4 text-left font-semibold text-[#333] border-b-2 border-[#e0e0e0]">Arrivals (Quintals)</th>
-                    <th className="bg-[#f8f9fa] p-4 text-left font-semibold text-[#333] border-b-2 border-[#e0e0e0]">Source</th>
+                    <th className="bg-zinc-50 p-4 text-left font-semibold text-zinc-800 border-b-2 border-zinc-200">Mandi</th>
+                    <th className="bg-zinc-50 p-4 text-left font-semibold text-zinc-800 border-b-2 border-zinc-200">Location</th>
+                    <th className="bg-zinc-50 p-4 text-left font-semibold text-zinc-800 border-b-2 border-zinc-200">Price (Rs./{selectedCropData?.unit})</th>
+                    <th className="bg-zinc-50 p-4 text-left font-semibold text-zinc-800 border-b-2 border-zinc-200">Change</th>
+                    <th className="bg-zinc-50 p-4 text-left font-semibold text-zinc-800 border-b-2 border-zinc-200">Arrivals (Quintals)</th>
+                    <th className="bg-zinc-50 p-4 text-left font-semibold text-zinc-800 border-b-2 border-zinc-200">Source</th>
                   </tr>
                 </thead>
                 <tbody>
                   {mandiPrices.map((mandi, index) => (
-                    <tr key={`${mandi.name}-${index}`} className="hover:bg-[#f8f9fa]">
+                    <tr key={`${mandi.name}-${index}`} className="hover:bg-zinc-50">
                       <td className="p-4 border-b border-[#f0f0f0] font-semibold text-[#1a1a2e]">{mandi.name}</td>
                       <td className="p-4 border-b border-[#f0f0f0]">{mandi.location}</td>
                       <td className="p-4 border-b border-[#f0f0f0] font-semibold text-[#2E7D32]">{formatPrice(mandi.price)}</td>
@@ -456,32 +456,32 @@ const MarketPrices = () => {
             </div>
           </div>
 
-          <div className="max-w-[1200px] mx-auto">
+          <div className="max-w-7xl mx-auto">
             <h3 className="text-[#1a1a2e] mb-6 text-xl font-bold">Market Insights</h3>
             <div className="grid grid-cols-4 gap-6 max-lg:grid-cols-2 max-md:grid-cols-1">
-              <div className="bg-white rounded-[16px] p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+              <div className="bg-white rounded-[16px] p-6 text-center shadow-md">
                 <h4 className="m-0 mb-3 text-[#1a1a2e] font-semibold text-lg">Current Trend</h4>
-                <p className="m-0 text-[#666] text-[0.9rem] leading-[1.5]">
+                <p className="m-0 text-zinc-500 text-[0.9rem] leading-[1.5]">
                   {parseFloat(priceChange) < 0
                     ? `${selectedCropData?.name} prices are trending downward in ${marketScope}.`
                     : `${selectedCropData?.name} prices are trending upward in ${marketScope}.`}
                 </p>
               </div>
-              <div className="bg-white rounded-[16px] p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+              <div className="bg-white rounded-[16px] p-6 text-center shadow-md">
                 <h4 className="m-0 mb-3 text-[#1a1a2e] font-semibold text-lg">Storage Advice</h4>
-                <p className="m-0 text-[#666] text-[0.9rem] leading-[1.5]">
+                <p className="m-0 text-zinc-500 text-[0.9rem] leading-[1.5]">
                   {parseFloat(priceChange) < 0
                     ? 'Prices are declining. Consider selling soon unless storage quality is strong.'
                     : 'Prices are rising. Holding stock may help if storage and cash flow allow it.'}
                 </p>
               </div>
-              <div className="bg-white rounded-[16px] p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+              <div className="bg-white rounded-[16px] p-6 text-center shadow-md">
                 <h4 className="m-0 mb-3 text-[#1a1a2e] font-semibold text-lg">{selectedDistrict ? 'District Mandi Focus' : 'State Mandi Focus'}</h4>
-                <p className="m-0 text-[#666] text-[0.9rem] leading-[1.5]">{coverageMessage || `Compare active mandis in ${marketScope} using reported Agmarknet prices.`}</p>
+                <p className="m-0 text-zinc-500 text-[0.9rem] leading-[1.5]">{coverageMessage || `Compare active mandis in ${marketScope} using reported Agmarknet prices.`}</p>
               </div>
-              <div className="bg-white rounded-[16px] p-6 text-center shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+              <div className="bg-white rounded-[16px] p-6 text-center shadow-md">
                 <h4 className="m-0 mb-3 text-[#1a1a2e] font-semibold text-lg">Price Alert</h4>
-                <p className="m-0 text-[#666] text-[0.9rem] leading-[1.5]">Use this price as a reference before calling the mandi or trader; arrivals and grade can change the final quote.</p>
+                <p className="m-0 text-zinc-500 text-[0.9rem] leading-[1.5]">Use this price as a reference before calling the mandi or trader; arrivals and grade can change the final quote.</p>
               </div>
             </div>
           </div>
