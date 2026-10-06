@@ -8,14 +8,14 @@ const CropLibrary = () => {
   const [selectedCrop, setSelectedCrop] = useState(null);
 
   const cropCategories = [
-    { id: 'all', name: 'All Crops', icon: '🌾' },
-    { id: 'cereals', name: 'Cereals', icon: '🌾' },
-    { id: 'pulses', name: 'Pulses', icon: '🫘' },
-    { id: 'oilseeds', name: 'Oilseeds', icon: '🥜' },
-    { id: 'vegetables', name: 'Vegetables', icon: '🥬' },
-    { id: 'fruits', name: 'Fruits', icon: '🍎' },
-    { id: 'spices', name: 'Spices', icon: '🌶️' },
-    { id: 'commercial', name: 'Commercial', icon: '🏭' },
+    { id: 'all', name: 'All Crops', icon: '' },
+    { id: 'cereals', name: 'Cereals', icon: '' },
+    { id: 'pulses', name: 'Pulses', icon: '' },
+    { id: 'oilseeds', name: 'Oilseeds', icon: '' },
+    { id: 'vegetables', name: 'Vegetables', icon: '' },
+    { id: 'fruits', name: 'Fruits', icon: '' },
+    { id: 'spices', name: 'Spices', icon: '️' },
+    { id: 'commercial', name: 'Commercial', icon: '' },
   ];
 
   const cropsData = [
@@ -25,7 +25,7 @@ const CropLibrary = () => {
       name: 'Rice',
       category: 'cereals',
       scientificName: 'Oryza sativa',
-      image: '🌾',
+      image: '',
       seasons: ['Kharif', 'Summer'],
       temperature: { min: 20, max: 35, optimal: '25-30°C' },
       rainfall: '150-300 cm',
@@ -48,7 +48,7 @@ const CropLibrary = () => {
       name: 'Wheat',
       category: 'cereals',
       scientificName: 'Triticum aestivum',
-      image: '🌾',
+      image: '',
       seasons: ['Rabi'],
       temperature: { min: 10, max: 25, optimal: '15-20°C' },
       rainfall: '50-100 cm',
@@ -71,7 +71,7 @@ const CropLibrary = () => {
       name: 'Maize',
       category: 'cereals',
       scientificName: 'Zea mays',
-      image: '🌽',
+      image: '',
       seasons: ['Kharif', 'Rabi', 'Summer'],
       temperature: { min: 18, max: 32, optimal: '21-27°C' },
       rainfall: '50-100 cm',
@@ -94,7 +94,7 @@ const CropLibrary = () => {
       name: 'Barley',
       category: 'cereals',
       scientificName: 'Hordeum vulgare',
-      image: '🌾',
+      image: '',
       seasons: ['Rabi'],
       temperature: { min: 8, max: 22, optimal: '12-16°C' },
       rainfall: '30-50 cm',
@@ -117,7 +117,7 @@ const CropLibrary = () => {
       name: 'Millets (Bajra)',
       category: 'cereals',
       scientificName: 'Pennisetum glaucum',
-      image: '🌾',
+      image: '',
       seasons: ['Kharif'],
       temperature: { min: 25, max: 40, optimal: '30-35°C' },
       rainfall: '40-60 cm',
@@ -141,7 +141,7 @@ const CropLibrary = () => {
       name: 'Chickpea (Gram)',
       category: 'pulses',
       scientificName: 'Cicer arietinum',
-      image: '🫘',
+      image: '',
       seasons: ['Rabi'],
       temperature: { min: 15, max: 30, optimal: '20-25°C' },
       rainfall: '60-90 cm',
@@ -164,7 +164,7 @@ const CropLibrary = () => {
       name: 'Pigeon Pea (Arhar)',
       category: 'pulses',
       scientificName: 'Cajanus cajan',
-      image: '🫘',
+      image: '',
       seasons: ['Kharif'],
       temperature: { min: 18, max: 35, optimal: '25-30°C' },
       rainfall: '60-100 cm',
@@ -188,7 +188,7 @@ const CropLibrary = () => {
       name: 'Groundnut',
       category: 'oilseeds',
       scientificName: 'Arachis hypogaea',
-      image: '🥜',
+      image: '',
       seasons: ['Kharif', 'Rabi'],
       temperature: { min: 24, max: 33, optimal: '27-30°C' },
       rainfall: '50-75 cm',
@@ -211,7 +211,7 @@ const CropLibrary = () => {
       name: 'Mustard',
       category: 'oilseeds',
       scientificName: 'Brassica juncea',
-      image: '🌻',
+      image: '',
       seasons: ['Rabi'],
       temperature: { min: 10, max: 25, optimal: '15-20°C' },
       rainfall: '25-40 cm',
@@ -234,7 +234,7 @@ const CropLibrary = () => {
       name: 'Soybean',
       category: 'oilseeds',
       scientificName: 'Glycine max',
-      image: '🫛',
+      image: '',
       seasons: ['Kharif'],
       temperature: { min: 20, max: 35, optimal: '26-30°C' },
       rainfall: '60-100 cm',
@@ -258,7 +258,7 @@ const CropLibrary = () => {
       name: 'Potato',
       category: 'vegetables',
       scientificName: 'Solanum tuberosum',
-      image: '🥔',
+      image: '',
       seasons: ['Rabi', 'Kharif'],
       temperature: { min: 15, max: 25, optimal: '18-22°C' },
       rainfall: '50-75 cm',
@@ -281,7 +281,7 @@ const CropLibrary = () => {
       name: 'Tomato',
       category: 'vegetables',
       scientificName: 'Solanum lycopersicum',
-      image: '🍅',
+      image: '',
       seasons: ['Rabi', 'Kharif', 'Summer'],
       temperature: { min: 18, max: 30, optimal: '21-24°C' },
       rainfall: '50-75 cm',
@@ -304,7 +304,7 @@ const CropLibrary = () => {
       name: 'Onion',
       category: 'vegetables',
       scientificName: 'Allium cepa',
-      image: '🧅',
+      image: '',
       seasons: ['Rabi', 'Kharif'],
       temperature: { min: 15, max: 30, optimal: '20-25°C' },
       rainfall: '50-75 cm',
@@ -328,7 +328,7 @@ const CropLibrary = () => {
       name: 'Banana',
       category: 'fruits',
       scientificName: 'Musa paradisiaca',
-      image: '🍌',
+      image: '',
       seasons: ['Whole Year'],
       temperature: { min: 20, max: 35, optimal: '27-30°C' },
       rainfall: '100-200 cm',
@@ -351,7 +351,7 @@ const CropLibrary = () => {
       name: 'Mango',
       category: 'fruits',
       scientificName: 'Mangifera indica',
-      image: '🥭',
+      image: '',
       seasons: ['Summer'],
       temperature: { min: 20, max: 40, optimal: '24-30°C' },
       rainfall: '75-250 cm',
@@ -375,7 +375,7 @@ const CropLibrary = () => {
       name: 'Turmeric',
       category: 'spices',
       scientificName: 'Curcuma longa',
-      image: '🟡',
+      image: '',
       seasons: ['Kharif'],
       temperature: { min: 20, max: 35, optimal: '25-30°C' },
       rainfall: '150-200 cm',
@@ -398,7 +398,7 @@ const CropLibrary = () => {
       name: 'Chilli',
       category: 'spices',
       scientificName: 'Capsicum annuum',
-      image: '🌶️',
+      image: '️',
       seasons: ['Kharif', 'Rabi'],
       temperature: { min: 20, max: 35, optimal: '25-30°C' },
       rainfall: '60-120 cm',
@@ -422,7 +422,7 @@ const CropLibrary = () => {
       name: 'Sugarcane',
       category: 'commercial',
       scientificName: 'Saccharum officinarum',
-      image: '🎋',
+      image: '',
       seasons: ['Whole Year'],
       temperature: { min: 20, max: 35, optimal: '27-32°C' },
       rainfall: '100-200 cm',
@@ -445,7 +445,7 @@ const CropLibrary = () => {
       name: 'Cotton',
       category: 'commercial',
       scientificName: 'Gossypium hirsutum',
-      image: '☁️',
+      image: '️',
       seasons: ['Kharif'],
       temperature: { min: 21, max: 35, optimal: '25-30°C' },
       rainfall: '50-100 cm',
@@ -468,7 +468,7 @@ const CropLibrary = () => {
       name: 'Jute',
       category: 'commercial',
       scientificName: 'Corchorus capsularis',
-      image: '🧵',
+      image: '',
       seasons: ['Kharif'],
       temperature: { min: 24, max: 37, optimal: '30-34°C' },
       rainfall: '150-200 cm',
@@ -498,27 +498,27 @@ const CropLibrary = () => {
   const getSeasonClasses = (season) => {
     const s = season.toLowerCase().replace(' ', '-');
     switch (s) {
-      case 'kharif': return 'bg-[#ff6b6b]/15 text-red-500';
-      case 'rabi': return 'bg-[#4ecdc4]/15 text-[#00b894]';
-      case 'summer': return 'bg-[#ffc107]/15 text-[#f39c12]';
-      case 'winter': return 'bg-emerald-600/15 text-emerald-600';
-      case 'whole-year': return 'bg-[#9b59b6]/15 text-[#9b59b6]';
+      case 'kharif': return 'bg-emerald-50/15 text-red-500';
+      case 'rabi': return 'bg-emerald-50/15 text-stone-900';
+      case 'summer': return 'bg-emerald-50/15 text-stone-900';
+      case 'winter': return 'bg-emerald-500/15 text-emerald-500';
+      case 'whole-year': return 'bg-emerald-50/15 text-stone-900';
       default: return 'bg-gray-100 text-gray-800';
     }
   };
 
   return (
-    <div className="min-h-screen bg-zinc-50 w-full font-sans py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-stone-50 w-full font-sans py-12 px-4 sm:px-6 lg:px-8">
       {/* Header */}
       <div className="text-center mb-8">
-        <h1 className="text-[1.8rem] sm:text-[2.5rem] text-[#1a1a2e] m-0 font-bold">🌾 Crop Information Library</h1>
-        <p className="text-zinc-500 text-base sm:text-[1.1rem] mt-2">Comprehensive guide to major crops grown in India</p>
+        <h1 className="text-[1.8rem] sm:text-[2.5rem] text-stone-900 m-0 font-bold"> Crop Information Library</h1>
+        <p className="text-stone-500 text-base sm:text-[1.1rem] mt-2">Comprehensive guide to major crops grown in India</p>
       </div>
 
       {/* Search and Filter */}
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-center bg-white p-4 sm:px-6 sm:py-4 rounded-xl shadow-md mb-4">
-          <svg className="text-[#888] mr-4 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <div className="flex items-center bg-white p-4 sm:px-6 sm:py-4 rounded-md shadow-sm mb-4">
+          <svg className="text-stone-900 mr-4 shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="11" cy="11" r="8" />
             <path d="m21 21-4.35-4.35" />
           </svg>
@@ -535,10 +535,10 @@ const CropLibrary = () => {
           {cropCategories.map(cat => (
             <button
               key={cat.id}
-              className={`shrink-0 flex items-center gap-2 px-5 py-3 border-2 rounded-full cursor-pointer transition-all duration-300 text-[0.9rem] ${
+              className={`shrink-0 flex items-center gap-2 px-5 py-3 border-emerald-500 rounded-full transition-all duration-300 text-[0.9rem] ${
                 selectedCategory === cat.id
-                  ? 'bg-gradient-to-br from-[#2E7D32] to-[#4CAF50] text-white border-transparent'
-                  : 'bg-white border-transparent hover:-translate-y-0.5 hover:shadow-md'
+                  ? 'bg-stone-50 border border-stone-200 text-white border-transparent'
+                  : 'bg-white border-transparent hover:-translate-y-0.5 hover:shadow-sm'
               }`}
               onClick={() => setSelectedCategory(cat.id)}
             >
@@ -550,31 +550,31 @@ const CropLibrary = () => {
       </div>
 
       {/* Crops Grid */}
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-6 max-w-[1400px] mx-auto">
+      <div className="grid grid-cols-[repeat(au sm:grid-cols-[repeat(au gap-6 max-w-[1400px] mx-auto">
         {filteredCrops.map(crop => (
           <div 
             key={crop.id} 
-            className="group bg-white rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 shadow-md hover:-translate-y-2 hover:shadow-md"
+            className="group bg-white rounded-lg overflow-hidden transition-all duration-300 shadow-sm hover:-translate-y-2 hover:shadow-sm"
             onClick={() => setSelectedCrop(crop)}
           >
-            <div className="h-[120px] bg-gradient-to-br from-[#e8f5e9] to-[#c8e6c9] flex items-center justify-center text-[4rem]">
+            <div className="h-[120px] bg-stone-50 border border-stone-200 flex items-center justify-center text-[4rem]">
               {crop.image}
             </div>
             <div className="p-5">
-              <h3 className="m-0 text-[1.3rem] text-[#1a1a2e] font-bold">{crop.name}</h3>
-              <p className="text-[#888] italic text-[0.85rem] mt-1 mb-3">{crop.scientificName}</p>
+              <h3 className="m-0 text-[1.3rem] text-stone-900 font-bold">{crop.name}</h3>
+              <p className="text-stone-900 italic text-[0.85rem] mt-1 mb-3">{crop.scientificName}</p>
               <div className="flex gap-2 mb-3">
                 {crop.seasons.slice(0, 2).map(season => (
-                  <span key={season} className={`px-3 py-1 rounded-[15px] text-[0.75rem] font-semibold ${getSeasonClasses(season)}`}>
+                  <span key={season} className={`px-3 py-1 rounded-md text-[0.75rem] font-semibold ${getSeasonClasses(season)}`}>
                     {season}
                   </span>
                 ))}
               </div>
-              <div className="text-zinc-500 text-[0.9rem]">
-                🌡️ {crop.temperature.optimal}
+              <div className="text-stone-500 text-[0.9rem]">
+                ️ {crop.temperature.optimal}
               </div>
             </div>
-            <div className="px-5 py-4 bg-zinc-50 text-[#2E7D32] font-semibold text-[0.9rem] text-center transition-all duration-300 group-hover:bg-[#2E7D32] group-hover:text-white">
+            <div className="px-5 py-4 bg-stone-50 text-stone-900 font-semibold text-[0.9rem] text-center transition-all duration-300 group-hover:bg-emerald-50 group-hover:text-white">
               View Details →
             </div>
           </div>
@@ -582,7 +582,7 @@ const CropLibrary = () => {
       </div>
 
       {filteredCrops.length === 0 && (
-        <div className="text-center p-12 text-zinc-500">
+        <div className="text-center p-12 text-stone-500">
           <p>No crops found matching your search.</p>
         </div>
       )}
@@ -590,46 +590,46 @@ const CropLibrary = () => {
       {/* Crop Detail Modal */}
       {selectedCrop && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-[1000] p-4 sm:p-8 backdrop-blur-[4px]" onClick={() => setSelectedCrop(null)}>
-          <div className="bg-white rounded-[20px] max-w-[700px] w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto relative m-4 sm:m-0" onClick={e => e.stopPropagation()}>
-            <button className="absolute top-4 right-4 bg-[#f1f1f1] border-none rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition-all duration-300 z-10 hover:bg-slate-200" onClick={() => setSelectedCrop(null)}>
+          <div className="bg-white rounded-lg max-w-[700px] w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto relative m-4 sm:m-0" onClick={e => e.stopPropagation()}>
+            <button className="absolute top-4 right-4 bg-emerald-50 border-none rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 z-10 hover:bg-slate-200" onClick={() => setSelectedCrop(null)}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             </button>
 
-            <div className="flex items-center gap-6 p-6 sm:p-8 bg-gradient-to-br from-[#e8f5e9] to-[#c8e6c9]">
+            <div className="flex items-center gap-6 p-6 sm:p-8 bg-stone-50 border border-stone-200">
               <div className="text-[4rem]">{selectedCrop.image}</div>
               <div>
-                <h2 className="m-0 text-[2rem] text-[#1a1a2e] font-bold">{selectedCrop.name}</h2>
-                <p className="text-zinc-500 italic mt-1">{selectedCrop.scientificName}</p>
+                <h2 className="m-0 text-[2rem] text-stone-900 font-bold">{selectedCrop.name}</h2>
+                <p className="text-stone-500 italic mt-1">{selectedCrop.scientificName}</p>
               </div>
             </div>
 
             <div className="p-4 sm:p-6 sm:px-8">
               {/* Quick Stats */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                <div className="bg-zinc-50 p-4 rounded-xl text-center">
-                  <span className="block text-zinc-500 text-[0.85rem] mb-2">🌡️ Temperature</span>
-                  <span className="font-semibold text-[#1a1a2e] text-[0.95rem]">{selectedCrop.temperature.optimal}</span>
+                <div className="bg-stone-50 p-4 rounded-md text-center">
+                  <span className="block text-stone-500 text-[0.85rem] mb-2">️ Temperature</span>
+                  <span className="font-semibold text-stone-900 text-[0.95rem]">{selectedCrop.temperature.optimal}</span>
                 </div>
-                <div className="bg-zinc-50 p-4 rounded-xl text-center">
-                  <span className="block text-zinc-500 text-[0.85rem] mb-2">💧 Water Need</span>
-                  <span className="font-semibold text-[#1a1a2e] text-[0.95rem]">{selectedCrop.waterRequirement}</span>
+                <div className="bg-stone-50 p-4 rounded-md text-center">
+                  <span className="block text-stone-500 text-[0.85rem] mb-2"> Water Need</span>
+                  <span className="font-semibold text-stone-900 text-[0.95rem]">{selectedCrop.waterRequirement}</span>
                 </div>
-                <div className="bg-zinc-50 p-4 rounded-xl text-center">
-                  <span className="block text-zinc-500 text-[0.85rem] mb-2">⏱️ Duration</span>
-                  <span className="font-semibold text-[#1a1a2e] text-[0.95rem]">{selectedCrop.growingPeriod}</span>
+                <div className="bg-stone-50 p-4 rounded-md text-center">
+                  <span className="block text-stone-500 text-[0.85rem] mb-2">⏱️ Duration</span>
+                  <span className="font-semibold text-stone-900 text-[0.95rem]">{selectedCrop.growingPeriod}</span>
                 </div>
-                <div className="bg-zinc-50 p-4 rounded-xl text-center">
-                  <span className="block text-zinc-500 text-[0.85rem] mb-2">📈 Yield</span>
-                  <span className="font-semibold text-[#1a1a2e] text-[0.95rem]">{selectedCrop.yieldPotential}</span>
+                <div className="bg-stone-50 p-4 rounded-md text-center">
+                  <span className="block text-stone-500 text-[0.85rem] mb-2"> Yield</span>
+                  <span className="font-semibold text-stone-900 text-[0.95rem]">{selectedCrop.yieldPotential}</span>
                 </div>
               </div>
 
               {/* Seasons */}
-              <div className="mb-6 pb-6 border-b border-[#eee]">
-                <h4 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">🗓️ Growing Seasons</h4>
+              <div className="mb-6 pb-6 border-b border-emerald-200">
+                <h4 className="m-0 mb-4 text-stone-900 text-[1.1rem] font-bold">️ Growing Seasons</h4>
                 <div className="flex flex-wrap gap-2">
                   {selectedCrop.seasons.map(season => (
                     <span key={season} className={`px-4 py-2 rounded-full text-[0.85rem] font-semibold ${getSeasonClasses(season)}`}>
@@ -640,44 +640,44 @@ const CropLibrary = () => {
               </div>
 
               {/* Soil & Rainfall */}
-              <div className="mb-6 pb-6 border-b border-[#eee]">
-                <h4 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">🌍 Soil & Climate</h4>
-                <p className="my-2 text-zinc-600 leading-relaxed"><strong>Soil Type:</strong> {selectedCrop.soil}</p>
-                <p className="my-2 text-zinc-600 leading-relaxed"><strong>Rainfall:</strong> {selectedCrop.rainfall}</p>
-                <p className="my-2 text-zinc-600 leading-relaxed"><strong>Temperature Range:</strong> {selectedCrop.temperature.min}°C - {selectedCrop.temperature.max}°C</p>
+              <div className="mb-6 pb-6 border-b border-emerald-200">
+                <h4 className="m-0 mb-4 text-stone-900 text-[1.1rem] font-bold"> Soil & Climate</h4>
+                <p className="my-2 text-stone-600 leading-relaxed"><strong>Soil Type:</strong> {selectedCrop.soil}</p>
+                <p className="my-2 text-stone-600 leading-relaxed"><strong>Rainfall:</strong> {selectedCrop.rainfall}</p>
+                <p className="my-2 text-stone-600 leading-relaxed"><strong>Temperature Range:</strong> {selectedCrop.temperature.min}°C - {selectedCrop.temperature.max}°C</p>
               </div>
 
               {/* Major States */}
-              <div className="mb-6 pb-6 border-b border-[#eee]">
-                <h4 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">📍 Major Growing States</h4>
+              <div className="mb-6 pb-6 border-b border-emerald-200">
+                <h4 className="m-0 mb-4 text-stone-900 text-[1.1rem] font-bold"> Major Growing States</h4>
                 <div className="flex flex-wrap gap-2">
                   {selectedCrop.majorStates.map(state => (
-                    <span key={state} className="bg-[#e3f2fd] text-[#1976d2] px-3 py-1.5 rounded-[15px] text-[0.85rem]">{state}</span>
+                    <span key={state} className="bg-emerald-50 text-stone-900 px-3 py-1.5 rounded-md text-[0.85rem]">{state}</span>
                   ))}
                 </div>
               </div>
 
               {/* Market Info */}
-              <div className="mb-6 pb-6 border-b border-[#eee]">
-                <h4 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">💰 Market Information</h4>
-                <p className="my-2 text-zinc-600 leading-relaxed"><strong>Current Price:</strong> {selectedCrop.marketPrice}</p>
-                <p className="my-2 text-zinc-600 leading-relaxed"><strong>Nutritional Value:</strong> {selectedCrop.nutritionalValue}</p>
+              <div className="mb-6 pb-6 border-b border-emerald-200">
+                <h4 className="m-0 mb-4 text-stone-900 text-[1.1rem] font-bold"> Market Information</h4>
+                <p className="my-2 text-stone-600 leading-relaxed"><strong>Current Price:</strong> {selectedCrop.marketPrice}</p>
+                <p className="my-2 text-stone-600 leading-relaxed"><strong>Nutritional Value:</strong> {selectedCrop.nutritionalValue}</p>
               </div>
 
               {/* Growing Tips */}
               <div className="mb-6">
-                <h4 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">💡 Growing Tips</h4>
+                <h4 className="m-0 mb-4 text-stone-900 text-[1.1rem] font-bold"> Growing Tips</h4>
                 <ul className="m-0 pl-6">
                   {selectedCrop.tips.map((tip, index) => (
-                    <li key={index} className="text-zinc-600 mb-2 leading-relaxed">{tip}</li>
+                    <li key={index} className="text-stone-600 mb-2 leading-relaxed">{tip}</li>
                   ))}
                 </ul>
               </div>
             </div>
 
-            <div className="p-6 sm:px-8 bg-zinc-50 text-center">
+            <div className="p-6 sm:px-8 bg-stone-50 text-center">
               <button 
-                className="bg-gradient-to-br from-[#2E7D32] to-[#4CAF50] text-white border-none px-8 py-4 rounded-xl text-base font-semibold cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(46,125,50,0.3)]"
+                className="bg-stone-50 border border-stone-200 text-white border-none px-8 py-4 rounded-md text-base font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-sm"
                 onClick={() => navigate('/dashboard')}
               >
                 Get Recommendation for this Crop

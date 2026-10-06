@@ -233,10 +233,10 @@ const Analytics = () => {
 
   if (loading || authLoading) {
     return (
-      <div className="min-h-screen bg-zinc-50 w-full font-sans py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-stone-50 w-full font-sans py-12 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-center min-h-[60vh]">
-          <div className="w-[50px] h-[50px] border-4 border-zinc-200 border-t-[#2E7D32] rounded-full animate-spin"></div>
-          <p className="mt-4 text-zinc-500">Loading analytics...</p>
+          <div className="w-[50px] h-[50px] border-4 border-stone-200 border-t-[#2E7D32] rounded-full animate-spin"></div>
+          <p className="mt-4 text-stone-500">Loading analytics...</p>
         </div>
       </div>
     );
@@ -249,13 +249,13 @@ const Analytics = () => {
       case 'summer': return 'bg-yellow-100 text-yellow-700';
       case 'winter': return 'bg-teal-100 text-teal-700';
       case 'autumn': return 'bg-red-100 text-red-700';
-      case 'whole-year': return 'bg-indigo-100 text-indigo-700';
+      case 'whole-year': return 'bg-stone-100 text-stone-700';
       default: return 'bg-gray-200 text-gray-700';
     }
   };
 
   return (
-    <div className="min-h-screen bg-zinc-50 w-full font-sans py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-stone-50 w-full font-sans py-12 px-4 sm:px-6 lg:px-8">
       {/* Debug: Show logged-in user info */}
       <div style={{ background: '#f6f6f6', padding: '8px 16px', borderRadius: 6, marginBottom: 12, fontSize: 14, color: '#333' }}>
         <strong>Logged in as:</strong> {user?.email || user?.name || user?._id || 'Unknown'}
@@ -263,12 +263,12 @@ const Analytics = () => {
       {/* Header */}
       <div className="flex justify-between items-center mb-8 pb-4 border-b-2 border-[rgba(46,125,50,0.1)] flex-wrap gap-4 max-md:flex-col max-md:text-center">
         <div>
-          <h1 className="text-2xl text-[#1a1a2e] m-0 flex items-center gap-2 max-md:text-xl">📊 Analytics Dashboard</h1>
-          <p className="text-zinc-500 mt-2 mb-0">Insights from your crop recommendations</p>
+          <h1 className="text-emerald-600xl text-stone-900 m-0 flex items-center gap-2 max-md:text-xl"> Analytics Dashboard</h1>
+          <p className="text-stone-500 mt-2 mb-0">Insights from your crop recommendations</p>
         </div>
         <div className="flex items-center gap-4 flex-wrap justify-end">
           {useDemoData && (
-            <div className="flex items-center gap-2 py-2 px-4 bg-gradient-to-br from-[#fff3e0] to-[#ffe0b2] text-[#e65100] rounded-full text-[0.85rem] font-semibold">
+            <div className="flex items-center gap-2 py-2 px-4 bg-stone-50 border border-stone-200 text-stone-900 rounded-full text-[0.85rem] font-semibold">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="12" cy="12" r="10"></circle>
                 <path d="M12 16v-4M12 8h.01"></path>
@@ -277,11 +277,11 @@ const Analytics = () => {
             </div>
           )}
           {recommendations.length > 0 && (
-            <button className="py-2.5 px-5 bg-slate-100 border-2 border-[#ddd] text-zinc-600 rounded-xl cursor-pointer font-semibold transition-all duration-300 hover:bg-slate-200 hover:border-[#bbb]" onClick={toggleDemoData}>
+            <button className="py-2.5 px-5 bg-slate-100 border-emerald-500 border-emerald-200 text-stone-600 rounded-md font-semibold transition-all duration-300 hover:bg-slate-200 hover:border-emerald-200" onClick={toggleDemoData}>
               {useDemoData ? 'Show My Data' : 'Show Demo'}
             </button>
           )}
-          <button className="flex items-center gap-2 py-3 px-6 bg-white border-2 border-[#2E7D32] text-[#2E7D32] rounded-xl cursor-pointer font-semibold transition-all duration-300 hover:bg-[#2E7D32] hover:text-white" onClick={fetchAnalytics}>
+          <button className="flex items-center gap-2 py-3 px-6 bg-white border-emerald-500 border-emerald-200 text-stone-900 rounded-md font-semibold transition-all duration-300 hover:bg-emerald-50 hover:text-white" onClick={fetchAnalytics}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
             </svg>
@@ -292,16 +292,16 @@ const Analytics = () => {
 
       {/* Demo Data Notice */}
       {useDemoData && recommendations.length === 0 && (
-        <div className="flex items-center gap-6 p-6 px-8 bg-gradient-to-br from-[#e8f5e9] to-[#c8e6c9] border-2 border-[#81c784] rounded-2xl mb-8">
-          <svg className="text-[#2E7D32] shrink-0 w-[48px] h-[48px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <div className="flex items-center gap-6 p-6 px-8 bg-stone-50 border border-stone-200 border-emerald-500 border-emerald-200 rounded-lg mb-8">
+          <svg className="text-stone-900 shrink-0 w-[48px] h-[48px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
             <path d="M2 17l10 5 10-5"></path>
             <path d="M2 12l10 5 10-5"></path>
           </svg>
           <div>
-            <h4 className="m-0 mb-2 text-[#1b5e20] text-[1.1rem]">You're viewing demo data</h4>
-            <p className="m-0 mb-4 text-[#2e7d32]">Generate crop recommendations to see your personalized analytics here.</p>
-            <button onClick={() => navigate('/dashboard')} className="py-2.5 px-6 bg-[#2E7D32] text-white border-none rounded-lg cursor-pointer font-semibold transition-all duration-300 hover:bg-[#1b5e20] hover:-translate-y-0.5">
+            <h4 className="m-0 mb-2 text-stone-900 text-[1.1rem]">You're viewing demo data</h4>
+            <p className="m-0 mb-4 text-stone-900">Generate crop recommendations to see your personalized analytics here.</p>
+            <button onClick={() => navigate('/dashboard')} className="py-2.5 px-6 bg-emerald-50 text-white border-none rounded-lg font-semibold transition-all duration-300 hover:bg-emerald-50 hover:-translate-y-0.5">
               Get Recommendations
             </button>
           </div>
@@ -309,54 +309,54 @@ const Analytics = () => {
       )}
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-6 mb-8 items-stretch max-md:grid-cols-2 max-sm:grid-cols-1">
-        <div className="bg-white rounded-2xl p-6 flex items-center gap-4 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-md max-md:flex-col max-md:text-center max-md:p-4">
-          <div className="w-[60px] h-[60px] rounded-2xl flex items-center justify-center text-white bg-gradient-to-br from-[#2E7D32] to-[#4CAF50]">
+      <div className="grid grid-cols-[repeat(au gap-6 mb-8 items-stretch max-md:grid-cols-2 max-sm:grid-cols-1">
+        <div className="bg-white rounded-lg p-6 flex items-center gap-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-sm max-md:flex-col max-md:text-center max-md:p-4">
+          <div className="w-[60px] h-[60px] rounded-lg flex items-center justify-center text-white bg-stone-50 border border-stone-200">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M12 20V10M18 20V4M6 20v-4" />
             </svg>
           </div>
           <div>
-            <h3 className="text-2xl text-[#1a1a2e] m-0 font-bold max-md:text-xl">{analytics.totalRecommendations}</h3>
-            <p className="text-zinc-500 m-0 text-[0.9rem]">Total Recommendations</p>
+            <h3 className="text-emerald-600xl text-stone-900 m-0 font-bold max-md:text-xl">{analytics.totalRecommendations}</h3>
+            <p className="text-stone-500 m-0 text-[0.9rem]">Total Recommendations</p>
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 flex items-center gap-4 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-md max-md:flex-col max-md:text-center max-md:p-4">
-          <div className="w-[60px] h-[60px] rounded-2xl flex items-center justify-center text-white bg-gradient-to-br from-[#1976D2] to-[#42A5F5]">
+        <div className="bg-white rounded-lg p-6 flex items-center gap-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-sm max-md:flex-col max-md:text-center max-md:p-4">
+          <div className="w-[60px] h-[60px] rounded-lg flex items-center justify-center text-white bg-stone-50 border border-stone-200">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
             </svg>
           </div>
           <div>
-            <h3 className="text-2xl text-[#1a1a2e] m-0 font-bold max-md:text-xl">{analytics.cropDistribution.length}</h3>
-            <p className="text-zinc-500 m-0 text-[0.9rem]">Unique Crops</p>
+            <h3 className="text-emerald-600xl text-stone-900 m-0 font-bold max-md:text-xl">{analytics.cropDistribution.length}</h3>
+            <p className="text-stone-500 m-0 text-[0.9rem]">Unique Crops</p>
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 flex items-center gap-4 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-md max-md:flex-col max-md:text-center max-md:p-4">
-          <div className="w-[60px] h-[60px] rounded-2xl flex items-center justify-center text-white bg-gradient-to-br from-[#F57C00] to-[#FFB74D]">
+        <div className="bg-white rounded-lg p-6 flex items-center gap-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-sm max-md:flex-col max-md:text-center max-md:p-4">
+          <div className="w-[60px] h-[60px] rounded-lg flex items-center justify-center text-white bg-stone-50 border border-stone-200">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="12" cy="12" r="10" />
               <path d="M12 6v6l4 2" />
             </svg>
           </div>
           <div>
-            <h3 className="text-2xl text-[#1a1a2e] m-0 font-bold max-md:text-xl">{analytics.seasonDistribution.length}</h3>
-            <p className="text-zinc-500 m-0 text-[0.9rem]">Seasons Covered</p>
+            <h3 className="text-emerald-600xl text-stone-900 m-0 font-bold max-md:text-xl">{analytics.seasonDistribution.length}</h3>
+            <p className="text-stone-500 m-0 text-[0.9rem]">Seasons Covered</p>
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 flex items-center gap-4 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-md max-md:flex-col max-md:text-center max-md:p-4">
-          <div className="w-[60px] h-[60px] rounded-2xl flex items-center justify-center text-white bg-gradient-to-br from-emerald-700 to-emerald-400">
+        <div className="bg-white rounded-lg p-6 flex items-center gap-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-sm max-md:flex-col max-md:text-center max-md:p-4">
+          <div className="w-[60px] h-[60px] rounded-lg flex items-center justify-center text-white">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
               <circle cx="12" cy="10" r="3" />
             </svg>
           </div>
           <div>
-            <h3 className="text-2xl text-[#1a1a2e] m-0 font-bold max-md:text-xl">{analytics.stateDistribution.length}</h3>
-            <p className="text-zinc-500 m-0 text-[0.9rem]">States Analyzed</p>
+            <h3 className="text-emerald-600xl text-stone-900 m-0 font-bold max-md:text-xl">{analytics.stateDistribution.length}</h3>
+            <p className="text-stone-500 m-0 text-[0.9rem]">States Analyzed</p>
           </div>
         </div>
       </div>
@@ -364,9 +364,9 @@ const Analytics = () => {
       {/* Charts Grid */}
       <div className="grid grid-cols-2 gap-6 mb-8 items-stretch max-lg:grid-cols-1">
         {/* Crop Distribution - Pie Chart */}
-        <div className="bg-white rounded-2xl p-6 shadow-md h-full">
-          <h3 className="text-[1.2rem] text-[#1a1a2e] m-0 mb-1 flex items-center gap-2">🌾 Crop Distribution</h3>
-          <p className="text-[#888] text-[0.85rem] m-0 mb-4">Most recommended crop categories</p>
+        <div className="bg-white rounded-lg p-6 shadow-sm h-full">
+          <h3 className="text-[1.2rem] text-stone-900 m-0 mb-1 flex items-center gap-2"> Crop Distribution</h3>
+          <p className="text-stone-900 text-[0.85rem] m-0 mb-4">Most recommended crop categories</p>
           {analytics.cropDistribution.length > 0 ? (
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
@@ -384,25 +384,25 @@ const Analytics = () => {
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
-                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-[#eee] rounded-lg shadow-md" itemStyle={{fontWeight:600, color:'#333'}} />
+                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-emerald-200 rounded-lg shadow-sm" itemStyle={{fontWeight:600, color:'#333'}} />
               </PieChart>
             </ResponsiveContainer>
           ) : (
-            <div className="flex items-center justify-center h-[200px] text-[#888] text-[1rem] bg-[#f9f9f9] rounded-xl">No data available</div>
+            <div className="flex items-center justify-center h-[200px] text-stone-900 text-[1rem] bg-emerald-50 rounded-md">No data available</div>
           )}
         </div>
 
         {/* Season Distribution - Bar Chart */}
-        <div className="bg-white rounded-2xl p-6 shadow-md h-full">
-          <h3 className="text-[1.2rem] text-[#1a1a2e] m-0 mb-1 flex items-center gap-2">🗓️ Season Distribution</h3>
-          <p className="text-[#888] text-[0.85rem] m-0 mb-4">Recommendations by season</p>
+        <div className="bg-white rounded-lg p-6 shadow-sm h-full">
+          <h3 className="text-[1.2rem] text-stone-900 m-0 mb-1 flex items-center gap-2">️ Season Distribution</h3>
+          <p className="text-stone-900 text-[0.85rem] m-0 mb-4">Recommendations by season</p>
           {analytics.seasonDistribution.length > 0 ? (
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={analytics.seasonDistribution}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
-                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-[#eee] rounded-lg shadow-md" itemStyle={{fontWeight:600, color:'#333'}} />
+                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-emerald-200 rounded-lg shadow-sm" itemStyle={{fontWeight:600, color:'#333'}} />
                 <Bar dataKey="value" name="Recommendations">
                   {analytics.seasonDistribution.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.fill} />
@@ -411,21 +411,21 @@ const Analytics = () => {
               </BarChart>
             </ResponsiveContainer>
           ) : (
-            <div className="flex items-center justify-center h-[200px] text-[#888] text-[1rem] bg-[#f9f9f9] rounded-xl">No data available</div>
+            <div className="flex items-center justify-center h-[200px] text-stone-900 text-[1rem] bg-emerald-50 rounded-md">No data available</div>
           )}
         </div>
 
         {/* Monthly Trend - Area Chart */}
-        <div className="bg-white rounded-2xl p-6 shadow-md h-full col-span-2 max-lg:col-span-1">
-          <h3 className="text-[1.2rem] text-[#1a1a2e] m-0 mb-1 flex items-center gap-2">📈 Monthly Trend</h3>
-          <p className="text-[#888] text-[0.85rem] m-0 mb-4">Recommendation activity over time</p>
+        <div className="bg-white rounded-lg p-6 shadow-sm h-full col-span-2 max-lg:col-span-1">
+          <h3 className="text-[1.2rem] text-stone-900 m-0 mb-1 flex items-center gap-2"> Monthly Trend</h3>
+          <p className="text-stone-900 text-[0.85rem] m-0 mb-4">Recommendation activity over time</p>
           {analytics.monthlyTrend.length > 0 ? (
             <ResponsiveContainer width="100%" height={300}>
               <AreaChart data={analytics.monthlyTrend}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="month" />
                 <YAxis />
-                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-[#eee] rounded-lg shadow-md" itemStyle={{fontWeight:600, color:'#333'}} />
+                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-emerald-200 rounded-lg shadow-sm" itemStyle={{fontWeight:600, color:'#333'}} />
                 <Area 
                   type="monotone" 
                   dataKey="recommendations" 
@@ -442,33 +442,33 @@ const Analytics = () => {
               </AreaChart>
             </ResponsiveContainer>
           ) : (
-            <div className="flex items-center justify-center h-[200px] text-[#888] text-[1rem] bg-[#f9f9f9] rounded-xl">No data available</div>
+            <div className="flex items-center justify-center h-[200px] text-stone-900 text-[1rem] bg-emerald-50 rounded-md">No data available</div>
           )}
         </div>
 
         {/* State Distribution - Horizontal Bar */}
-        <div className="bg-white rounded-2xl p-6 shadow-md h-full">
-          <h3 className="text-[1.2rem] text-[#1a1a2e] m-0 mb-1 flex items-center gap-2">📍 Top States</h3>
-          <p className="text-[#888] text-[0.85rem] m-0 mb-4">Recommendations by location</p>
+        <div className="bg-white rounded-lg p-6 shadow-sm h-full">
+          <h3 className="text-[1.2rem] text-stone-900 m-0 mb-1 flex items-center gap-2"> Top States</h3>
+          <p className="text-stone-900 text-[0.85rem] m-0 mb-4">Recommendations by location</p>
           {analytics.stateDistribution.length > 0 ? (
             <ResponsiveContainer width="100%" height={300}>
               <BarChart layout="vertical" data={analytics.stateDistribution}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis type="number" />
                 <YAxis dataKey="name" type="category" width={100} />
-                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-[#eee] rounded-lg shadow-md" itemStyle={{fontWeight:600, color:'#333'}} />
+                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-emerald-200 rounded-lg shadow-sm" itemStyle={{fontWeight:600, color:'#333'}} />
                 <Bar dataKey="value" fill="#4CAF50" name="Recommendations" radius={[0, 4, 4, 0]} />
               </BarChart>
             </ResponsiveContainer>
           ) : (
-            <div className="flex items-center justify-center h-[200px] text-[#888] text-[1rem] bg-[#f9f9f9] rounded-xl">No data available</div>
+            <div className="flex items-center justify-center h-[200px] text-stone-900 text-[1rem] bg-emerald-50 rounded-md">No data available</div>
           )}
         </div>
 
         {/* Suitability Radar */}
-        <div className="bg-white rounded-2xl p-6 shadow-md h-full">
-          <h3 className="text-[1.2rem] text-[#1a1a2e] m-0 mb-1 flex items-center gap-2">🎯 Crop Suitability</h3>
-          <p className="text-[#888] text-[0.85rem] m-0 mb-4">Average suitability scores</p>
+        <div className="bg-white rounded-lg p-6 shadow-sm h-full">
+          <h3 className="text-[1.2rem] text-stone-900 m-0 mb-1 flex items-center gap-2"> Crop Suitability</h3>
+          <p className="text-stone-900 text-[0.85rem] m-0 mb-4">Average suitability scores</p>
           {analytics.avgSuitabilityByCategory.length > 0 ? (
             <ResponsiveContainer width="100%" height={300}>
               <RadarChart data={analytics.avgSuitabilityByCategory}>
@@ -482,59 +482,59 @@ const Analytics = () => {
                   fill="#4CAF50" 
                   fillOpacity={0.5} 
                 />
-                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-[#eee] rounded-lg shadow-md" itemStyle={{fontWeight:600, color:'#333'}} />
+                <Tooltip wrapperClassName="recharts-default-tooltip bg-white border border-emerald-200 rounded-lg shadow-sm" itemStyle={{fontWeight:600, color:'#333'}} />
               </RadarChart>
             </ResponsiveContainer>
           ) : (
-            <div className="flex items-center justify-center h-[200px] text-[#888] text-[1rem] bg-[#f9f9f9] rounded-xl">No data available</div>
+            <div className="flex items-center justify-center h-[200px] text-stone-900 text-[1rem] bg-emerald-50 rounded-md">No data available</div>
           )}
         </div>
       </div>
 
       {/* Recent Activity Table */}
-      <div className="bg-white rounded-2xl p-6 shadow-md mb-8">
-        <h3 className="text-[1.2rem] text-[#1a1a2e] m-0 mb-4 flex items-center gap-2">🕐 Recent Activity</h3>
+      <div className="bg-white rounded-lg p-6 shadow-sm mb-8">
+        <h3 className="text-[1.2rem] text-stone-900 m-0 mb-4 flex items-center gap-2"> Recent Activity</h3>
         {analytics.recentActivity.length > 0 ? (
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
               <thead>
                 <tr>
-                  <th className="p-4 text-left border-b border-[#eee] bg-zinc-50 font-semibold text-zinc-800">Date</th>
-                  <th className="p-4 text-left border-b border-[#eee] bg-zinc-50 font-semibold text-zinc-800">Location</th>
-                  <th className="p-4 text-left border-b border-[#eee] bg-zinc-50 font-semibold text-zinc-800">Season</th>
-                  <th className="p-4 text-left border-b border-[#eee] bg-zinc-50 font-semibold text-zinc-800">Top Recommendation</th>
+                  <th className="p-4 text-left border-b border-emerald-200 bg-stone-50 font-semibold text-stone-800">Date</th>
+                  <th className="p-4 text-left border-b border-emerald-200 bg-stone-50 font-semibold text-stone-800">Location</th>
+                  <th className="p-4 text-left border-b border-emerald-200 bg-stone-50 font-semibold text-stone-800">Season</th>
+                  <th className="p-4 text-left border-b border-emerald-200 bg-stone-50 font-semibold text-stone-800">Top Recommendation</th>
                 </tr>
               </thead>
               <tbody>
                 {analytics.recentActivity.map((activity, index) => (
-                  <tr key={index} className="hover:bg-zinc-50">
-                    <td className="p-4 text-left border-b border-[#eee]">{activity.date}</td>
-                    <td className="p-4 text-left border-b border-[#eee]">{activity.location}</td>
-                    <td className="p-4 text-left border-b border-[#eee]">
+                  <tr key={index} className="hover:bg-stone-50">
+                    <td className="p-4 text-left border-b border-emerald-200">{activity.date}</td>
+                    <td className="p-4 text-left border-b border-emerald-200">{activity.location}</td>
+                    <td className="p-4 text-left border-b border-emerald-200">
                       <span className={`py-1 px-3 rounded-full text-[0.8rem] font-semibold ${getSeasonBadgeClass(activity.season)}`}>
                         {activity.season}
                       </span>
                     </td>
-                    <td className="p-4 text-left border-b border-[#eee]">{activity.topCrop}</td>
+                    <td className="p-4 text-left border-b border-emerald-200">{activity.topCrop}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
         ) : (
-          <div className="flex items-center justify-center h-[200px] text-[#888] text-[1rem] bg-[#f9f9f9] rounded-xl">No recent activity</div>
+          <div className="flex items-center justify-center h-[200px] text-stone-900 text-[1rem] bg-emerald-50 rounded-md">No recent activity</div>
         )}
       </div>
 
       {/* Quick Actions */}
       <div className="flex gap-4 justify-center max-md:flex-col">
-        <button onClick={() => navigate('/dashboard')} className="flex items-center justify-center gap-2 py-4 px-8 rounded-xl text-[1rem] font-semibold cursor-pointer transition-all duration-300 bg-gradient-to-br from-[#2E7D32] to-[#4CAF50] text-white border-none hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(46,125,50,0.3)]">
+        <button onClick={() => navigate('/dashboard')} className="flex items-center justify-center gap-2 py-4 px-8 rounded-md text-[1rem] font-semibold transition-all duration-300 bg-stone-50 border border-stone-200 text-white border-none hover:-translate-y-0.5 hover:shadow-sm">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M12 5v14M5 12h14" />
           </svg>
           New Recommendation
         </button>
-        <button onClick={() => navigate('/history')} className="flex items-center justify-center gap-2 py-4 px-8 rounded-xl text-[1rem] font-semibold cursor-pointer transition-all duration-300 bg-white text-[#2E7D32] border-2 border-[#2E7D32] hover:bg-[#f0f7f0]">
+        <button onClick={() => navigate('/history')} className="flex items-center justify-center gap-2 py-4 px-8 rounded-md text-[1rem] font-semibold transition-all duration-300 bg-white text-stone-900 border-emerald-500 border-emerald-200 hover:bg-emerald-50">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="12" cy="12" r="10" />
             <path d="M12 6v6l4 2" />

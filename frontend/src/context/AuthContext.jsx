@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(localStorage.getItem('token'));
 
-  // 👇 Test if REACT_APP_API_URL is loaded or not
+  //  Test if REACT_APP_API_URL is loaded or not
   console.log("ENV → REACT_APP_API_URL:", import.meta.env.VITE_API_URL);
   console.log("ENV → REACT_APP_ML_SERVICE_URL:", import.meta.env.VITE_ML_SERVICE_URL);
 

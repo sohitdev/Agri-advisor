@@ -38,7 +38,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-zinc-200">
+    <nav className="sticky top-0 z-50 w-full bg-white border-b border-stone-200">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           
@@ -47,7 +47,7 @@ const Navbar = () => {
             <div className="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-600 transition-transform group-hover:scale-105">
               <Leaf size={20} />
             </div>
-            <span className="text-xl font-bold tracking-tight text-zinc-900 group-hover:text-emerald-700 transition-colors">
+            <span className="text-xl font-bold tracking-tight text-stone-900 group-hover:text-emerald-700 transition-colors">
               Agri<span className="text-emerald-600">Advisor</span>
             </span>
           </Link>
@@ -61,14 +61,14 @@ const Navbar = () => {
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   location.pathname === link.path 
                     ? 'bg-emerald-50 text-emerald-700' 
-                    : 'text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50'
+                    : 'text-stone-600 hover:text-stone-900 hover:bg-stone-50'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
             {!user && (
-              <Link to="/about" className="px-3 py-2 rounded-lg text-sm font-medium text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50 transition-colors">
+              <Link to="/about" className="px-3 py-2 rounded-lg text-sm font-medium text-stone-600 hover:text-stone-900 hover:bg-stone-50 transition-colors">
                 {t('about')}
               </Link>
             )}
@@ -79,7 +79,7 @@ const Navbar = () => {
             <select
               value={i18n.language}
               onChange={handleLanguageChange}
-              className="bg-zinc-50 border border-zinc-200 text-zinc-700 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block px-2.5 py-1.5 cursor-pointer outline-none"
+              className="bg-stone-50 border border-stone-200 text-stone-700 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block px-2.5 py-1.5 outline-none"
             >
               {languages.map(lang => (
                 <option key={lang.code} value={lang.code}>{lang.name}</option>
@@ -94,7 +94,7 @@ const Navbar = () => {
                     <span>{t('profile')}</span>
                   </Button>
                 </Link>
-                <Button variant="outline" size="sm" onClick={logout} className="gap-2 text-zinc-600">
+                <Button variant="outline" size="sm" onClick={logout} className="gap-2 text-stone-600">
                   <LogOut size={16} />
                   <span>{t('logout')}</span>
                 </Button>
@@ -116,7 +116,7 @@ const Navbar = () => {
             <select
               value={i18n.language}
               onChange={handleLanguageChange}
-              className="bg-zinc-50 border border-zinc-200 text-zinc-700 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block px-2 py-1 cursor-pointer outline-none"
+              className="bg-stone-50 border border-stone-200 text-stone-700 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block px-2 py-1 outline-none"
             >
               {languages.map(lang => (
                 <option key={lang.code} value={lang.code}>{lang.name}</option>
@@ -124,7 +124,7 @@ const Navbar = () => {
             </select>
             <button
               onClick={toggleMenu}
-              className="text-zinc-600 hover:text-zinc-900 focus:outline-none p-2 rounded-lg bg-zinc-50 border border-zinc-200"
+              className="text-stone-600 hover:text-stone-900 focus:outline-none p-2 rounded-lg bg-stone-50 border border-stone-200"
             >
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -134,7 +134,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden border-t border-zinc-200 bg-white">
+        <div className="lg:hidden border-t border-stone-200 bg-white">
           <div className="px-4 pt-2 pb-4 space-y-1">
             {user ? (
               <>
@@ -146,17 +146,17 @@ const Navbar = () => {
                     className={`block px-3 py-2.5 rounded-lg text-base font-medium ${
                       location.pathname === link.path
                         ? 'bg-emerald-50 text-emerald-700'
-                        : 'text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900'
+                        : 'text-stone-600 hover:bg-stone-50 hover:text-stone-900'
                     }`}
                   >
                     {link.label}
                   </Link>
                 ))}
-                <div className="border-t border-zinc-100 my-2 pt-2 space-y-1">
+                <div className="border-t border-stone-100 my-2 pt-2 space-y-1">
                   <Link
                     to="/profile"
                     onClick={() => setIsMenuOpen(false)}
-                    className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-base font-medium text-zinc-600 hover:bg-zinc-50"
+                    className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-base font-medium text-stone-600 hover:bg-stone-50"
                   >
                     <User size={18} />
                     {t('profile')}
@@ -175,11 +175,11 @@ const Navbar = () => {
                 <Link
                   to="/about"
                   onClick={() => setIsMenuOpen(false)}
-                  className="block px-3 py-2 text-base font-medium text-zinc-600"
+                  className="block px-3 py-2 text-base font-medium text-stone-600"
                 >
                   {t('about')}
                 </Link>
-                <div className="grid grid-cols-2 gap-3 pt-2 border-t border-zinc-100">
+                <div className="grid grid-cols-2 gap-3 pt-2 border-t border-stone-100">
                   <Link to="/login" onClick={() => setIsMenuOpen(false)}>
                     <Button variant="outline" className="w-full justify-center">{t('login')}</Button>
                   </Link>

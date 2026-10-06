@@ -2,12 +2,12 @@ import React from 'react';
 import { cn } from '../../lib/utils';
 
 const Button = React.forwardRef(({ className, variant = 'primary', size = 'md', ...props }, ref) => {
-  const baseStyles = "inline-flex items-center justify-center rounded-xl font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 disabled:pointer-events-none disabled:opacity-50";
+  const baseStyles = "inline-flex items-center justify-center rounded-md active:scale-[0.98] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 disabled:pointer-events-none disabled:opacity-50";
   
   const variants = {
     primary: "bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm",
-    outline: "border border-zinc-200 bg-white hover:bg-zinc-100 text-zinc-900",
-    ghost: "hover:bg-zinc-100 hover:text-zinc-900 text-zinc-600",
+    outline: "border border-stone-200 bg-white hover:bg-stone-100 text-stone-900",
+    ghost: "hover:bg-stone-100 hover:text-stone-900 text-stone-600",
     danger: "bg-red-500 text-white hover:bg-red-600 shadow-sm"
   };
 

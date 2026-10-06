@@ -81,14 +81,14 @@ const WeatherDashboard = () => {
 
   const getConditionIcon = (condition) => {
     const icons = {
-      'Sunny': '☀️',
-      'Partly Cloudy': '⛅',
-      'Cloudy': '☁️',
-      'Light Rain': '🌧️',
-      'Heavy Rain': '⛈️',
-      'Thunderstorm': '🌩️',
+      'Sunny': '️',
+      'Partly Cloudy': '',
+      'Cloudy': '️',
+      'Light Rain': '️',
+      'Heavy Rain': '️',
+      'Thunderstorm': '️',
     };
-    return icons[condition] || '🌤️';
+    return icons[condition] || '️';
   };
 
   const getUVLevel = (index) => {
@@ -117,18 +117,18 @@ const WeatherDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-50 w-full font-sans py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-stone-50 w-full font-sans py-12 px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-8 px-4 sm:px-8">
-        <h1 className="text-[1.8rem] sm:text-[2.5rem] text-[#1a1a2e] m-0 font-bold">🌤️ Weather Dashboard</h1>
-        <p className="text-zinc-500 text-base sm:text-[1.1rem] mt-2">Real-time weather insights for smarter farming decisions</p>
+        <h1 className="text-[1.8rem] sm:text-[2.5rem] text-stone-900 m-0 font-bold">️ Weather Dashboard</h1>
+        <p className="text-stone-500 text-base sm:text-[1.1rem] mt-2">Real-time weather insights for smarter farming decisions</p>
       </div>
 
       {/* Location Selector */}
       <div className="flex flex-col sm:flex-row gap-6 max-w-[800px] mx-auto mb-8 flex-wrap">
-        <div className="flex-1 bg-white p-6 rounded-2xl shadow-md">
-          <label className="block font-semibold text-zinc-800 mb-3">Select State</label>
+        <div className="flex-1 bg-white p-6 rounded-lg shadow-sm">
+          <label className="block font-semibold text-stone-800 mb-3">Select State</label>
           <select
-            className="w-full p-3 border-2 border-zinc-200 rounded-xl text-base cursor-pointer transition-all duration-300 focus:border-[#2196F3] focus:outline-none"
+            className="w-full p-3 border-emerald-500 border-stone-200 rounded-md text-base transition-all duration-300 focus:border-emerald-200 focus:outline-none"
             value={selectedState}
             onChange={e => {
               setSelectedState(e.target.value);
@@ -141,10 +141,10 @@ const WeatherDashboard = () => {
             ))}
           </select>
         </div>
-        <div className="flex-1 bg-white p-6 rounded-2xl shadow-md">
-          <label className="block font-semibold text-zinc-800 mb-3">Select District</label>
+        <div className="flex-1 bg-white p-6 rounded-lg shadow-sm">
+          <label className="block font-semibold text-stone-800 mb-3">Select District</label>
           <select
-            className="w-full p-3 border-2 border-zinc-200 rounded-xl text-base cursor-pointer transition-all duration-300 focus:border-[#2196F3] focus:outline-none"
+            className="w-full p-3 border-emerald-500 border-stone-200 rounded-md text-base transition-all duration-300 focus:border-emerald-200 focus:outline-none"
             value={selectedDistrict}
             onChange={e => setSelectedDistrict(e.target.value)}
             disabled={!selectedState}
@@ -155,14 +155,14 @@ const WeatherDashboard = () => {
             ))}
           </select>
         </div>
-        <div className="flex-1 bg-white p-6 rounded-2xl shadow-md">
-          <label className="block font-semibold text-zinc-800 mb-3">Forecast Period</label>
+        <div className="flex-1 bg-white p-6 rounded-lg shadow-sm">
+          <label className="block font-semibold text-stone-800 mb-3">Forecast Period</label>
           <div className="flex gap-2">
             {[7, 14, 30].map(days => (
               <button
                 key={days}
-                className={`flex-1 p-3 border-2 rounded-xl bg-white cursor-pointer transition-all duration-300 font-medium hover:border-[#2196F3] ${
-                  forecastDays === days ? 'bg-[#2196F3] border-[#2196F3] text-white' : 'border-zinc-200'
+                className={`flex-1 p-3 border-emerald-500 rounded-md bg-white transition-all duration-300 font-medium hover:border-emerald-200 ${
+                  forecastDays === days ? 'bg-emerald-50 border-emerald-200 text-white' : 'border-stone-200'
                 }`}
                 onClick={() => setForecastDays(days)}
               >
@@ -175,7 +175,7 @@ const WeatherDashboard = () => {
 
       {loading && (
         <div className="text-center py-16">
-          <div className="w-[50px] h-[50px] border-4 border-zinc-200 border-t-[#2196F3] rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-[50px] h-[50px] border-4 border-stone-200 border-t-[#2196F3] rounded-full animate-spin mx-auto mb-4"></div>
           <p>Loading weather data...</p>
         </div>
       )}
@@ -183,7 +183,7 @@ const WeatherDashboard = () => {
       {!loading && selectedState && selectedDistrict && weatherData && (
         <>
           {/* Current Weather Card */}
-          <div className="bg-gradient-to-br from-[#2196F3] to-[#1976D2] text-white rounded-[20px] p-6 sm:p-8 max-w-[1000px] mx-auto mb-8 shadow-[0_10px_40px_rgba(33,150,243,0.3)]">
+          <div className="bg-stone-50 border border-stone-200 text-white rounded-lg p-6 sm:p-8 max-w-[1000px] mx-auto mb-8 shadow-sm">
             <div className="flex flex-col sm:flex-row justify-between items-center text-center sm:text-left gap-6 mb-8">
               <div className="flex items-center gap-6">
                 <span className="text-[4rem] sm:text-[5rem]">{getConditionIcon(currentWeather.condition)}</span>
@@ -200,32 +200,32 @@ const WeatherDashboard = () => {
             
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 pt-6 border-t border-white/20">
               <div className="text-center">
-                <span className="text-[1.5rem] block mb-2">💧</span>
+                <span className="text-[1.5rem] block mb-2"></span>
                 <span className="block text-[1.2rem] font-semibold">{currentWeather.humidity}%</span>
                 <span className="block text-[0.8rem] opacity-80 mt-1">Humidity</span>
               </div>
               <div className="text-center">
-                <span className="text-[1.5rem] block mb-2">💨</span>
+                <span className="text-[1.5rem] block mb-2"></span>
                 <span className="block text-[1.2rem] font-semibold">{currentWeather.windSpeed} km/h</span>
                 <span className="block text-[0.8rem] opacity-80 mt-1">Wind {currentWeather.windDirection}</span>
               </div>
               <div className="text-center">
-                <span className="text-[1.5rem] block mb-2">👁️</span>
+                <span className="text-[1.5rem] block mb-2">️</span>
                 <span className="block text-[1.2rem] font-semibold">{currentWeather.visibility} km</span>
                 <span className="block text-[0.8rem] opacity-80 mt-1">Visibility</span>
               </div>
               <div className="text-center">
-                <span className="text-[1.5rem] block mb-2">🌡️</span>
+                <span className="text-[1.5rem] block mb-2">️</span>
                 <span className="block text-[1.2rem] font-semibold">{currentWeather.pressure} hPa</span>
                 <span className="block text-[0.8rem] opacity-80 mt-1">Pressure</span>
               </div>
               <div className="text-center">
-                <span className="text-[1.5rem] block mb-2" style={{ color: getUVLevel(currentWeather.uvIndex).color }}>☀️</span>
+                <span className="text-[1.5rem] block mb-2" style={{ color: getUVLevel(currentWeather.uvIndex).color }}>️</span>
                 <span className="block text-[1.2rem] font-semibold">{currentWeather.uvIndex}</span>
                 <span className="block text-[0.8rem] opacity-80 mt-1">UV {getUVLevel(currentWeather.uvIndex).level}</span>
               </div>
               <div className="text-center">
-                <span className="text-[1.5rem] block mb-2">🌅</span>
+                <span className="text-[1.5rem] block mb-2"></span>
                 <span className="block text-[1.2rem] font-semibold">{currentWeather.sunrise}</span>
                 <span className="block text-[0.8rem] opacity-80 mt-1">Sunrise</span>
               </div>
@@ -234,20 +234,20 @@ const WeatherDashboard = () => {
 
           {/* Agricultural Alerts */}
           {weatherData.some(day => getAgriAlert(day).length > 0) && (
-            <div className="bg-white rounded-2xl p-6 max-w-[1000px] mx-auto mb-8 shadow-md">
-              <h3 className="m-0 mb-4 text-[#1a1a2e] font-bold">🌱 Agricultural Alerts</h3>
+            <div className="bg-white rounded-lg p-6 max-w-[1000px] mx-auto mb-8 shadow-sm">
+              <h3 className="m-0 mb-4 text-stone-900 font-bold"> Agricultural Alerts</h3>
               <div className="flex flex-col gap-3">
                 {weatherData.slice(0, 3).flatMap((day, i) => 
                   getAgriAlert(day).map((alert, j) => {
                     const alertStyles = {
-                      warning: 'bg-[#FF9800]/10 border-l-4 border-[#FF9800]',
+                      warning: 'bg-emerald-50/10 border-l-4 border-emerald-200',
                       danger: 'bg-red-500/10 border-l-4 border-red-500',
-                      info: 'bg-[#2196F3]/10 border-l-4 border-[#2196F3]',
+                      info: 'bg-emerald-50/10 border-l-4 border-emerald-200',
                     };
                     return (
-                      <div key={`${i}-${j}`} className={`flex items-center gap-4 p-4 rounded-xl ${alertStyles[alert.type]}`}>
+                      <div key={`${i}-${j}`} className={`flex items-center gap-4 p-4 rounded-md ${alertStyles[alert.type]}`}>
                         <span className="text-[1.5rem]">
-                          {alert.type === 'warning' ? '⚠️' : alert.type === 'danger' ? '🚨' : 'ℹ️'}
+                          {alert.type === 'warning' ? '️' : alert.type === 'danger' ? '' : 'ℹ️'}
                         </span>
                         <span>{alert.message}</span>
                       </div>
@@ -260,18 +260,18 @@ const WeatherDashboard = () => {
 
           {/* Weather Forecast Cards */}
           <div className="max-w-[1000px] mx-auto mb-8">
-            <h3 className="text-[#1a1a2e] mb-4 font-bold">📅 {forecastDays}-Day Forecast</h3>
+            <h3 className="text-stone-900 mb-4 font-bold"> {forecastDays}-Day Forecast</h3>
             <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4">
               {weatherData.slice(0, 7).map((day, index) => (
-                <div key={index} className="bg-white rounded-2xl p-5 text-center shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-                  <div className="font-semibold text-zinc-500 mb-3">{day.day}</div>
+                <div key={index} className="bg-white rounded-lg p-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-sm">
+                  <div className="font-semibold text-stone-500 mb-3">{day.day}</div>
                   <div className="text-[2.5rem] mb-3">{getConditionIcon(day.condition)}</div>
                   <div className="flex justify-center gap-2 mb-2">
-                    <span className="text-[#f44336] font-semibold">{day.tempMax}°</span>
-                    <span className="text-[#2196F3]">{day.tempMin}°</span>
+                    <span className="text-stone-900 font-semibold">{day.tempMax}°</span>
+                    <span className="text-stone-900">{day.tempMin}°</span>
                   </div>
-                  <div className="text-[0.85rem] text-zinc-500">
-                    <span>💧 {day.rainfall}mm</span>
+                  <div className="text-[0.85rem] text-stone-500">
+                    <span> {day.rainfall}mm</span>
                   </div>
                 </div>
               ))}
@@ -281,8 +281,8 @@ const WeatherDashboard = () => {
           {/* Charts Section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-[1200px] mx-auto mb-8">
             {/* Temperature Chart */}
-            <div className="bg-white rounded-2xl p-6 shadow-md">
-              <h3 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">🌡️ Temperature Trend</h3>
+            <div className="bg-white rounded-lg p-6 shadow-sm">
+              <h3 className="m-0 mb-4 text-stone-900 text-[1.1rem] font-bold">️ Temperature Trend</h3>
               <ResponsiveContainer width="100%" height={250}>
                 <AreaChart data={weatherData}>
                   <CartesianGrid strokeDasharray="3 3" />
@@ -297,8 +297,8 @@ const WeatherDashboard = () => {
             </div>
 
             {/* Rainfall Chart */}
-            <div className="bg-white rounded-2xl p-6 shadow-md">
-              <h3 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">🌧️ Rainfall Prediction</h3>
+            <div className="bg-white rounded-lg p-6 shadow-sm">
+              <h3 className="m-0 mb-4 text-stone-900 text-[1.1rem] font-bold">️ Rainfall Prediction</h3>
               <ResponsiveContainer width="100%" height={250}>
                 <BarChart data={weatherData}>
                   <CartesianGrid strokeDasharray="3 3" />
@@ -311,8 +311,8 @@ const WeatherDashboard = () => {
             </div>
 
             {/* Humidity & Wind Chart */}
-            <div className="bg-white rounded-2xl p-6 shadow-md">
-              <h3 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">💨 Humidity & Wind Speed</h3>
+            <div className="bg-white rounded-lg p-6 shadow-sm">
+              <h3 className="m-0 mb-4 text-stone-900 text-[1.1rem] font-bold"> Humidity & Wind Speed</h3>
               <ResponsiveContainer width="100%" height={250}>
                 <LineChart data={weatherData}>
                   <CartesianGrid strokeDasharray="3 3" />
@@ -328,8 +328,8 @@ const WeatherDashboard = () => {
             </div>
 
             {/* Soil Moisture Chart */}
-            <div className="bg-white rounded-2xl p-6 shadow-md">
-              <h3 className="m-0 mb-4 text-[#1a1a2e] text-[1.1rem] font-bold">🌱 Soil Moisture Estimation</h3>
+            <div className="bg-white rounded-lg p-6 shadow-sm">
+              <h3 className="m-0 mb-4 text-stone-900 text-[1.1rem] font-bold"> Soil Moisture Estimation</h3>
               <ResponsiveContainer width="100%" height={250}>
                 <AreaChart data={weatherData}>
                   <CartesianGrid strokeDasharray="3 3" />
@@ -344,39 +344,39 @@ const WeatherDashboard = () => {
 
           {/* Farming Tips */}
           <div className="max-w-[1000px] mx-auto">
-            <h3 className="text-[#1a1a2e] mb-4 font-bold">🌾 Weather-Based Farming Tips</h3>
+            <h3 className="text-stone-900 mb-4 font-bold"> Weather-Based Farming Tips</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="bg-white rounded-2xl p-6 text-center shadow-md">
-                <span className="text-[2.5rem] block mb-4">💧</span>
-                <h4 className="m-0 mb-3 text-[#1a1a2e] font-bold">Irrigation</h4>
-                <p className="m-0 text-zinc-500 text-[0.9rem] leading-relaxed">
+              <div className="bg-white rounded-lg p-6 text-center shadow-sm">
+                <span className="text-[2.5rem] block mb-4"></span>
+                <h4 className="m-0 mb-3 text-stone-900 font-bold">Irrigation</h4>
+                <p className="m-0 text-stone-500 text-[0.9rem] leading-relaxed">
                   {currentWeather.humidity > 70 
                     ? 'High humidity - reduce irrigation frequency' 
                     : 'Normal humidity - maintain regular watering schedule'}
                 </p>
               </div>
-              <div className="bg-white rounded-2xl p-6 text-center shadow-md">
-                <span className="text-[2.5rem] block mb-4">🌡️</span>
-                <h4 className="m-0 mb-3 text-[#1a1a2e] font-bold">Temperature Management</h4>
-                <p className="m-0 text-zinc-500 text-[0.9rem] leading-relaxed">
+              <div className="bg-white rounded-lg p-6 text-center shadow-sm">
+                <span className="text-[2.5rem] block mb-4">️</span>
+                <h4 className="m-0 mb-3 text-stone-900 font-bold">Temperature Management</h4>
+                <p className="m-0 text-stone-500 text-[0.9rem] leading-relaxed">
                   {currentWeather.temperature > 35 
                     ? 'Apply mulching to protect roots from heat' 
                     : 'Conditions favorable for most crops'}
                 </p>
               </div>
-              <div className="bg-white rounded-2xl p-6 text-center shadow-md">
-                <span className="text-[2.5rem] block mb-4">🌧️</span>
-                <h4 className="m-0 mb-3 text-[#1a1a2e] font-bold">Rainfall Preparedness</h4>
-                <p className="m-0 text-zinc-500 text-[0.9rem] leading-relaxed">
+              <div className="bg-white rounded-lg p-6 text-center shadow-sm">
+                <span className="text-[2.5rem] block mb-4">️</span>
+                <h4 className="m-0 mb-3 text-stone-900 font-bold">Rainfall Preparedness</h4>
+                <p className="m-0 text-stone-500 text-[0.9rem] leading-relaxed">
                   {weatherData.some(d => d.rainfall > 10) 
                     ? 'Rain expected - ensure proper drainage' 
                     : 'Low rainfall expected - plan irrigation accordingly'}
                 </p>
               </div>
-              <div className="bg-white rounded-2xl p-6 text-center shadow-md">
-                <span className="text-[2.5rem] block mb-4">🐛</span>
-                <h4 className="m-0 mb-3 text-[#1a1a2e] font-bold">Pest Control</h4>
-                <p className="m-0 text-zinc-500 text-[0.9rem] leading-relaxed">
+              <div className="bg-white rounded-lg p-6 text-center shadow-sm">
+                <span className="text-[2.5rem] block mb-4"></span>
+                <h4 className="m-0 mb-3 text-stone-900 font-bold">Pest Control</h4>
+                <p className="m-0 text-stone-500 text-[0.9rem] leading-relaxed">
                   {currentWeather.humidity > 80 
                     ? 'High humidity increases pest risk - monitor closely' 
                     : 'Moderate conditions - routine monitoring sufficient'}
@@ -388,10 +388,10 @@ const WeatherDashboard = () => {
       )}
 
       {!(selectedState && selectedDistrict) && (
-        <div className="text-center py-16 px-8 bg-white rounded-[20px] max-w-[500px] mx-auto shadow-md">
-          <span className="text-[4rem] block mb-4">📍</span>
-          <h3 className="m-0 mb-2 text-[#1a1a2e] font-bold">Select a Location</h3>
-          <p className="m-0 text-zinc-500">Choose your state and district to view weather information and agricultural insights</p>
+        <div className="text-center py-16 px-8 bg-white rounded-lg max-w-[500px] mx-auto shadow-sm">
+          <span className="text-[4rem] block mb-4"></span>
+          <h3 className="m-0 mb-2 text-stone-900 font-bold">Select a Location</h3>
+          <p className="m-0 text-stone-500">Choose your state and district to view weather information and agricultural insights</p>
         </div>
       )}
     </div>

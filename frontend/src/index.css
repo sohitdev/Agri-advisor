@@ -17,11 +17,11 @@
 
 @layer base {
   * {
-    border-color: var(--color-zinc-200);
+    border-color: var(--color-stone-200);
   }
   body {
-    background-color: var(--color-zinc-50);
-    color: var(--color-zinc-950);
+    background-color: var(--color-stone-50);
+    color: var(--color-stone-950);
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

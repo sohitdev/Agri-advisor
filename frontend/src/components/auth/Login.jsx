@@ -89,7 +89,7 @@ const Login = () => {
                   onChange={handleChange}
                   className="w-4 h-4 rounded border-zinc-300 text-emerald-600 focus:ring-emerald-600 transition-colors"
                 />
-                <label htmlFor="remember" className="text-sm text-zinc-600 cursor-pointer">
+                <label htmlFor="remember" className="text-sm text-zinc-600 ">
                   {t('remember_me')}
                 </label>
               </div>

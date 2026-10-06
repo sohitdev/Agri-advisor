@@ -20,7 +20,7 @@ const resources = {
       profile: 'Profile',
 
       // Landing Page
-      landing_badge: '🌱 AI-Powered Agriculture',
+      landing_badge: ' Agricultural Tools',
       landing_title: 'Smart Crop Recommendations for',
       landing_title_highlight: 'Indian Farmers',
       landing_description: 'Get personalized crop recommendations based on your location, soil conditions, weather patterns, and season. Maximize your yield with data-driven decisions.',
@@ -36,7 +36,7 @@ const resources = {
       
       // Landing Features
       why_choose: 'Why Choose Agri-Advisor?',
-      empowering_farmers: 'Empowering farmers with intelligent agricultural decisions',
+      empowering_farmers: 'Providing agricultural crop recommendations',
       location_analysis: 'Location-Based Analysis',
       location_desc: "Get recommendations specific to your district's soil type, climate, and agricultural history.",
       weather_intelligence: 'Weather Intelligence',
@@ -58,7 +58,7 @@ const resources = {
       pick_season: 'Pick Season',
       pick_season_desc: 'Select the season you\'re planning to cultivate - Kharif, Rabi, Summer, or others.',
       get_recommendations: 'Get Recommendations',
-      get_recommendations_desc: 'Receive AI-powered crop recommendations with suitability scores and yield predictions.',
+      get_recommendations_desc: 'Receive crop recommendations with suitability scores and yield predictions.',
       
       // CTA
       ready_to_grow: 'Ready to Grow Smarter?',
@@ -68,7 +68,7 @@ const resources = {
       // Footer
       footer_tagline: 'Empowering Indian Agriculture with AI',
       terms_of_service: 'Terms of Service',
-      made_with_love: 'Made with ❤️ for Indian Farmers',
+      made_with_love: 'Made with ️ for Indian Farmers',
 
       // About Page
       about_title: 'Agri-Advisor',
@@ -77,7 +77,7 @@ const resources = {
       features: 'Features',
       features_subtitle: 'Everything you need for smart farming decisions',
       smart_recommendations: 'Smart Crop Recommendations',
-      smart_recommendations_desc: 'AI-powered system analyzes soil, climate, and season data to recommend the best crops.',
+      smart_recommendations_desc: 'Recommendation system analyzes soil, climate, and season data to recommend the best crops.',
       weather_feature: 'Weather Intelligence',
       weather_feature_desc: 'Real-time weather forecasts and alerts for timely farming decisions.',
       soil_feature: 'Soil Analysis',
@@ -103,7 +103,7 @@ const resources = {
       
       // Tech Stack
       tech_stack: 'Technology Stack',
-      tech_subtitle: 'Powered by modern tools and frameworks',
+      tech_subtitle: 'Built using modern tools and frameworks',
       
       // ML Section
       our_ml_model: 'Our ML Model',
@@ -120,7 +120,7 @@ const resources = {
       faq: 'FAQ',
       faq_subtitle: 'Frequently asked questions',
       faq1_q: 'How accurate are the crop recommendations?',
-      faq1_a: 'Our ML model achieves over 96% accuracy in top-5 crop recommendations, trained on extensive agricultural data from across India.',
+      faq1_a: 'Our ML model achieves over data-driven in top-5 crop recommendations, trained on extensive agricultural data from across India.',
       faq2_q: 'Is this service free to use?',
       faq2_a: 'Yes! Agri-Advisor is completely free for all farmers. Our mission is to help Indian farmers make better decisions.',
       faq3_q: 'How often is market price data updated?',
@@ -133,7 +133,7 @@ const resources = {
       team_subtitle: 'Built by passionate developers',
       
       // CTA Section
-      transform_farming: 'Ready to Transform Your Farming?',
+      transform_farming: 'Try the recommendation tool',
       join_thousands: 'Join thousands of farmers making smarter decisions',
       
       // Dashboard
@@ -161,7 +161,7 @@ const resources = {
       loadingDistricts: 'Loading districts...',
       errorLoadingDistricts: 'Error loading districts',
       noDistrictsAvailable: 'No districts available',
-      dashboardSubtitle: 'Get AI-powered crop recommendations based on your location and season',
+      dashboardSubtitle: 'Get crop recommendations based on your location and season',
       
       // Auth
       email: 'Email',
@@ -217,7 +217,7 @@ const resources = {
       profile: 'प्रोफाइल',
 
       // Landing Page
-      landing_badge: '🌱 AI-संचालित कृषि',
+      landing_badge: ' AI-संचालित कृषि',
       landing_title: 'के लिए स्मार्ट फसल सिफारिशें',
       landing_title_highlight: 'भारतीय किसान',
       landing_description: 'अपने स्थान, मिट्टी की स्थिति, मौसम के पैटर्न और मौसम के आधार पर व्यक्तिगत फसल सिफारिशें प्राप्त करें। डेटा-संचालित निर्णयों के साथ अपनी उपज को अधिकतम करें।',
@@ -265,7 +265,7 @@ const resources = {
       // Footer
       footer_tagline: 'AI के साथ भारतीय कृषि को सशक्त बनाना',
       terms_of_service: 'सेवा की शर्तें',
-      made_with_love: 'भारतीय किसानों के लिए ❤️ से बनाया गया',
+      made_with_love: 'भारतीय किसानों के लिए ️ से बनाया गया',
 
       // About Page
       about_title: 'एग्री-एडवाइजर',
@@ -414,7 +414,7 @@ const resources = {
       profile: 'சுயவிவரம்',
 
       // Landing Page
-      landing_badge: '🌱 AI-இயங்கும் விவசாயம்',
+      landing_badge: ' AI-இயங்கும் விவசாயம்',
       landing_title: 'ஸ்மார்ட் பயிர் பரிந்துரைகள்',
       landing_title_highlight: 'இந்திய விவசாயிகளுக்கு',
       landing_description: 'உங்கள் இருப்பிடம், மண் நிலைமைகள், வானிலை வடிவங்கள் மற்றும் பருவத்தின் அடிப்படையில் தனிப்பயனாக்கப்பட்ட பயிர் பரிந்துரைகளைப் பெறுங்கள்.',
@@ -457,7 +457,7 @@ const resources = {
       get_started_free: 'இலவசமாக தொடங்கு',
       footer_tagline: 'AI மூலம் இந்திய விவசாயத்திற்கு வலு சேர்க்கிறோம்',
       terms_of_service: 'சேவை விதிமுறைகள்',
-      made_with_love: 'இந்திய விவசாயிகளுக்காக ❤️ கொண்டு உருவாக்கப்பட்டது',
+      made_with_love: 'இந்திய விவசாயிகளுக்காக ️ கொண்டு உருவாக்கப்பட்டது',
       
       // Dashboard
       welcome: 'அக்ரி-அட்வைசர் AIக்கு வரவேற்கிறோம்',
@@ -502,7 +502,7 @@ const resources = {
       profile: 'ప్రొఫైల్',
 
       // Landing Page
-      landing_badge: '🌱 AI-ఆధారిత వ్యవసాయం',
+      landing_badge: ' AI-ఆధారిత వ్యవసాయం',
       landing_title: 'స్మార్ట్ పంట సిఫారసులు',
       landing_title_highlight: 'భారతీయ రైతులకు',
       landing_description: 'మీ స్థానం, నేల పరిస్థితులు, వాతావరణ నమూనాలు మరియు సీజన్ ఆధారంగా వ్యక్తిగతీకరించిన పంట సిఫారసులను పొందండి.',
@@ -542,7 +542,7 @@ const resources = {
       get_started_free: 'ఉచితంగా ప్రారంభించండి',
       footer_tagline: 'AIతో భారతీయ వ్యవసాయాన్ని శక్తివంతం చేస్తున్నాం',
       terms_of_service: 'సేవా నిబంధనలు',
-      made_with_love: 'భారతీయ రైతుల కోసం ❤️తో రూపొందించబడింది',
+      made_with_love: 'భారతీయ రైతుల కోసం ️తో రూపొందించబడింది',
       
       // Dashboard
       welcome: 'అగ్రి-అడ్వైజర్ AIకి స్వాగతం',
@@ -578,7 +578,7 @@ const resources = {
       profile: 'ಪ್ರೊಫೈಲ್',
 
       // Landing Page
-      landing_badge: '🌱 AI-ಚಾಲಿತ ಕೃಷಿ',
+      landing_badge: ' AI-ಚಾಲಿತ ಕೃಷಿ',
       landing_title: 'ಸ್ಮಾರ್ಟ್ ಬೆಳೆ ಶಿಫಾರಸುಗಳು',
       landing_title_highlight: 'ಭಾರತೀಯ ರೈತರಿಗೆ',
       landing_description: 'ನಿಮ್ಮ ಸ್ಥಳ, ಮಣ್ಣು, ಹವಾಮಾನ ಮತ್ತು ಋತುವಿನ ಆಧಾರದ ಮೇಲೆ ವೈಯಕ್ತಿಕ ಬೆಳೆ ಶಿಫಾರಸುಗಳನ್ನು ಪಡೆಯಿರಿ.',
@@ -618,7 +618,7 @@ const resources = {
       get_started_free: 'ಉಚಿತವಾಗಿ ಪ್ರಾರಂಭಿಸಿ',
       footer_tagline: 'AI ಮೂಲಕ ಭಾರತೀಯ ಕೃಷಿಗೆ ಶಕ್ತಿ',
       terms_of_service: 'ಸೇವಾ ನಿಯಮಗಳು',
-      made_with_love: 'ಭಾರತೀಯ ರೈತರಿಗೆ ❤️ ಜೊತೆ ನಿರ್ಮಿಸಲಾಗಿದೆ',
+      made_with_love: 'ಭಾರತೀಯ ರೈತರಿಗೆ ️ ಜೊತೆ ನಿರ್ಮಿಸಲಾಗಿದೆ',
       
       // Dashboard
       welcome: 'ಅಗ್ರಿ-ಅಡ್ವೈಸರ್ AIಗೆ ಸ್ವಾಗತ',
@@ -647,7 +647,7 @@ const resources = {
       profile: 'പ്രൊഫൈൽ',
 
       // Landing Page
-      landing_badge: '🌱 AI അധിഷ്ഠിത കൃഷി',
+      landing_badge: ' AI അധിഷ്ഠിത കൃഷി',
       landing_title: 'സ്മാർട്ട് വിള ശുപാർശകൾ',
       landing_title_highlight: 'ഇന്ത്യൻ കർഷകർക്ക്',
       landing_description: 'നിങ്ങളുടെ സ്ഥലം, മണ്ണ്, കാലാവസ്ഥ, സീസൺ എന്നിവയുടെ അടിസ്ഥാനത്തിൽ വ്യക്തിഗത വിള ശുപാർശകൾ നേടൂ.',
@@ -687,7 +687,7 @@ const resources = {
       get_started_free: 'സൗജന്യമായി തുടങ്ങൂ',
       footer_tagline: 'AI ഉപയോഗിച്ച് ഇന്ത്യൻ കൃഷിയെ ശക്തിപ്പെടുത്തുന്നു',
       terms_of_service: 'സേവന നിബന്ധനകൾ',
-      made_with_love: 'ഇന്ത്യൻ കർഷകർക്ക് വേണ്ടി ❤️ കൊണ്ട് നിർമ്മിച്ചത്',
+      made_with_love: 'ഇന്ത്യൻ കർഷകർക്ക് വേണ്ടി ️ കൊണ്ട് നിർമ്മിച്ചത്',
 
       // Dashboard
       welcome: 'അഗ്രി-അഡ്വൈസർ AIയിലേക്ക് സ്വാഗതം',
@@ -716,7 +716,7 @@ const resources = {
       profile: 'પ્રોફાઇલ',
 
       // Landing Page
-      landing_badge: '🌱 AI સંચાલિત કૃષિ',
+      landing_badge: ' AI સંચાલિત કૃષિ',
       landing_title: 'સ્માર્ટ પાક ભલામણો',
       landing_title_highlight: 'ભારતીય ખેડૂતો માટે',
       landing_description: 'તમારા સ્થાન, જમીન, હવામાન અને સીઝન આધારે વ્યક્તિગત પાક ભલામણો મેળવો.',
@@ -756,7 +756,7 @@ const resources = {
       get_started_free: 'મફતમાં શરૂ કરો',
       footer_tagline: 'AI સાથે ભારતીય કૃષિને સશક્ત બનાવતા',
       terms_of_service: 'સેવા શરતો',
-      made_with_love: 'ભારતીય ખેડૂતો માટે ❤️ સાથે બનાવ્યું',
+      made_with_love: 'ભારતીય ખેડૂતો માટે ️ સાથે બનાવ્યું',
 
       // Dashboard
       welcome: 'એગ્રી-એડવાઇઝર AIમાં સ્વાગત છે',
@@ -785,7 +785,7 @@ const resources = {
       profile: 'ਪ੍ਰੋਫਾਈਲ',
 
       // Landing Page
-      landing_badge: '🌱 AI-ਚਲਿਤ ਖੇਤੀਬਾੜੀ',
+      landing_badge: ' AI-ਚਲਿਤ ਖੇਤੀਬਾੜੀ',
       landing_title: 'ਸਮਾਰਟ ਫਸਲ ਸਿਫਾਰਸ਼ਾਂ',
       landing_title_highlight: 'ਭਾਰਤੀ ਕਿਸਾਨਾਂ ਲਈ',
       landing_description: "ਆਪਣੇ ਸਥਾਨ, ਮਿੱਟੀ, ਮੌਸਮ ਅਤੇ ਰੁੱਤ ਦੇ ਆਧਾਰ 'ਤੇ ਨਿੱਜੀਕ੍ਰਿਤ ਫਸਲ ਸਿਫਾਰਸ਼ਾਂ ਪ੍ਰਾਪਤ ਕਰੋ।",
@@ -825,7 +825,7 @@ const resources = {
       get_started_free: 'ਮੁਫ਼ਤ ਸ਼ੁਰੂ ਕਰੋ',
       footer_tagline: 'AI ਨਾਲ ਭਾਰਤੀ ਖੇਤੀਬਾੜੀ ਨੂੰ ਮਜ਼ਬੂਤ ਬਣਾਉਣਾ',
       terms_of_service: 'ਸੇਵਾ ਦੀਆਂ ਸ਼ਰਤਾਂ',
-      made_with_love: 'ਭਾਰਤੀ ਕਿਸਾਨਾਂ ਲਈ ❤️ ਨਾਲ ਬਣਾਇਆ ਗਿਆ',
+      made_with_love: 'ਭਾਰਤੀ ਕਿਸਾਨਾਂ ਲਈ ️ ਨਾਲ ਬਣਾਇਆ ਗਿਆ',
 
       // Dashboard
       welcome: 'ਐਗਰੀ-ਐਡਵਾਈਜ਼ਰ AIਵਿੱਚ ਸਵਾਗਤ ਹੈ',
