@@ -2,17 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Leaf, CloudSun, Droplets, BrainCircuit, CalendarClock } from 'lucide-react';
-import Navbar from '../layout/Navbar';
 
 const LandingPage = () => {
   const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900 selection:bg-emerald-500">
-      <Navbar />
 
       {/* 1. Hero Section - Asymmetric 50/50 Split */}
-      <section className="relative w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 pt-24 pb-16 md:pt-32 md:pb-24 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      <section className="relative w-full max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 pt-8 pb-16 md:pt-12 md:pb-24 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
         <div className="flex-1 max-w-2xl">
           <h1 className="text-5xl md:text-red-500xl lg:text-emerald-600xl font-semibold tracking-tighter text-stone-950 leading-[1.1] mb-6">
             Smart crop recommendations for your soil.

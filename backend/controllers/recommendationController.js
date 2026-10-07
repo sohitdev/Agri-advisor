@@ -1,4 +1,5 @@
 const axios = require('axios');
+const mongoose = require('mongoose');
 const Location = require('../models/Location');
 const Crop = require('../models/Crop');
 const Recommendation = require('../models/Recommendation');
@@ -263,6 +264,9 @@ exports.getRecommendationHistory = async (req, res, next) => {
 // @access  Private
 exports.getRecommendation = async (req, res, next) => {
   try {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ message: 'Invalid ID format' });
+    }
     const recommendation = await Recommendation.findById(req.params.id)
       .populate('recommendations.crop')
       .populate('user', 'name email');

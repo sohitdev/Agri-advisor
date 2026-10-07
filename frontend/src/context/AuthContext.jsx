@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import axios from 'axios';
+import api from '../utils/api';
 import { toast } from 'react-toastify';
 
 const AuthContext = createContext();
@@ -17,13 +17,8 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(localStorage.getItem('token'));
 
-  //  Test if REACT_APP_API_URL is loaded or not
-  console.log("ENV → REACT_APP_API_URL:", import.meta.env.VITE_API_URL);
-  console.log("ENV → REACT_APP_ML_SERVICE_URL:", import.meta.env.VITE_ML_SERVICE_URL);
-
   useEffect(() => {
     if (token) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       fetchUser();
     } else {
       setLoading(false);
@@ -31,23 +26,20 @@ export const AuthProvider = ({ children }) => {
   }, [token]);
 
   const fetchUser = async () => {
-    console.log("Fetching user from:", `${import.meta.env.VITE_API_URL}/api/auth/me`);
     try {
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/me`);
+      const res = await api.get('/auth/me');
       setUser(res.data.user);
     } catch (error) {
       localStorage.removeItem('token');
       setToken(null);
-      delete axios.defaults.headers.common['Authorization'];
     } finally {
       setLoading(false);
     }
   };
 
   const login = async (email, password) => {
-    console.log("Login URL:", `${import.meta.env.VITE_API_URL}/api/auth/login`);
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
+      const res = await api.post('/auth/login', {
         email,
         password
       });
@@ -55,7 +47,6 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('token', newToken);
       setToken(newToken);
       setUser(user);
-      axios.defaults.headers.common['Authorization'] = `Bearer ${newToken}`;
       return { success: true };
     } catch (error) {
       toast.error(error.response?.data?.message || 'Login failed');
@@ -63,15 +54,13 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const register = async (userData) => {
-    console.log("Register URL:", `${import.meta.env.VITE_API_URL}/api/auth/register`);
+  const register = async (name, email, password) => {
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, userData);
+      const res = await api.post('/auth/register', { name, email, password });
       const { token: newToken, user } = res.data;
       localStorage.setItem('token', newToken);
       setToken(newToken);
       setUser(user);
-      axios.defaults.headers.common['Authorization'] = `Bearer ${newToken}`;
       return { success: true };
     } catch (error) {
       toast.error(error.response?.data?.message || 'Registration failed');
@@ -83,9 +72,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('token');
     setToken(null);
     setUser(null);
-    delete axios.defaults.headers.common['Authorization'];
     toast.info('Logged out successfully');
-    // Force full reload to clear all state and context
     window.location.href = '/login';
   };
 
